@@ -1,4 +1,4 @@
-# AppDynamics
+# Machine Agent Chart
 
 AppDynamics is an application intelligence platform that provides end-to-end visibility into performance of business-critical applications.
 This chart deploys AppDynamics MachineAgent Daemonset to the cluster.
@@ -13,7 +13,7 @@ This chart deploys AppDynamics MachineAgent Daemonset to the cluster.
 To install the chart run. the following command:
 
 ```
-helm install stable/appdynamics-agent \
+helm install appdynamics-charts/machine-agent --name=stable \
 --set controller.accessKey=5a8a4d47-78a8-40d6-8b07-1a4f90c51789 \
 --set controller.host=tenant.saas.appdynamics.com
 --set controller.accountName=<accountName>
