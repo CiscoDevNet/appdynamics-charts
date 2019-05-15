@@ -1,0 +1,78 @@
+{{- if .Values.daemonset.enabled }}
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: {{ template "machine-agent.fullname" . }}
+  labels:
+    app: {{ template "machine-agent.name" . }}
+    chart: {{ template "machine-agent.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ template "machine-agent.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "machine-agent.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.daemonset.image.repository }}:{{ .Values.daemonset.image.tag }}"
+        imagePullPolicy: {{ .Values.daemonset.image.pullPolicy }}
+        env:
+        - name: APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              name: appd-secret
+              key: appd-key        
+        envFrom:
+        - configMapRef:
+            name: ma-config
+        securityContext:
+          privileged: true
+        resources:
+{{- if .Values.daemonset.resources }}
+{{ toYaml .Values.daemonset.resources | indent 10 }}
+{{- else if .Values.resources }}
+{{ toYaml .Values.resources | indent 10 }}
+{{- end }}
+        volumeMounts:
+        - name: ma-log-volume
+          mountPath: /opt/appdynamics/conf/logging/log4j.xml
+          subPath: log4j.xml
+        - name: hostroot
+          mountPath: /hostroot
+          readOnly: true
+        - name: docker-sock
+          mountPath: /var/run/docker.sock
+{{- if .Values.extraVolumeMounts }}
+{{ toYaml .Values.extraVolumeMounts | indent 8 }}
+{{- end }}
+      volumes:
+      - name: ma-log-volume
+        configMap:
+          name: ma-log-config
+      - name: hostroot
+        hostPath:
+          path: /
+      - name: docker-sock
+        hostPath:
+          path: /var/run/docker.sock
+{{- if .Values.extraVolumes }}
+{{ toYaml .Values.extraVolumes | indent 6 }}
+{{- end }}
+      terminationGracePeriodSeconds: 30
+      serviceAccountName: {{ .Values.serviceAccount.name }}
+{{- if .Values.daemonset.nodeSelector }}
+      nodeSelector:
+{{ toYaml .Values.daemonset.nodeSelector | indent 8 }}
+{{- end }}
+{{- if .Values.daemonset.nodeSelector }}
+      tolerations:
+{{ toYaml .Values.daemonset.tolerations | indent 8 }}
+{{- end }}
+{{- end }}
