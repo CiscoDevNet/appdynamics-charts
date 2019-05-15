@@ -3,9 +3,9 @@ entries:
   machine-agent:
   - apiVersion: v1
     appVersion: 4.5.9
-    created: 2019-05-15T13:35:04.723384-04:00
+    created: 2019-05-15T13:56:13.169686-04:00
     description: AppDynamics Machine Agent for infrastructure visibility
-    digest: 106cde88e1a807f4422e6171f5309b8df117fa1162c5084bd6a188e58e3b2c5c
+    digest: 266c86a572f556f87ecc7fc3e3b6c40542cd64bc54b45b06d9c41db87eb4a7f9
     home: https://www.appdynamics.com/
     icon: https://www.appdynamics.com/static/img/favicon.ico?y=v2018
     keywords:
@@ -22,6 +22,6 @@ entries:
     - https://cloud.docker.com/u/appdynamics/repository/docker/appdynamics/machine-agent-analytics/general
     - https://github.com/Appdynamics/appdynamics-docker-images/blob/master/appd-machine-agent-analytics/Dockerfile
     urls:
-    - https://appdynamics.github.io/appdynamics-charts/machine-agent-0.2.tgz
-    version: "0.2"
-generated: 2019-05-15T13:35:04.721687-04:00
+    - https://appdynamics.github.io/appdynamics-charts/machine-agent-0.2.0.tgz
+    version: 0.2.0
+generated: 2019-05-15T13:56:13.16818-04:00
