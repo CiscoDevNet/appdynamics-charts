@@ -10,7 +10,16 @@ This chart deploys AppDynamics MachineAgent Daemonset to the cluster.
 
 ## Quick start
 
-To install the chart run. the following command:
+* Get the repo:
+
+```
+$ helm repo add  appdynamics-charts https://appdynamics.github.io/appdynamics-chart
+
+$ helm repo update
+
+```
+
+* Install the chart:
 
 ```
 helm install appdynamics-charts/machine-agent --name=stable \

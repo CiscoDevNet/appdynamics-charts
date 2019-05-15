@@ -2,8 +2,13 @@
 Welcome to the repository of Helm charts for deployments of AppDynamics agents.
 
 ## Machine Agent
+* Get the repo:
 
-To install the chart run. the following command:
+```
+$ helm repo add  appdynamics-charts https://appdynamics.github.io/appdynamics-charts
+```
+
+* Install the chart:
 
 ```
 $ helm install appdynamics-charts/machine-agent --name=stable \
