@@ -23,6 +23,8 @@ spec:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.daemonset.image.repository }}:{{ .Values.daemonset.image.tag }}"
         imagePullPolicy: {{ .Values.daemonset.image.pullPolicy }}
+        ports:
+          - containerPort: {{ .Values.daemonset.port }}
         env:
         - name: APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY
           valueFrom:

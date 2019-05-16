@@ -1,5 +1,6 @@
 daemonset:
   enabled: true
+  port: 9090
   image:
     repository: docker.io/appdynamics/machine-agent-analytics
     tag: latest
@@ -39,7 +40,7 @@ agent:
 
 
 analytics:
-  eventEndpoint: https://analytics.api.appdynamics.com/
+  eventEndpoint: https://analytics.api.appdynamics.com:9080
   port: 9090
 
 serviceAccount:
