@@ -1,12 +1,13 @@
 # AppDynamics Charts
 Welcome to the repository of Helm charts for deployments of AppDynamics agents.
 
-## Machine Agent
-* Get the repo:
+## Get the repo
 
 ```
 $ helm repo add  appdynamics-charts https://appdynamics.github.io/appdynamics-charts
 ```
+
+## Machine Agent
 
 * Install the chart:
 
@@ -20,6 +21,26 @@ $ helm install appdynamics-charts/machine-agent --name=stable \
 ```
 
 For detailed list of configuration settings refer to the [chart documentation](https://appdynamics.github.io/appdynamics-charts/machine-agent/)
+
+To remove the chart, run the following command:
+
+```
+$ helm del --purge stable
+
+```
+
+## ClusterAgent
+
+* Install the chart:
+
+```
+helm install appdynamics-charts/cluster-agent --name=stable /
+--set controller.url=<AppDynamics controller URl> /
+--set controller.apiUser=<user@account:password> /
+
+```
+
+For detailed list of configuration settings refer to the [chart documentation](https://appdynamics.github.io/appdynamics-charts/cluster-agent/)
 
 To remove the chart, run the following command:
 

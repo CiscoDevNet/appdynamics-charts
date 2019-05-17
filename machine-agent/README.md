@@ -7,6 +7,7 @@ This chart deploys AppDynamics MachineAgent Daemonset to the cluster.
 
 * Kubernetes 1.7+ OpenShift 3.7+
 * Helm and tiller installed in the cluster with the appropriate RBAC settings
+*  An AppDynamics account. AppDynamics offers a [free trial](https://www.appdynamics.com/free-trial/)
 
 ## Quick start
 
@@ -23,7 +24,7 @@ $ helm repo update
 
 ```
 helm install appdynamics-charts/machine-agent --name=stable \
---set controller.accessKey=5a8a4d47-78a8-40d6-8b07-1a4f90c51789 \
+--set controller.accessKey=<controller-access-key \
 --set controller.host=tenant.saas.appdynamics.com
 --set controller.accountName=<accountName>
 --set controller.globalAccountName=<globalAccountName>
@@ -58,7 +59,7 @@ helm install appdynamics-charts/machine-agent --name=stable \
 | `rbac.create`            | Flag indicating that the roles for the service account will be created | `true`
 | `openshift.scc`    | Should create scc for the service account. | `false`
 | `daemonset.image.repository` | Name of the machine agent image | `docker.io/appdynamics/machine-agent-analytics`
-| `daemonset.image.tag` | Tag of the machine agent image | `docker.io/appdynamics/latest`
+| `daemonset.image.tag` | Tag of the machine agent image | `latest`
 | `daemonset.image.pullPolicy` | The machine agent image pull policy| `IfNotPresent`
 | `daemonset.nodeSelector` | Node selector directive |
 | `daemonset.tolerations ` | Tolerations directive |
