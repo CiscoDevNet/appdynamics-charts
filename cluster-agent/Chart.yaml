@@ -4,7 +4,7 @@ description:  Helm chart to deploy AppDynamics ClusterAgent for Kubernetes
 name: cluster-agent
 version: 0.1.1
 home: https://www.appdynamics.com/
-icon: https://www.appdynamics.com/static/img/favicon.ico?y=v2018
+icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
 maintainers:
   - name: sashaPM
     email: sasha.jeltuhin@appdynamics.com

@@ -1,4 +1,5 @@
-# AppDynamics Charts
+# AppDynamics Charts 
+
 Welcome to the repository of Helm charts for deployments of AppDynamics agents.
 
 ## Get the repo
@@ -8,6 +9,8 @@ $ helm repo add  appdynamics-charts https://appdynamics.github.io/appdynamics-ch
 ```
 
 ## Machine Agent
+
+AppDynamics Machine Agent offers application-centric server monitoring. It helps to proactively isolate and resolve application performance issues faster with actionable, correlated application-server metrics. 
 
 * Install the chart:
 
@@ -30,6 +33,8 @@ $ helm del --purge stable
 ```
 
 ## ClusterAgent
+
+AppDynamics ClusterAgent provides insights into the health of Kubernetes and OpenShift clusters and helps differentiate application anomalies from issues with cluster configuration and performance.
 
 * Install the chart:
 
