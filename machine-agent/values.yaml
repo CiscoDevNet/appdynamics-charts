@@ -28,7 +28,7 @@ agent:
   simEnabled: true
   dockerEnabled: true
   logLevel: info
-  stdoutLogging: true
+  stdoutLogging: false
   proxyHost: ""
   proxyPort: null
   proxyUser: ""
