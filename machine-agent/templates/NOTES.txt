@@ -21,8 +21,9 @@ Controller access key is required to run the AppDynamics MachineAgent. If you do
 Once the access key is obtained, run:
 
     helm upgrade {{ .Release.Name }} \
+        --reuse-values \
         --set controller.accessKey=<access-key> \
         --set controller.globalAccountName=<global-account-name> \
-        stable/{{ template "machine-agent.fullname" . }}
+        appdynamics-charts/{{ template "machine-agent.fullname" . }}
 
 {{- end -}}

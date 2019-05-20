@@ -3,9 +3,9 @@ entries:
   cluster-agent:
   - apiVersion: v1
     appVersion: 0.1.5
-    created: 2019-05-20T11:51:34.729238-04:00
+    created: 2019-05-20T13:30:35.391681-04:00
     description: Helm chart to deploy AppDynamics ClusterAgent for Kubernetes
-    digest: 83a43a0b5ef2db3faa3191c9c4f37404f0cd3d627ae4e1e2aca6a54d946896ee
+    digest: 99a777943be93b1a3cea8c9bac95656c66389033f21312251e0ce6970eaccb75
     home: https://www.appdynamics.com/
     icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
     keywords:
@@ -25,9 +25,9 @@ entries:
   machine-agent:
   - apiVersion: v1
     appVersion: 4.5.9
-    created: 2019-05-20T11:51:34.730726-04:00
+    created: 2019-05-20T13:30:35.393308-04:00
     description: AppDynamics Machine Agent for infrastructure visibility
-    digest: 57db5b7ae1c620bd611c366e1174f87767823d447c3c82f4776a2916bf3f1cf3
+    digest: 1e3534adbc3ddbb119033e652e6f37c9b6a27dcf6ae12c48cc52a9971ea5b0bc
     home: https://www.appdynamics.com/
     icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
     keywords:
@@ -44,15 +44,15 @@ entries:
     - https://cloud.docker.com/u/appdynamics/repository/docker/appdynamics/machine-agent-analytics/general
     - https://github.com/Appdynamics/appdynamics-docker-images/blob/master/appd-machine-agent-analytics/Dockerfile
     urls:
-    - https://appdynamics.github.io/appdynamics-charts/machine-agent/machine-agent-0.2.2.tgz
+    - https://appdynamics.github.io/appdynamics-charts/machine-agent-0.2.2.tgz
     version: 0.2.2
   - apiVersion: v1
     appVersion: 4.5.9
-    created: 2019-05-20T11:51:34.730264-04:00
+    created: 2019-05-20T13:30:35.392888-04:00
     description: AppDynamics Machine Agent for infrastructure visibility
     digest: 4ab1590037d7ee40e69ecaa62ac28a7b8823b7752e77701d67a5f6c09adfb9a9
     home: https://www.appdynamics.com/
-    icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+    icon: https://www.appdynamics.com/static/img/favicon.ico?y=v2018
     keywords:
     - appdynamics
     - monitoring
@@ -69,4 +69,4 @@ entries:
     urls:
     - https://appdynamics.github.io/appdynamics-charts/machine-agent-0.2.1.tgz
     version: 0.2.1
-generated: 2019-05-20T11:51:34.726713-04:00
+generated: 2019-05-20T13:30:35.391007-04:00

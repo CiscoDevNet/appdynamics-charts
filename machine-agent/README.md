@@ -25,8 +25,8 @@ $ helm repo update
 ```
 helm install appdynamics-charts/machine-agent --name=stable \
 --set controller.accessKey=<controller-access-key \
---set controller.host=tenant.saas.appdynamics.com
---set controller.accountName=<accountName>
+--set controller.host=tenant.saas.appdynamics.com \
+--set controller.accountName=<accountName> \
 --set controller.globalAccountName=<globalAccountName>
 
 ```

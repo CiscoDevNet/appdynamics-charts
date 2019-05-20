@@ -21,8 +21,9 @@ API User credentials and controller Url are required to run the AppDynamics Clus
 Once the access key is obtained, run:
 
     helm upgrade {{ .Release.Name }} \
+        --reuse-values \
         --set controller.apiUser=<user@account:password> \
         --set controller.url=http://saas.appdynamics.com \
-        stable/{{ template "cluster-agent.fullname" . }}
+        appdynamics-charts/{{ template "cluster-agent.fullname" . }}
 
 {{- end -}}

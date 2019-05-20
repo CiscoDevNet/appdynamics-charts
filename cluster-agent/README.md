@@ -24,9 +24,9 @@ $ helm repo update
 * Install the chart:
 
 ```
-helm install appdynamics-charts/cluster-agent --name=stable /
---set controller.url=<AppDynamics controller URl> /
---set controller.apiUser=<user@account:password> /
+helm install appdynamics-charts/cluster-agent --name=stable \
+--set controller.url=<AppDynamics controller URl> \
+--set controller.apiUser=<user@account:password>
 
 ```
 
