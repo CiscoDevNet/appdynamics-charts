@@ -4,9 +4,10 @@ metadata:
   name: {{ include "cluster-agent.fullname" . }}
   labels:
     app.kubernetes.io/name: {{ include "cluster-agent.name" . }}
-    helm.sh/chart: {{ include "cluster-agent.chart" . }}
+    helm.sh/chart: {{ include "cluster-agent.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
+    release: {{ .Release.Name }}
 spec:
   ports:
     - port: {{ .Values.agent.agentServerPort }}

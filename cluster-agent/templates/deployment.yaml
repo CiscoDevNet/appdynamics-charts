@@ -1,63 +1,75 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
-metadata: 
+metadata:
   name: {{ template "cluster-agent.fullname" . }}
-spec: 
+  labels:
+    app.kubernetes.io/name: {{ include "cluster-agent.name" . }}
+    helm.sh/chart: {{ include "cluster-agent.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    release: {{ .Release.Name }}
+spec:
   replicas: 1
-  template: 
-    metadata: 
-      annotations: 
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "cluster-agent.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+      app.kubernetes.io/managed-by: {{ .Release.Service }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      annotations:
         appd-agent-id: appdynamics-cluster-agent
       labels:
-        app: {{ template "cluster-agent.name" . }}
-        chart: {{ template "cluster-agent.chart" . }}
+        app.kubernetes.io/name: {{ include "cluster-agent.name" . }}
+        helm.sh/chart: {{ include "cluster-agent.name" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+        app.kubernetes.io/managed-by: {{ .Release.Service }}
         release: {{ .Release.Name }}
-        heritage: {{ .Release.Service }}
-    restartPolicy: Always
-    spec: 
-      containers: 
-        - env: 
+    spec:
+      restartPolicy: Always
+      containers:
+        - env:
 {{- if .Values.controller.controllerKey }}
             - name: APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY
-              valueFrom: 
-                secretKeyRef: 
+              valueFrom:
+                secretKeyRef:
                   key: controller-key
-                  name: cluster-agent-secret
+                  name: {{ template "cluster-agent.secretName" . }}
 {{- end }}
 {{- if .Values.controller.eventKey }}
             - name: APPDYNAMICS_EVENT_ACCESS_KEY
-              valueFrom: 
-                secretKeyRef: 
+              valueFrom:
+                secretKeyRef:
                   key: event-key
-                  name: cluster-agent-secret
+                  name: {{ template "cluster-agent.secretName" . }}
 {{- end }}
             - name: APPDYNAMICS_REST_API_CREDENTIALS
-              valueFrom: 
-                secretKeyRef: 
+              valueFrom:
+                secretKeyRef:
                   key: api-user
-                  name: cluster-agent-secret
+                  name: {{ template "cluster-agent.secretName" . }}
             - name: APPDYNAMICS_AGENT_NAMESPACE
-              valueFrom: 
-                fieldRef: 
+              valueFrom:
+                fieldRef:
                   fieldPath: metadata.namespace
           image: "{{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag }}"
           imagePullPolicy: {{ .Values.deployment.image.pullPolicy }}
           name: {{ .Chart.Name }}
-          ports: 
+          ports:
             - containerPort: {{ .Values.deployment.port }}
               protocol: TCP
           resources:
 {{- if .Values.deployment.resources }}
-{{ toYaml .Values.deployment.resources | indent 10 }}
+{{ toYaml .Values.deployment.resources | indent 12 }}
 {{- else if .Values.resources }}
-{{ toYaml .Values.resources | indent 10 }}
+{{ toYaml .Values.resources | indent 12 }}
 {{- end }}
-          volumeMounts: 
+          volumeMounts:
             - mountPath: /opt/appdynamics/config/
               name: agent-config
       serviceAccountName: appdynamics-operator
-      volumes: 
-        - configMap: 
+      volumes:
+        - configMap:
             name: cluster-agent-config
           name: agent-config
-

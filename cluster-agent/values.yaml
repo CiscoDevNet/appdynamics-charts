@@ -3,14 +3,22 @@ deployment:
   image:
     repository: docker.io/appdynamics/cluster-agent
     tag: latest
-    pullPolicy: IfNotPresent
+    pullPolicy: Always
   resources:
     limits:
       cpu: 200m
       memory: "300M"
-    requests: 
+    requests:
       cpu: 100m
       memory: "100M"
+
+resources:
+  limits:
+    cpu:
+    memory:
+  requests:
+    cpu:
+    memory:
 
 controller:
   url: null
@@ -23,8 +31,6 @@ controller:
 analytics:
   eventEndpoint: ""
 
-  
-
 agent:
   appName: "K8s-Cluster-Agent"
   tierName: "ClusterAgent"
@@ -34,11 +40,8 @@ agent:
   snapshotSyncInterval: 15
   agentServerPort: 8989
 
-
-
 serviceAccount:
   create: true
   name: appdynamics-operator
 
-metrics-server:
-  install: true
+existingSecret:
