@@ -30,3 +30,14 @@ Create chart name and version as used by the chart label.
 {{- define "cluster-agent.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
+
+{{/*
+Get the password secret.
+*/}}
+{{- define "cluster-agent.secretName" -}}
+{{- if .Values.existingSecret -}}
+    {{- printf "%s" .Values.existingSecret -}}
+{{- else -}}
+    {{- printf "%s" (include "cluster-agent.fullname" .) -}}
+{{- end -}}
+{{- end -}}

@@ -1,4 +1,4 @@
-{{- if and .Values.controller.apiUser .Values.controller.url }}
+{{- if and .Values.controller.url ( or .Values.controller.apiUser .Values.existingSecret) }}
 AppDynamics ClusterAgent is deployed successfully.
 
 To get more information about the release, try these commands:
