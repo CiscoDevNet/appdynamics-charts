@@ -102,10 +102,10 @@ Example resource limits:
   resources:
     limits:
       cpu: 200m
-      memory: "300Mi"
+      memory: "300M"
     requests:
       cpu: 100m
-      memory: "100Mi"
+      memory: "100M"
  ```
 ## Limitation
 A fully functional AppDyanmics account is needed to install this chart. Lite Appdyanamics account is not currently supported.
