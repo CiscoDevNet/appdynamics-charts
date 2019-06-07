@@ -13,8 +13,8 @@ spec:
         chart: {{ template "cluster-agent.chart" . }}
         release: {{ .Release.Name }}
         heritage: {{ .Release.Service }}
-    restartPolicy: Always
     spec: 
+      restartPolicy: Always
       containers: 
         - env: 
 {{- if .Values.controller.controllerKey }}
@@ -48,9 +48,9 @@ spec:
               protocol: TCP
           resources:
 {{- if .Values.deployment.resources }}
-{{ toYaml .Values.deployment.resources | indent 10 }}
+{{ toYaml .Values.deployment.resources | indent 12 }}
 {{- else if .Values.resources }}
-{{ toYaml .Values.resources | indent 10 }}
+{{ toYaml .Values.resources | indent 12 }}
 {{- end }}
           volumeMounts: 
             - mountPath: /opt/appdynamics/config/
