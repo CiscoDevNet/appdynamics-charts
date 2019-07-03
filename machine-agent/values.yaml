@@ -30,17 +30,17 @@ agent:
   logLevel: info
   stdoutLogging: false
   proxyHost: ""
-  proxyPort: null
+  proxyPort: ""
   proxyUser: ""
   proxyPass: ""
-  metricsLimit: 2000
+  metricsLimit: 4000
   hierarchyPath: ""
   uniqueHostId: ""
   enableContainerAsHostID: false
 
 
 analytics:
-  eventEndpoint: https://analytics.api.appdynamics.com:9080
+  eventEndpoint: https://analytics.api.appdynamics.com
   port: 9090
 
 serviceAccount:

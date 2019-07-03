@@ -43,7 +43,7 @@ helm install appdynamics-charts/cluster-agent --name=stable \
 | `agent.metricsSyncInterval`         | Metrics update interval (sec)                       | `55`                    |
 | `agent.snapshotSyncInterval`             | Snapshot update interval (sec)                                       | `15`  |
 | `agent.logLevel`        | Agent logging level                                             | `info`             |
-| `agent.appName`               | Name of the ClusterAgent application in AppDynamics                       | `K8s-CLuster-Agent`            |
+| `agent.appName`               | Name of the ClusterAgent application in AppDynamics                       | `K8s-Cluster-Agent`            |
 | `agent.tierName`               | Path of host names in AppDynamics controller                 | `ClusterAgent`     |
 | `agent.agentServerPort`              | ClusterAgent internal server port                   | `8989`               |
 | `agent.proxyHost`             | Proxy host name |                      |

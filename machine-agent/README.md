@@ -47,11 +47,12 @@ helm install appdynamics-charts/machine-agent --name=stable \
 | `agent.stdoutLogging`               | Send logging to console                        | `false`            |
 | `agent.hierarchyPath`               | Path of host names in AppDynamics controller                 |      |
 | `agent.uniqueHostId`              | Unique host id override                   |                  |
-| `agent.metricsLimit`            | Max number of metrics accepted by the controller from the agent                             | `2000`                      |
+| `agent.metricsLimit`            | Max number of metrics accepted by the controller from the agent                             | `4000`                      |
 | `agent.proxyHost`             | Proxy host name |                      |
 | `agent.proxyPort`          | Proxy host name |            |
 | `agent.proxyUser`             | Proxy username               |         
 | `agent.proxyPass`             | Proxy password                  |
+| `agent.enableContainerAsHostID` | Controls the value of the `Dappdynamics.docker.container.containerIdAsHostId.enabled` parameter of the machine agent | `false` |
 | `analytics.eventEndpoint`     | Analytics service endpoint   | `https://analytics.api.appdynamics.com/`
 | `analytics.port`             | Analytics service port       | 
 | `serviceAccount.create`       | Flag indicating that the service account will be created | `true`
