@@ -7,6 +7,8 @@ daemonset:
     pullPolicy: IfNotPresent
   nodeSelector: {}
   tolerations: {}
+  podSecurityContext:
+    privileged: true
   resources:
     limits:
       cpu: 600m
