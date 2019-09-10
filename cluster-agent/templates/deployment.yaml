@@ -17,20 +17,20 @@ spec:
     spec: 
       containers: 
         - env: 
-{{- if .Values.controller.controllerKey }}
+            {{- if .Values.controller.controllerKey }}
             - name: APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY
               valueFrom: 
                 secretKeyRef: 
                   key: controller-key
                   name: cluster-agent-secret
-{{- end }}
-{{- if .Values.controller.eventKey }}
+            {{- end }}
+            {{- if .Values.controller.eventKey }}
             - name: APPDYNAMICS_EVENT_ACCESS_KEY
               valueFrom: 
                 secretKeyRef: 
                   key: event-key
                   name: cluster-agent-secret
-{{- end }}
+            {{- end }}
             - name: APPDYNAMICS_REST_API_CREDENTIALS
               valueFrom: 
                 secretKeyRef: 
@@ -40,6 +40,22 @@ spec:
               valueFrom: 
                 fieldRef: 
                   fieldPath: metadata.namespace
+            {{- range $key, $value := .Values.deployment.envValueFromConfigMap }}
+            - name: {{ $key }}
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ default (include "cluster-agent.fullname" $) $value.name }}
+                  {{- if $value.key }}
+                  key: {{ required "Must specify key!" $value.key }}
+                  {{- end}}
+            {{- end }}
+            {{- if .Values.deployment.envFromConfigMap }}
+            envFrom:
+            {{- range $value := .Values.deployment.envFromConfigMap }}
+            - configMapRef:
+                name: {{ $value }}
+            {{- end }}
+            {{- end }}
           image: "{{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag }}"
           imagePullPolicy: {{ .Values.deployment.image.pullPolicy }}
           name: {{ .Chart.Name }}
