@@ -4,7 +4,7 @@ description: AppDynamics Machine Agent for infrastructure visibility
 home: https://www.appdynamics.com/
 icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
 name: machine-agent
-version: 0.2.3
+version: 0.2.4
 maintainers:
   - name: menglert
     email: michael.englert@appdynamics.com
