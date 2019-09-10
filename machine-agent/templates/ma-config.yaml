@@ -1,3 +1,4 @@
+{{- if .Values.controller.config.enabled }}
 apiVersion: v1
 data:
   APPDYNAMICS_AGENT_ACCOUNT_NAME: {{ .Values.controller.accountName | quote }}
@@ -19,3 +20,4 @@ data:
 kind: ConfigMap
 metadata:
   name: ma-config
+{{- end }}

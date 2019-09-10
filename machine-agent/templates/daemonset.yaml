@@ -31,9 +31,22 @@ spec:
             secretKeyRef:
               name: appd-secret
               key: appd-key        
+        {{- range $key, $value := .Values.daemonset.envValueFromConfigMap }}
+        - name: {{ $key }}
+          valueFrom:
+            configMapKeyRef:
+              name: {{ default (include "machine-agent.fullname" $) $value.name }}
+              {{- if $value.key }}
+              key: {{ required "Must specify key!" $value.key }}
+              {{- end}}
+        {{- end }}
+        {{- if .Values.daemonset.envFromConfigMap }}
         envFrom:
+        {{- range $value := .Values.daemonset.envFromConfigMap }}
         - configMapRef:
-            name: ma-config
+            name: {{ $value }}
+        {{- end }}
+        {{- end }}
         securityContext:
           privileged: true
         resources:
