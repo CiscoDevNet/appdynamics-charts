@@ -4,6 +4,8 @@ deployment:
     repository: docker.io/appdynamics/cluster-agent
     tag: latest
     pullPolicy: IfNotPresent
+  envFromConfigMap: []
+  envValueFromConfigMap: {}
   resources:
     limits:
       cpu: 200m

@@ -7,6 +7,8 @@ daemonset:
     pullPolicy: IfNotPresent
   nodeSelector: {}
   tolerations: {}
+  podSecurityContext:
+    privileged: true
   resources:
     limits:
       cpu: 600m
@@ -14,6 +16,9 @@ daemonset:
     requests: 
       cpu: 300m
       memory: "1G"
+  envFromConfigMap:
+  - ma-config
+  envValueFromConfigMap: {}
 
 controller:
   host: <tenant>.saas.appdynamics.com
@@ -22,7 +27,8 @@ controller:
   accountName: customer1
   globalAccountName: null
   accessKey: null
-  
+  config:
+    enabled: true
 
 agent:
   simEnabled: true
