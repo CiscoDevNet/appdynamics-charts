@@ -6,7 +6,7 @@ deployment:
     pullPolicy: IfNotPresent
   envFromConfigMap: []
   envValueFrom:
-    NODE_NAME:
+    APPDYNAMICS_AGENT_NODE_NAME:
       fieldRef:
         fieldPath: spec.nodeName
   envValueFromConfigMap: {}
