@@ -5,6 +5,10 @@ deployment:
     tag: latest
     pullPolicy: IfNotPresent
   envFromConfigMap: []
+  envValueFrom:
+    APPDYNAMICS_AGENT_NODE_NAME:
+      fieldRef:
+        fieldPath: spec.nodeName
   envValueFromConfigMap: {}
   resources:
     limits:

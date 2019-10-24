@@ -40,6 +40,11 @@ spec:
               valueFrom: 
                 fieldRef: 
                   fieldPath: metadata.namespace
+            {{- range $key, $value := .Values.daemonset.envValueFrom }}
+            - name: {{ $key }}
+              valueFrom:
+{{ toYaml $value | indent 16 }}
+            {{- end }}
             {{- range $key, $value := .Values.deployment.envValueFromConfigMap }}
             - name: {{ $key }}
               valueFrom:
