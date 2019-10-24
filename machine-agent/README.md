@@ -43,6 +43,7 @@ helm install appdynamics-charts/machine-agent --name=stable \
 | `controller.accessKey`             | Access key to the AppDynamics controller                             |                     |
 | `agent.simEnabled`         | Infrastructure monitoring enabled                          | `true`                    |
 | `agent.dockerEnabled`             | Container monitoring enabled                                       | `true`  |
+| `agent.includeMasters`             | Deploy agent to master nodes. The flag has no effect in managed cloud environments                                       | `true`  |
 | `agent.logLevel`        | Agent logging level                                             | `info`             |
 | `agent.stdoutLogging`               | Send logging to console                        | `false`            |
 | `agent.hierarchyPath`               | Path of host names in AppDynamics controller                 |      |

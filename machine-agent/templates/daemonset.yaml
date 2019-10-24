@@ -93,8 +93,14 @@ spec:
       nodeSelector:
 {{ toYaml .Values.daemonset.nodeSelector | indent 8 }}
 {{- end }}
-{{- if .Values.daemonset.nodeSelector }}
+{{- if or (.Values.daemonset.tolerations) (.Values.agent.includeMasters)  }}
       tolerations:
+{{- if .Values.agent.includeMasters }}
+      - key: node-role.kubernetes.io/master
+        effect: NoSchedule
+{{- end }}
+{{- if .Values.daemonset.tolerations }}
 {{ toYaml .Values.daemonset.tolerations | indent 8 }}
+{{- end }}
 {{- end }}
 {{- end }}

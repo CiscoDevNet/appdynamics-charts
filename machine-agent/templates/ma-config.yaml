@@ -11,7 +11,9 @@ data:
   APPDYNAMICS_DOCKER_ENABLED: {{ .Values.agent.dockerEnabled | quote }}
   APPDYNAMICS_AGENT_ENABLE_CONTAINERIDASHOSTID: {{ .Values.agent.enableContainerAsHostID | quote }}
   APPDYNAMICS_MACHINE_HIERARCHY_PATH: {{ .Values.agent.hierarchyPath | quote }}
+  {{- if .Values.agent.uniqueHostId }}
   APPDYNAMICS_AGENT_UNIQUE_HOST_ID: {{ .Values.agent.uniqueHostId | quote }}
+  {{- end }}
   APPDYNAMICS_AGENT_PROXY_HOST: {{ .Values.agent.proxyHost | quote }}
   APPDYNAMICS_AGENT_PROXY_PORT: {{ .Values.agent.proxyPort | quote }}
   APPDYNAMICS_AGENT_PROXY_USER: {{ .Values.agent.proxyUser | quote }}

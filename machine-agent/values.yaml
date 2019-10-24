@@ -37,6 +37,7 @@ controller:
 agent:
   simEnabled: true
   dockerEnabled: true
+  includeMasters: true
   logLevel: info
   stdoutLogging: false
   proxyHost: ""
