@@ -20,14 +20,16 @@ $ helm repo update
 
 ```
 
-* Install the chart:
+* Install the chart on Kubernetes
 
 ```
-helm install appdynamics-charts/machine-agent --name=stable \
---set controller.accessKey=<controller-access-key \
---set controller.host=tenant.saas.appdynamics.com \
---set controller.accountName=<accountName> \
---set controller.globalAccountName=<globalAccountName>
+helm install ./machine-agent --name=stable --namespace=appdynamics --set controller.accessKey=<controller-key> --set controller.host=<*.saas.appdynamics.com> --set controller.port=443 --set controller.ssl=true --set controller.accountName=<account-name> --set controller.globalAccountName=<globaol-account-name> --set analytics.eventEndpoint=https://analytics.api.appdynamics.com --set agent.netviz=true
+```
+
+* Install the chart on OpenShift
+
+```
+helm install ./machine-agent --name=stable --namespace=appdynamics --set controller.accessKey=<controller-key> --set controller.host=<*.saas.appdynamics.com> --set controller.port=443 --set controller.ssl=true --set controller.accountName=<account-name> --set controller.globalAccountName=<globaol-account-name> --set analytics.eventEndpoint=https://analytics.api.appdynamics.com --set openshift.scc=true --set agent.netviz=true
 
 ```
 
@@ -54,6 +56,11 @@ helm install appdynamics-charts/machine-agent --name=stable \
 | `agent.proxyUser`             | Proxy username               |         
 | `agent.proxyPass`             | Proxy password                  |
 | `agent.enableContainerAsHostID` | Controls the value of the `Dappdynamics.docker.container.containerIdAsHostId.enabled` parameter of the machine agent | `false` |
+| `agent.netviz` | Include network visibility agent | `false` |
+| `netvizPort` | Host port number for the network visibility agent | 3892 |
+| `netvizImage.image.repository` | Name of the network agent image | `docker.io/appdynamics/machine-agent-netviz`
+| `netvizImage.image.tag` | Tag of the network agent image | `latest`
+| `netvizImage.image.pullPolicy` | The network agent image pull policy| `Always`
 | `analytics.eventEndpoint`     | Analytics service endpoint   | `https://analytics.api.appdynamics.com/`
 | `analytics.port`             | Analytics service port       | 
 | `serviceAccount.create`       | Flag indicating that the service account will be created | `true`
@@ -62,7 +69,7 @@ helm install appdynamics-charts/machine-agent --name=stable \
 | `openshift.scc`    | Should create scc for the service account. | `false`
 | `daemonset.image.repository` | Name of the machine agent image | `docker.io/appdynamics/machine-agent-analytics`
 | `daemonset.image.tag` | Tag of the machine agent image | `latest`
-| `daemonset.image.pullPolicy` | The machine agent image pull policy| `IfNotPresent`
+| `daemonset.image.pullPolicy` | The machine agent image pull policy| `Always`
 | `daemonset.nodeSelector` | Node selector directive |
 | `daemonset.tolerations ` | Tolerations directive |
 | `daemonset.resources ` | Resources directive  | See below

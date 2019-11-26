@@ -8,7 +8,7 @@ daemonset:
   nodeSelector: {}
   tolerations: {}
   podSecurityContext:
-    privileged: true
+    privileged: false
   resources:
     limits:
       cpu: 600m
@@ -16,6 +16,13 @@ daemonset:
     requests: 
       cpu: 300m
       memory: "1G"
+  netvizResources:
+    limits:
+      cpu: 200m
+      memory: 300Mi
+    requests:
+      cpu: 100m
+      memory: 150Mi
   envFromConfigMap:
   - ma-config
   envValueFromConfigMap: {}
@@ -48,7 +55,12 @@ agent:
   hierarchyPath: ""
   uniqueHostId: ""
   enableContainerAsHostID: false
-
+  netviz: false
+  netvizPort: 3892
+  netvizImage:
+    repository: docker.io/appdynamics/machine-agent-netviz
+    tag: latest
+    pullPolicy: IfNotPresent
 
 analytics:
   eventEndpoint: https://analytics.api.appdynamics.com
