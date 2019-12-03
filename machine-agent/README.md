@@ -26,7 +26,7 @@ $ helm repo update
 helm install ./machine-agent --name=stable --namespace=appdynamics \
 --set controller.accessKey=<controller-key> --set controller.host=<*.saas.appdynamics.com> \
 --set controller.port=443 --set controller.ssl=true \
---set controller.accountName=<account-name> --set controller.globalAccountName=<globaol-account-name> \
+--set controller.accountName=<account-name> --set controller.globalAccountName=<global-account-name> \
 --set analytics.eventEndpoint=https://analytics.api.appdynamics.com --set agent.netviz=true
 ```
 
@@ -36,7 +36,7 @@ helm install ./machine-agent --name=stable --namespace=appdynamics \
 helm install ./machine-agent --name=stable --namespace=appdynamics \
 --set controller.accessKey=<controller-key> --set controller.host=<*.saas.appdynamics.com> \
 --set controller.port=443 --set controller.ssl=true --set controller.accountName=<account-name> \
---set controller.globalAccountName=<globaol-account-name> \
+--set controller.globalAccountName=<global-account-name> \
 --set analytics.eventEndpoint=https://analytics.api.appdynamics.com \
 --set openshift.scc=true --set agent.netviz=true
 

@@ -20,7 +20,7 @@ helm install ./machine-agent --name=stable --namespace=appdynamics \
 --set controller.host=<*.saas.appdynamics.com> \
 --set controller.port=443 --set controller.ssl=true \
 --set controller.accountName=<account-name> \
---set controller.globalAccountName=<globaol-account-name> \ 
+--set controller.globalAccountName=<global-account-name> \ 
 --set analytics.eventEndpoint=https://analytics.api.appdynamics.com \
 --set agent.netviz=true
 ```
