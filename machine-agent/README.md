@@ -23,21 +23,21 @@ $ helm repo update
 * Install the chart on Kubernetes
 
 ```
-helm install ./machine-agent --name=stable --namespace=appdynamics / 
---set controller.accessKey=<controller-key> --set controller.host=<*.saas.appdynamics.com> /
---set controller.port=443 --set controller.ssl=true / 
---set controller.accountName=<account-name> --set controller.globalAccountName=<globaol-account-name> / 
+helm install ./machine-agent --name=stable --namespace=appdynamics \
+--set controller.accessKey=<controller-key> --set controller.host=<*.saas.appdynamics.com> \
+--set controller.port=443 --set controller.ssl=true \
+--set controller.accountName=<account-name> --set controller.globalAccountName=<globaol-account-name> \
 --set analytics.eventEndpoint=https://analytics.api.appdynamics.com --set agent.netviz=true
 ```
 
 * Install the chart on OpenShift
 
 ```
-helm install ./machine-agent --name=stable --namespace=appdynamics /
---set controller.accessKey=<controller-key> --set controller.host=<*.saas.appdynamics.com> /
---set controller.port=443 --set controller.ssl=true --set controller.accountName=<account-name> /
---set controller.globalAccountName=<globaol-account-name> / 
---set analytics.eventEndpoint=https://analytics.api.appdynamics.com / 
+helm install ./machine-agent --name=stable --namespace=appdynamics \
+--set controller.accessKey=<controller-key> --set controller.host=<*.saas.appdynamics.com> \
+--set controller.port=443 --set controller.ssl=true --set controller.accountName=<account-name> \
+--set controller.globalAccountName=<globaol-account-name> \
+--set analytics.eventEndpoint=https://analytics.api.appdynamics.com \
 --set openshift.scc=true --set agent.netviz=true
 
 ```

@@ -15,12 +15,14 @@ AppDynamics Machine Agent offers application-centric server monitoring. It helps
 * Install the chart:
 
 ```
-$ helm install appdynamics-charts/machine-agent --name=stable \
---set controller.accessKey=5a8a4d47-78a8-40d6-8b07-1a4f90c51789 \
---set controller.host=tenant.saas.appdynamics.com
---set controller.accountName=<accountName>
---set controller.globalAccountName=<globalAccountName>
-
+helm install ./machine-agent --name=stable --namespace=appdynamics \
+--set controller.accessKey=<controller-key> \ 
+--set controller.host=<*.saas.appdynamics.com> \
+--set controller.port=443 --set controller.ssl=true \
+--set controller.accountName=<account-name> \
+--set controller.globalAccountName=<globaol-account-name> \ 
+--set analytics.eventEndpoint=https://analytics.api.appdynamics.com \
+--set agent.netviz=true
 ```
 
 For detailed list of configuration settings refer to the [chart documentation](https://appdynamics.github.io/appdynamics-charts/machine-agent/)
