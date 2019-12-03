@@ -4,7 +4,7 @@ daemonset:
   image:
     repository: docker.io/appdynamics/machine-agent-analytics
     tag: latest
-    pullPolicy: IfNotPresent
+    pullPolicy: Always
   nodeSelector: {}
   tolerations: {}
   podSecurityContext:
@@ -60,7 +60,7 @@ agent:
   netvizImage:
     repository: docker.io/appdynamics/machine-agent-netviz
     tag: latest
-    pullPolicy: IfNotPresent
+    pullPolicy: Always
 
 analytics:
   eventEndpoint: https://analytics.api.appdynamics.com
