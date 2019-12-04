@@ -75,7 +75,7 @@ helm install ./machine-agent --name=stable --namespace=appdynamics \
 | `serviceAccount.create`       | Flag indicating that the service account will be created | `true`
 | `serviceAccount.name`       | Service account name.   | appdynamics-infraviz
 | `rbac.create`            | Flag indicating that the roles for the service account will be created | `true`
-| `openshift.scc`    | Should create scc for the service account. | `false`
+| `openshift.scc`    | Creates scc for the service account on OpenShift. Set to `false` for all other Kubernetes distributions | `true`
 | `daemonset.image.repository` | Name of the machine agent image | `docker.io/appdynamics/machine-agent-analytics`
 | `daemonset.image.tag` | Tag of the machine agent image | `latest`
 | `daemonset.image.pullPolicy` | The machine agent image pull policy| `Always`
