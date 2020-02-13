@@ -30,7 +30,7 @@ For detailed list of configuration settings refer to the [chart documentation](h
 To remove the chart, run the following command:
 
 ```
-$ helm del --purge stable
+$ helm del stable
 
 ```
 
@@ -41,9 +41,7 @@ AppDynamics ClusterAgent provides insights into the health of Kubernetes and Ope
 * Install the chart:
 
 ```
-helm install appdynamics-charts/cluster-agent --name=stable /
---set controller.url=<AppDynamics controller URl> /
---set controller.apiUser=<user@account:password> /
+helm install --namespace=appdynamics --set controller.dns=saas.appdynamics.com --set controller.port=443 --set controller.ssl=true --set controller.accountName=customer1 --set controller.accessKey=f37b760f-962a-4280-b8b3-e85dcc016967 k8s-agent ./cluster-agent
 
 ```
 
@@ -52,7 +50,7 @@ For detailed list of configuration settings refer to the [chart documentation](h
 To remove the chart, run the following command:
 
 ```
-$ helm del --purge stable
+$ helm del stable
 
 ```
 

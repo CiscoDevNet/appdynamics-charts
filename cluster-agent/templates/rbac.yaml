@@ -1,14 +1,12 @@
-{{- if .Values.serviceAccount.create }}
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: {{ .Values.serviceAccount.name }}
-namespace: {{ .Release.Namespace }}
+  namespace: {{ .Release.Namespace }}
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  creationTimestamp: null
   name: {{ .Values.serviceAccount.name }}
 rules:
 - apiGroups:
@@ -16,39 +14,30 @@ rules:
   resources:
   - pods
   - pods/log
-  - services
   - endpoints
   - persistentvolumeclaims
-  - events
-  - configmaps
-  - secrets
   - resourcequotas
   - nodes
-  verbs:
-  - '*'
-- apiGroups:
-  - ""
-  resources:
+  - events
   - namespaces
+  - services
+  - configmaps
+  - secrets
   verbs:
   - get
   - watch
   - list
 - apiGroups:
-  - ""
-  resources:
-  - pods/exec
-  verbs:
-  - create
-- apiGroups:
   - apps
   resources:
-  - deployments
   - daemonsets
-  - replicasets
   - statefulsets
+  - deployments
+  - replicasets
   verbs:
-  - '*'
+  - get
+  - watch
+  - list
 - apiGroups: 
   - "batch"
   - "extensions"
@@ -58,13 +47,6 @@ rules:
   - "get"
   - "list"
   - "watch"
-- apiGroups:
-  - monitoring.coreos.com
-  resources:
-  - servicemonitors
-  verbs:
-  - get
-  - create
 - apiGroups:
   - metrics.k8s.io
   resources:
@@ -80,7 +62,9 @@ rules:
   - '*'
   - clusteragents
   verbs:
-  - '*'
+  - get
+  - list
+  - watch
 ---
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
@@ -94,4 +78,3 @@ roleRef:
   kind: ClusterRole
   name: {{ .Values.serviceAccount.name }}
   apiGroup: rbac.authorization.k8s.io
-  {{- end }}

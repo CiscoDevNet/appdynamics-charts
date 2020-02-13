@@ -2,8 +2,29 @@ apiVersion: v1
 entries:
   cluster-agent:
   - apiVersion: v1
+    appVersion: 4.5.16
+    created: "2020-02-13T11:33:06.925256-05:00"
+    description: Helm chart to deploy AppDynamics ClusterAgent for Kubernetes
+    digest: 875e0b99360648d2a9bc5caab2b8fc62c2dcf0f41fa7bec49dd69af7b8753a1b
+    home: https://www.appdynamics.com/
+    icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+    keywords:
+    - appdynamics
+    - monitoring
+    - Kubernetes
+    - OpenShift
+    maintainers:
+    - email: support@appdynamics.com
+      name: AppDynamics
+    name: cluster-agent
+    sources:
+    - https://github.com/Appdynamics/cluster-agent/blob/master/build/Dockerfile
+    urls:
+    - https://appdynamics.github.io/appdynamics-charts/cluster-agent-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v1
     appVersion: 0.1.5
-    created: 2019-11-26T12:27:42.240081-05:00
+    created: "2020-02-13T11:33:06.924532-05:00"
     description: Helm chart to deploy AppDynamics ClusterAgent for Kubernetes
     digest: 724d3e4d03059a41c3644f18c7c2f61c3699462c433f344a2f993d395aa71d3b
     home: https://www.appdynamics.com/
@@ -24,7 +45,7 @@ entries:
     version: 0.1.3
   - apiVersion: v1
     appVersion: 0.1.5
-    created: 2019-11-26T12:27:42.239112-05:00
+    created: "2020-02-13T11:33:06.922998-05:00"
     description: Helm chart to deploy AppDynamics ClusterAgent for Kubernetes
     digest: e4a26cd3647127fd85258d4a0445073eaf238a440b78be62c6c7376c0fd10a4c
     home: https://www.appdynamics.com/
@@ -45,7 +66,7 @@ entries:
     version: 0.1.2
   - apiVersion: v1
     appVersion: 0.1.5
-    created: 2019-11-26T12:27:42.237403-05:00
+    created: "2020-02-13T11:33:06.921218-05:00"
     description: Helm chart to deploy AppDynamics ClusterAgent for Kubernetes
     digest: 1e7a7f6372fa8cbe9b6fc6085b9c39a259e6579e4e712b063f7f07d868f96554
     home: https://www.appdynamics.com/
@@ -67,7 +88,7 @@ entries:
   machine-agent:
   - apiVersion: v1
     appVersion: 4.5.16
-    created: 2019-11-26T12:27:42.244906-05:00
+    created: "2020-02-13T11:33:06.935115-05:00"
     description: AppDynamics Machine Agent for infrastructure visibility
     digest: efe504e43cc43477d0b71df6ab4b90ddf19acdfd305d865510c90d4013cdb9fe
     home: https://www.appdynamics.com/
@@ -88,9 +109,9 @@ entries:
     version: 0.2.7
   - apiVersion: v1
     appVersion: 4.5.14
-    created: 2019-11-26T12:27:42.24437-05:00
+    created: "2020-02-13T11:33:06.933032-05:00"
     description: AppDynamics Machine Agent for infrastructure visibility
-    digest: e2669994dbfddf7947625bdc30c83d63d873b12b81e02d770752c85059921406
+    digest: 8f95a9d09f70718e14022a7ae3d21143f1bb4dafba7481733f5457fef92022f6
     home: https://www.appdynamics.com/
     icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
     keywords:
@@ -111,7 +132,7 @@ entries:
     version: 0.2.6
   - apiVersion: v1
     appVersion: 4.5.11
-    created: 2019-11-26T12:27:42.243802-05:00
+    created: "2020-02-13T11:33:06.931294-05:00"
     description: AppDynamics Machine Agent for infrastructure visibility
     digest: 6abd077efa43f9a9c3bc600eee8227505b492376f4cec83ae3f99acdaeec4508
     home: https://www.appdynamics.com/
@@ -134,7 +155,7 @@ entries:
     version: 0.2.5
   - apiVersion: v1
     appVersion: 4.5.11
-    created: 2019-11-26T12:27:42.242896-05:00
+    created: "2020-02-13T11:33:06.929616-05:00"
     description: AppDynamics Machine Agent for infrastructure visibility
     digest: 1e646e23fb53641455522b8238a80eba58b6b480632b34340e22494cb9467c1e
     home: https://www.appdynamics.com/
@@ -157,7 +178,7 @@ entries:
     version: 0.2.4
   - apiVersion: v1
     appVersion: 4.5.11
-    created: 2019-11-26T12:27:42.241939-05:00
+    created: "2020-02-13T11:33:06.928026-05:00"
     description: AppDynamics Machine Agent for infrastructure visibility
     digest: c7eaf87b9d4089abfd6eeb2478278a13d6f7b8e504a120f2954c5e9e82bd1772
     home: https://www.appdynamics.com/
@@ -180,7 +201,7 @@ entries:
     version: 0.2.3
   - apiVersion: v1
     appVersion: 4.5.9
-    created: 2019-11-26T12:27:42.240952-05:00
+    created: "2020-02-13T11:33:06.926466-05:00"
     description: AppDynamics Machine Agent for infrastructure visibility
     digest: 1e3534adbc3ddbb119033e652e6f37c9b6a27dcf6ae12c48cc52a9971ea5b0bc
     home: https://www.appdynamics.com/
@@ -201,4 +222,4 @@ entries:
     urls:
     - https://appdynamics.github.io/appdynamics-charts/machine-agent-0.2.2.tgz
     version: 0.2.2
-generated: 2019-11-26T12:27:42.235987-05:00
+generated: "2020-02-13T11:33:06.919464-05:00"

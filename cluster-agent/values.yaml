@@ -1,10 +1,8 @@
 deployment:
-  port: 8989
   image:
     repository: docker.io/appdynamics/cluster-agent
     tag: latest
-    pullPolicy: IfNotPresent
-  envFromConfigMap: []
+    pullPolicy: Always
   envValueFrom:
     APPDYNAMICS_AGENT_NODE_NAME:
       fieldRef:
@@ -19,32 +17,43 @@ deployment:
       memory: "100M"
 
 controller:
-  url: null
+  dns: ""
+  port: ""
+  ssl: ""
   accountName: ""
-  globalAccountName: ""
-  apiUser: null
-  controllerKey: null
-  eventKey: null
-
-analytics:
-  eventEndpoint: ""
-
+  accessKey: ""
+  proxyUrl: ""
+  proxyUser: ""
   
 
 agent:
   appName: "K8s-Cluster-Agent"
-  tierName: "ClusterAgent"
+  logLevel: INFO
+  maxLogFileSize: 5
+  maxLogBackups: 3
+  writeToStdout: true
+  containerRegInterval: 120
+  eventUploadInterval: 10
+  httpClientTimeout: 30
+  metricsCollectionInterval: "30"
+  clusterMetricsCollectionInterval: "60"
+  metadataCollectionInterval: "60"
+  containerRegBatchSize: "5"
+  containerRegMaxParallelRequests: "1"
+  podRegBatchSize: "6"
+  metricUploadRetryCount: "2"
+  metricUploadRetryInterval: "5"
+  maxPodsToRegister: "750"
+  containerFilter: "blacklisted-label: {appdynamics.exclude: true}"
 
-  logLevel: info
-  metricsSyncInterval: 55
-  snapshotSyncInterval: 15
-  agentServerPort: 8989
+
+
+  monitoredNamespaces: "default"
 
 
 
 serviceAccount:
-  create: true
-  name: appdynamics-operator
+  name: appdynamics-cluster-agent
 
 metrics-server:
   install: true
