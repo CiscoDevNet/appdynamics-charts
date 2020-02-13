@@ -23,7 +23,7 @@ $ helm repo update
 * Install the chart:
 
 ```
-helm install --namespace=appdynamics --set controller.dns=saas.appdynamics.com --set controller.port=443 --set controller.ssl=true --set controller.accountName=customer1 --set controller.accessKey=f37b760f-962a-4280-b8b3-e85dcc016967 k8s-agent ./cluster-agent
+helm install --namespace=appdynamics --set controller.dns=saas.appdynamics.com --set controller.port=443 --set controller.ssl=true --set controller.accountName=customer1 --set controller.accessKey=f37b760f-962a-4280-b8b3-e85dcc016967 k8s-agent appdynamics-charts/cluster-agent
 
 ```
 

@@ -15,14 +15,14 @@ AppDynamics Machine Agent offers application-centric server monitoring. It helps
 * Install the chart:
 
 ```
-helm install ./machine-agent --name=stable --namespace=appdynamics \
+helm install --namespace=appdynamics \
 --set controller.accessKey=<controller-key> \ 
 --set controller.host=<*.saas.appdynamics.com> \
 --set controller.port=443 --set controller.ssl=true \
 --set controller.accountName=<account-name> \
 --set controller.globalAccountName=<global-account-name> \ 
 --set analytics.eventEndpoint=https://analytics.api.appdynamics.com \
---set agent.netviz=true
+--set agent.netviz=true serverviz appdynamics-charts/machine-agent
 ```
 
 For detailed list of configuration settings refer to the [chart documentation](https://appdynamics.github.io/appdynamics-charts/machine-agent/)
@@ -41,7 +41,7 @@ AppDynamics ClusterAgent provides insights into the health of Kubernetes and Ope
 * Install the chart:
 
 ```
-helm install --namespace=appdynamics --set controller.dns=saas.appdynamics.com --set controller.port=443 --set controller.ssl=true --set controller.accountName=customer1 --set controller.accessKey=f37b760f-962a-4280-b8b3-e85dcc016967 k8s-agent ./cluster-agent
+helm install --namespace=appdynamics --set controller.dns=saas.appdynamics.com --set controller.port=443 --set controller.ssl=true --set controller.accountName=customer1 --set controller.accessKey=f37b760f-962a-4280-b8b3-e85dcc016967 k8s-agent appdynamics-charts/cluster-agent
 
 ```
 

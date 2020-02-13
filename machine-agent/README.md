@@ -7,7 +7,7 @@ This chart deploys AppDynamics MachineAgent Daemonset to the cluster.
 
 * Kubernetes 1.7+ OpenShift 3.7+
 * Helm and tiller installed in the cluster with the appropriate RBAC settings
-*  An AppDynamics account. AppDynamics offers a [free trial](https://www.appdynamics.com/free-trial/)
+* An AppDynamics account. AppDynamics offers a [free trial](https://www.appdynamics.com/free-trial/)
 
 ## Quick start
 
@@ -23,11 +23,11 @@ $ helm repo update
 * Install the chart on Kubernetes
 
 ```
-helm install ./machine-agent --name=stable --namespace=appdynamics \
+helm install --namespace=appdynamics \
 --set controller.accessKey=<controller-key> --set controller.host=<*.saas.appdynamics.com> \
 --set controller.port=443 --set controller.ssl=true \
 --set controller.accountName=<account-name> --set controller.globalAccountName=<global-account-name> \
---set analytics.eventEndpoint=https://analytics.api.appdynamics.com --set agent.netviz=true
+--set analytics.eventEndpoint=https://analytics.api.appdynamics.com --set agent.netviz=true serverviz appdynamics-charts/machine-agent
 ```
 
 * Install the chart on OpenShift
