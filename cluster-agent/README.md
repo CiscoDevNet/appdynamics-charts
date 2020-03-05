@@ -14,7 +14,7 @@ This chart deploys AppDynamics ClusterAgent for monitoring Kubenetes and OpenShi
 * Get the repo:
 
 ```
-$ helm repo add  appdynamics-charts https://appdynamics.github.io/appdynamics-chart
+$ helm repo add  appdynamics-charts https://appdynamics.github.io/appdynamics-charts
 
 $ helm repo update
 
