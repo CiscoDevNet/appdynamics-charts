@@ -82,6 +82,7 @@ helm install ./machine-agent --name=stable --namespace=appdynamics \
 | `daemonset.nodeSelector` | Node selector directive |
 | `daemonset.tolerations ` | Tolerations directive |
 | `daemonset.resources ` | Resources directive  | See below
+| `daemonset.priorityClassName ` | Priority class reference, e.g. system-node-critical.  | Optional. When set to `system-node-critical` the chart must be deployed to `kube-system` namespace
 
 
 Example resource limits:

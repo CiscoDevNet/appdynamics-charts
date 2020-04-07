@@ -118,6 +118,9 @@ spec:
 {{ toYaml .Values.extraVolumes | indent 6 }}
 {{- end }}
       terminationGracePeriodSeconds: 30
+      {{- if .Values.daemonset.priorityClassName }}
+      priorityClassName: {{ .Values.daemonset.priorityClassName }}
+      {{- end }}
       serviceAccountName: {{ .Values.serviceAccount.name }}
 {{- if .Values.daemonset.nodeSelector }}
       nodeSelector:

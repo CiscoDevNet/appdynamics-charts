@@ -9,6 +9,7 @@ daemonset:
   tolerations: {}
   podSecurityContext:
     privileged: false
+  priorityClassName: ""
   resources:
     limits:
       cpu: 600m
