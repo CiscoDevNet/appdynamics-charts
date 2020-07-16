@@ -34,8 +34,8 @@ questions:
     group: "AppDynamics Controller Settings"    
   - variable: controller.ssl
     default: "true"
-    description: "SSL Enabled (true|false)"
-    type: bool
+    description: "SSL Enabled"
+    type: boolean
     required: true
     label: AppDynamics Controller SSL Enabled
     group: "AppDynamics Controller Settings"       
@@ -53,3 +53,10 @@ questions:
     required: false
     label: Cluster Agent Proxy Username
     group: "AppDynamics Controller Settings"
+  - variable: agent.appName
+    default: "<NAME OF YOUR KUBERNETES CLUSTER>"
+    description: "Name of your Kubernetes Cluster"
+    type: string
+    required: true
+    label: Name of your Kubernetes Cluster
+    group: "AppDynamics Cluster Agent Instrumentation"
