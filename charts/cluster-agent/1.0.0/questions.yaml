@@ -1,3 +1,25 @@
 labels:
   io.rancher.certified: partner
-  
+categories:
+    - monitoring
+    - appdynamics
+questions:
+  - variable: controller.accountName
+    default: "<APPD ACCOUNT NAME>"
+    description: "Name of your AppDynamics Account"
+    type: string
+    required: true
+    label: AppDynamics Account
+    group: "AppDynamics Controller Settings"
+  - variable: controller.dns
+    default: "*.saas.appdynamics.com"
+    description: "DNS Name of your AppDynamics Controller"
+    type: string
+    required: true
+    label: AppDynamics Controller Host
+    group: "AppDynamics Controller Settings"      
+  - variable: controller.proxyUrl
+    default: ""
+    description: "Agent Proxy URL"
+    type: string
+    required: false
