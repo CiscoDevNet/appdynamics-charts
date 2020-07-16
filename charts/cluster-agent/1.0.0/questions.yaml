@@ -11,6 +11,13 @@ questions:
     required: true
     label: AppDynamics Account
     group: "AppDynamics Controller Settings"
+  - variable: controller.accessKey
+    default: "<APPD ACCESS KEY>"
+    description: "AppDynamics Access Key"
+    type: string
+    required: true
+    label: AppDynamics Account
+    group: "AppDynamics Controller Settings"
   - variable: controller.dns
     default: "*.saas.appdynamics.com"
     description: "DNS Name of your AppDynamics Controller"
@@ -46,5 +53,3 @@ questions:
     required: false
     label: Cluster Agent Proxy Username
     group: "AppDynamics Controller Settings"
-    
-   
