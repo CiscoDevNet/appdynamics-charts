@@ -3,9 +3,9 @@ entries:
   cluster-agent:
   - apiVersion: v1
     appVersion: 4.5.16
-    created: "2020-07-16T21:02:43.811069+02:00"
+    created: "2020-07-16T21:05:35.866646+02:00"
     description: Helm chart to deploy AppDynamics ClusterAgent for Kubernetes
-    digest: 8a4421ea7324ea1062193e04e5919d72113ce38a3c134d340f8c26dfcec23633
+    digest: cfcadabbf0fd635e2ef09ade6afba95f0d7ce1d3bd3d384c3d6f10b813cae8d3
     home: https://www.appdynamics.com/
     icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
     keywords:
@@ -22,4 +22,4 @@ entries:
     urls:
     - cluster-agent-0.1.4.tgz
     version: 0.1.4
-generated: "2020-07-16T21:02:43.809842+02:00"
+generated: "2020-07-16T21:05:35.865599+02:00"
