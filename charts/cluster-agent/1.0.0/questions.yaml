@@ -25,14 +25,14 @@ questions:
     required: true
     label: AppDynamics Controller Host
     group: "AppDynamics Controller Settings"
-    - variable: controller.port
+  - variable: controller.port
     default: "443"
     description: "Port of you AppDynamics Controller"
     type: int
     required: true
     label: AppDynamics Controller Host Port
     group: "AppDynamics Controller Settings"    
-    - variable: controller.ssl
+  - variable: controller.ssl
     default: "true"
     description: "SSL Enabled (true|false)"
     type: bool
@@ -46,7 +46,7 @@ questions:
     type: string
     required: false
     group: "AppDynamics Controller Settings"
-   - variable: controller.proxyUser
+  - variable: controller.proxyUser
     default: ""
     description: "Cluster Agent Proxy User"
     type: string
