@@ -8,4 +8,4 @@ questions:
   description: "AppDynamics Account Name"
   label: AppD-Account-Namme
   type: string
-  group: "Settings"
+  
