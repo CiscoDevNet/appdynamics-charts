@@ -4,8 +4,8 @@ categories:
 - Visibility and Analytics
 questions:
 - variable: controller.accountName
-  default: "<YOUR_APPD_ACCOUNT>"
+  default: "APPD Account Name"
   description: "AppDynamics Account Name"
+  label: AppD-Account-Namme
   type: string
-  required: true
-  label: AppDynamics Accountname
+  group: "Settings"
