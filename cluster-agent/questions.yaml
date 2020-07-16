@@ -1,0 +1,11 @@
+categories:
+- Application Performance Monitoring
+- AppDynamics
+- Visibility and Analytics
+questions:
+- variable: controller.accountName
+  default: "<YOUR_APPD_ACCOUNT>"
+  description: "AppDynamics Account Name"
+  type: string
+  required: true
+  label: AppDynamics Accountname
