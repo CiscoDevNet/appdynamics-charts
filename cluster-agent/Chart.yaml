@@ -1,17 +1,29 @@
-apiVersion: v1
-appVersion: "4.5.16"
-description:  Helm chart to deploy AppDynamics ClusterAgent for Kubernetes
+apiVersion: v2
 name: cluster-agent
-version: 0.1.4
-home: https://www.appdynamics.com/
+
+description: Sophisticated helm chart to deploy cluster agent is addition with advanced features like multiple cluster agent deployments, Granular control over config with intuitive boolean switches. 
+home: https://appdynamics.com
 icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+
+version: 0.1.5
+
+appVersion: 20.7.0
+
 maintainers:
   - name: AppDynamics
     email: support@appdynamics.com
-sources:
-  - https://github.com/Appdynamics/cluster-agent/blob/master/build/Dockerfile
+
+dependencies:
+  - name: metrics-server
+    repository: https://kubernetes-charts.storage.googleapis.com
+    version: 2.11.1
+    condition: install.metrics-server
+
 keywords:
   - appdynamics
+  - cluster
+  - kubernetes
+  - openshift
   - monitoring
-  - Kubernetes
-  - OpenShift
+  - pod
+  - deployment

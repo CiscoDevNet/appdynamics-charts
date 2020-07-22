@@ -1,0 +1,8 @@
+{{ $mode := .Values.deploymentMode -}}
+{{ if and .Values.createServiceAccount (or (eq $mode "MASTER") (eq $mode "NAMESPACED")) -}}
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: {{ .Values.agentServiceAccount }}
+  namespace: {{ .Release.Namespace }}
+{{ end -}}

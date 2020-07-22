@@ -1,0 +1,46 @@
+{{ $mode := .Values.deploymentMode -}}
+{{ if or (eq $mode "MASTER") (eq $mode "NAMESPACED") -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appdynamics-operator
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: appdynamics-operator
+  template:
+    metadata:
+      labels:
+        name: appdynamics-operator
+    spec:
+      serviceAccountName: {{ .Values.operatorServiceAccount }}
+      containers:
+        - name: appdynamics-operator
+          image: {{ .Values.imageInfo.operatorImage }}:{{ .Values.imageInfo.operatorTag }}
+          ports:
+            - containerPort: 60000
+              name: metrics
+          command:
+            - appdynamics-operator
+          imagePullPolicy: {{ .Values.imageInfo.imagePullPolicy }}
+          resources:
+            limits:
+              cpu: 200m
+              memory: 128Mi
+            requests:
+              cpu: 100m
+              memory: 64Mi
+          env:
+            - name: WATCH_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: OPERATOR_NAME
+              value: "appdynamics-operator"
+{{ end -}}

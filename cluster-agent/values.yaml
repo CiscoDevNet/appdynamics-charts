@@ -1,59 +1,65 @@
-deployment:
-  image:
-    repository: docker.io/appdynamics/cluster-agent
-    tag: latest
-    pullPolicy: Always
-  envValueFrom:
-    APPDYNAMICS_AGENT_NODE_NAME:
-      fieldRef:
-        fieldPath: spec.nodeName
-  envValueFromConfigMap: {}
-  resources:
-    limits:
-      cpu: 200m
-      memory: "300M"
-    requests: 
-      cpu: 100m
-      memory: "100M"
+# Cluster agent deployment mode (MASTER | NAMESPACED | SLAVE)
+deploymentMode: MASTER
 
-controller:
-  dns: ""
-  port: ""
-  ssl: ""
-  accountName: ""
-  accessKey: ""
-  proxyUrl: ""
-  proxyUser: ""
+# Docker images
+imageInfo:
+  agentImage: docker.io/appdynamics/cluster-agent
+  agentTag: latest
+  operatorImage: docker.io/appdynamics/cluster-agent-operator
+  operatorTag: latest
+  imagePullPolicy: Always                               # Will be used for both agent and operator pods
+
+# AppDynamics controller info (null VALUES TO BE PROVIDED BY THE USER)
+controllerInfo:
+  url: null
+  account: null
+  username: null
+  password: null
+  accessKey: null
   
+  # SSL properties
+  customSSLCert: null
+  
+  # Proxy config
+  authenticateProxy: false
+  proxyUrl: null
+  proxyUser: null
+  proxyPassword: null 
 
-agent:
-  appName: "K8s-Cluster-Agent"
-  logLevel: INFO
-  maxLogFileSize: 5
-  maxLogBackups: 3
-  writeToStdout: true
-  containerRegInterval: 120
+# RBAC config
+createServiceAccount: true
+agentServiceAccount: appdynamics-cluster-agent
+operatorServiceAccount: appdynamics-operator
+
+# Cluster agent config
+clusterAgent:
+  nsToMonitor:
+    - default
+  clusterMetricsSyncInterval: 60
+  metadataSyncInterval: 60
   eventUploadInterval: 10
   httpClientTimeout: 30
-  metricsCollectionInterval: "30"
-  clusterMetricsCollectionInterval: "60"
-  metadataCollectionInterval: "60"
-  containerRegBatchSize: "5"
-  containerRegMaxParallelRequests: "1"
-  podRegBatchSize: "6"
-  metricUploadRetryCount: "2"
-  metricUploadRetryInterval: "5"
-  maxPodsToRegister: "750"
-  containerFilter: "blacklisted-label: {appdynamics.exclude: true}"
+  podBatchSize: 6
+  containerProperties:
+    containerBatchSize: 5
+    containerParallelRequestLimit: 1
+    containerRegistrationInterval: 120
+  logProperties:
+    logFileSizeMb: 5
+    logFileBackups: 3
+    logLevel: INFO
+  metricProperties:
+    metricsSyncInterval: 30
+    metricUploadRetryCount: 2
+    metricUploadRetryIntervalMilliSeconds: 5
 
+# Pod filter config
+podFilter: {}
 
+# Instrumentation config
+instrumentationConfig:
+  enabled: false
 
-  monitoredNamespaces: "default"
-
-
-
-serviceAccount:
-  name: appdynamics-cluster-agent
-
-metrics-server:
-  install: true
+# Subcharts boolean install switches
+install:
+  metrics-server: false

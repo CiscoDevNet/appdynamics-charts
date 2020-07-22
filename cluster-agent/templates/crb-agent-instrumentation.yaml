@@ -1,0 +1,24 @@
+{{ $agentSA := .Values.agentServiceAccount }}
+{{ $namespace := .Release.Namespace }}
+{{ if and (eq .Values.deploymentMode "NAMESPACED") .Values.instrumentationConfig.enabled -}}
+{{ fail "Instrumentation is only allowed in MASTER mode! Set instrumentationConfig.enabled: false" }}
+{{ end -}}
+{{ if eq .Values.deploymentMode "MASTER" -}}
+{{ range $index, $subject := (lookup "rbac.authorization.k8s.io/v1" "ClusterRoleBinding" "" "appdynamics-cluster-agent-instrumentation").subjects }}
+{{ if ne $subject.namespace $namespace }}
+{{ printf "%s: %s" "There is already a MASTER cluster agent running in namespace" $subject.namespace | fail }}
+{{ end }}
+{{ end -}}
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: appdynamics-cluster-agent-instrumentation
+subjects:
+{{- printf "- kind: ServiceAccount" | nindent 2 }}
+{{- printf "name: %s" $agentSA | nindent 4 }}
+{{- printf "namespace: %s" $namespace | nindent 4}}
+roleRef:
+  kind: ClusterRole
+  name: appdynamics-cluster-agent-instrumentation
+  apiGroup: rbac.authorization.k8s.io
+{{- end -}}

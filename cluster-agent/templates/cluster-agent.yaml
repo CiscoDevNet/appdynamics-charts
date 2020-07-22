@@ -1,0 +1,113 @@
+apiVersion: appdynamics.com/v1alpha1
+kind: Clusteragent
+metadata:
+  name: {{ printf "%s-%s" .Release.Name "appdynamics-cluster-agent" | trunc 63 }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  appName: {{ .Values.clusterAgent.appName | default (cat .Release.Name "-appdynamics" | nospace) }}
+  controllerUrl: {{ required "AppDynamics controller URL is required!" .Values.controllerInfo.url }}
+  account: {{ required "AppDynamics controller account is required!" .Values.controllerInfo.account }}
+  image: {{ .Values.imageInfo.agentImage }}:{{ .Values.imageInfo.agentTag }}
+  serviceAccountName: {{ .Values.agentServiceAccount }}
+  
+  {{ if .Values.controllerInfo.customSSLCert -}}
+  # Custom SSL config
+  customSSLSecret: cluster-agent-ssl-cert   
+  {{- end }}
+  
+  {{ with .Values.controllerInfo -}}
+  {{ if .proxyUrl -}}
+  # Proxy config
+  proxyUrl: {{ .proxyUrl }}
+  {{ if .authenticateProxy -}}
+  proxyUser: {{ required "Proxy user is required to authenticate proxy!" .proxyUser }}
+  {{- end }}
+  {{- end }}
+  {{- end }}
+
+  # Ad-Hoc properties
+  {{ with .Values.clusterAgent -}}
+  nsToMonitor: 
+  {{- toYaml .nsToMonitor | nindent 4 }}
+  clusterMetricsSyncInterval: {{ .clusterMetricsSyncInterval }}
+  metadataSyncInterval: {{ .metadataSyncInterval }}
+  eventUploadInterval: {{ .eventUploadInterval }}
+  httpClientTimeout: {{ .httpClientTimeout }}
+  podBatchSize: {{ .podBatchSize }}
+  
+  # Container specific properties
+  {{ with .containerProperties -}}  
+  containerBatchSize: {{ .containerBatchSize }}
+  #containerParallelRequestLimit: {{ .containerParallelRequestLimit }}
+  containerRegistrationInterval: {{ .containerRegistrationInterval }}
+  {{- end }}
+ 
+  # Metric specific properties
+  {{ with .metricProperties -}}
+  metricsSyncInterval: {{ .metricsSyncInterval }}
+  metricUploadRetryCount: {{ .metricUploadRetryCount }}
+  metricUploadRetryIntervalMilliSeconds: {{ .metricUploadRetryIntervalMilliSeconds }} 
+  {{- end }}
+
+  # Log specific properties
+  {{ with .logProperties -}}
+  logFileSizeMb: {{ .logFileSizeMb }}
+  logFileBackups: {{ .logFileBackups }}
+  logLevel: {{ .logLevel }}
+  {{- end }}
+  {{- end }}
+  
+  # Pod filter properties
+  podFilter: 
+  {{- toYaml .Values.podFilter | nindent 4 }}
+
+  {{ with .Values.instrumentationConfig -}}
+  {{ if .enabled -}}
+  # Instrumentation config
+  {{ if .defaultAppName -}}
+  defaultAppName: {{ .defaultAppName }}
+  {{- end }}
+  {{ if .defaultEnv -}}
+  defaultEnv: {{ .defaultEnv }}
+  {{- end }}
+  {{ if .defaultInstrumentationLabelMatch -}}
+  defaultInstrumentationLabelMatch: {{ .defaultInstrumentationLabelMatch }}
+  {{- end }}
+  {{ if .defaultInstrumentMatchString -}}
+  defaultInstrumentMatchString: {{ .defaultInstrumentMatchString }}
+  {{- end }}
+  {{ if .defaultCustomConfig -}} 
+  defaultCustomConfig: {{ .defaultCustomConfig }}
+  {{- end }}
+  {{ if .appNameStrategy -}}
+  appNameStrategy: {{ .appNameStrategy }}
+  {{- end }}
+  {{ if .appNameLabel -}}
+  appNameLabel: {{ .appNameLabel }}
+  {{- end }}
+  {{ if .imageInfo -}}
+  imageInfo: 
+  {{- toYaml .imageInfo | nindent 4}}
+  {{- end }}
+  {{ if .instrumentationMethod -}}
+  instrumentationMethod: {{ .instrumentationMethod }}
+  {{- end }}
+  {{ if .instrumentationRules -}}
+  instrumentationRules: 
+  {{- toYaml .instrumentationRules | nindent 4 }}
+  {{- end }}
+  {{ if .nsToInstrumentRegex -}}
+  nsToInstrumentRegex: {{ .nsToInstrumentRegex }}
+  {{- end }}
+  {{ if .netvizInfo -}}
+  netvizInfo: 
+  {{- toYaml .netvizInfo | nindent 4 }}
+  {{- end }}
+  {{ if .runAsUser -}}
+  runAsUser: {{ .runAsUser }}
+  {{- end }}
+  {{ if .runAsGroup -}}
+  runAsGroup: {{ .runAsGroup }}
+  {{- end }}
+  {{ end -}}
+  {{ end -}}

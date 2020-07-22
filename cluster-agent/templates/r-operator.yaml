@@ -1,0 +1,73 @@
+{{ $mode := .Values.deploymentMode -}}
+{{ if or (eq $mode "MASTER") (eq $mode "NAMESPACED") -}}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: appdynamics-operator
+  namespace: {{ .Release.Namespace }}
+rules:
+  - apiGroups:
+      - ""
+    resources:
+      - pods
+      - pods/log
+      - endpoints
+      - persistentvolumeclaims
+      - resourcequotas
+      - nodes
+      - events
+      - namespaces
+    verbs:
+      - get
+      - watch
+      - list
+  - apiGroups:
+      - ""
+    resources:
+      - services
+      - configmaps
+      - secrets
+    verbs:
+      - "*"
+  - apiGroups:
+      - apps
+    resources:
+      - statefulsets
+    verbs:
+      - get
+      - watch
+      - list
+  - apiGroups:
+      - apps
+    resources:
+      - deployments
+      - replicasets
+      - daemonsets
+    verbs:
+      - "*"
+  - apiGroups:
+      - "batch"
+      - "extensions"
+    resources:
+      - "jobs"
+    verbs:
+      - "get"
+      - "list"
+      - "watch"
+  - apiGroups:
+      - metrics.k8s.io
+    resources:
+      - pods
+      - nodes
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - appdynamics.com
+    resources:
+      - '*'
+      - clusteragents
+    verbs:
+      - "*"
+{{ end -}}
