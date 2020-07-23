@@ -100,6 +100,10 @@ spec:
   {{ if .instrumentationMethod -}}
   instrumentationMethod: {{ .instrumentationMethod }}
   {{- end }}
+  {{ if .resourcesToInstrument -}}
+  resourcesToInstrument:
+  {{- toYaml .resourcesToInstrument | nindent 4 }}
+  {{- end }}
   {{ if .instrumentationRules -}}
   instrumentationRules: 
   {{- toYaml .instrumentationRules | nindent 4 }}
