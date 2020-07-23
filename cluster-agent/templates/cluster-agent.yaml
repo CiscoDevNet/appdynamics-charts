@@ -61,6 +61,14 @@ spec:
   podFilter: 
   {{- toYaml .Values.podFilter | nindent 4 }}
 
+  # Node selector
+  nodeSelector:
+  {{- toYaml .Values.agentPod.nodeSelector | nindent 4 }}
+
+  # Tolerations
+  tolerations:
+  {{- toYaml .Values.agentPod.tolerations | nindent 4 }}
+
   {{ with .Values.instrumentationConfig -}}
   {{ if .enabled -}}
   # Instrumentation config

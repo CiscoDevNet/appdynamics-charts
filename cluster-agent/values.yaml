@@ -1,13 +1,13 @@
-# Cluster agent deployment mode (MASTER | NAMESPACED | SLAVE)
+# Cluster agent deployment mode (MASTER | NAMESPACED)
 deploymentMode: MASTER
 
 # Docker images
 imageInfo:
   agentImage: docker.io/appdynamics/cluster-agent
-  agentTag: latest
+  agentTag: 20.7.0
   operatorImage: docker.io/appdynamics/cluster-agent-operator
-  operatorTag: latest
-  imagePullPolicy: Always                               # Will be used for both agent and operator pods
+  operatorTag: 0.5.2
+  imagePullPolicy: Always                               # Will be used for operator pod
 
 # AppDynamics controller info (null VALUES TO BE PROVIDED BY THE USER)
 controllerInfo:
@@ -59,6 +59,16 @@ podFilter: {}
 # Instrumentation config
 instrumentationConfig:
   enabled: false
+
+# Agent pod specific properties
+agentPod:
+  nodeSelector: {}
+  tolerations: []
+
+# Operator pod specific properties
+operatorPod:
+  nodeSelector: {}
+  tolerations: []
 
 # Subcharts boolean install switches
 install:

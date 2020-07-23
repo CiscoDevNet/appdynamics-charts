@@ -16,6 +16,10 @@ spec:
         name: appdynamics-operator
     spec:
       serviceAccountName: {{ .Values.operatorServiceAccount }}
+      tolerations:
+      {{- toYaml .Values.operatorPod.tolerations | nindent 8 }}
+      nodeSelector:
+      {{- toYaml .Values.operatorPod.nodeSelector | nindent 8 }}
       containers:
         - name: appdynamics-operator
           image: {{ .Values.imageInfo.operatorImage }}:{{ .Values.imageInfo.operatorTag }}

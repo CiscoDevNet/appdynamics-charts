@@ -9,15 +9,15 @@ version: 0.1.5
 
 appVersion: 20.7.0
 
-maintainers:
-  - name: AppDynamics
-    email: support@appdynamics.com
-
 dependencies:
   - name: metrics-server
     repository: https://kubernetes-charts.storage.googleapis.com
     version: 2.11.1
     condition: install.metrics-server
+
+maintainers:
+  - name: AppDynamics
+    email: support@appdynamics.com
 
 keywords:
   - appdynamics
