@@ -40,6 +40,7 @@ clusterAgent:
   eventUploadInterval: 10
   httpClientTimeout: 30
   podBatchSize: 6
+  imagePullSecret: ""
   containerProperties:
     containerBatchSize: 5
     containerParallelRequestLimit: 1

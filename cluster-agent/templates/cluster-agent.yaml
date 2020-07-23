@@ -55,6 +55,11 @@ spec:
   logFileBackups: {{ .logFileBackups }}
   logLevel: {{ .logLevel }}
   {{- end }}
+  
+  {{ if .imagePullSecret -}}
+  # Image pull secret
+  imagePullSecret: {{ .imagePullSecret }}
+  {{- end }}
   {{- end }}
   
   # Pod filter properties
