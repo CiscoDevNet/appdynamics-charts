@@ -1,3 +1,4 @@
+{{ if eq .Values.deploymentMode "MASTER" -}}
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -69,3 +70,4 @@ rules:
       - watch
       - list 
   {{- end }}
+{{- end }}
