@@ -3,7 +3,7 @@ entries:
   cluster-agent:
   - apiVersion: v2
     appVersion: 20.7.0
-    created: "2020-07-24T13:36:06.125677089Z"
+    created: "2020-07-24T14:36:28.759546077Z"
     dependencies:
     - condition: install.metrics-server
       name: metrics-server
@@ -12,7 +12,7 @@ entries:
     description: Sophisticated helm chart to deploy cluster agent is addition with
       advanced features like multiple cluster agent deployments, Granular control
       over config with intuitive boolean switches.
-    digest: a5b991be5de5221f62c921d9d0e10cee7850599eb67e96ad8364f110c7a98794
+    digest: 310264f48b2ebb5a9ba0e23ce6cb45809caddead39a7a94a82b616ce0f8ae4a4
     home: https://appdynamics.com
     icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
     keywords:
@@ -272,4 +272,4 @@ entries:
     urls:
     - https://appdynamics.github.io/appdynamics-charts/machine-agent-0.2.2.tgz
     version: 0.2.2
-generated: "2020-07-24T13:36:06.124049549Z"
+generated: "2020-07-24T14:36:28.757957388Z"
