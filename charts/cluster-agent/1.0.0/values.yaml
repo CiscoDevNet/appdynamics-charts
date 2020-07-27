@@ -27,7 +27,7 @@ controller:
   
 
 agent:
-  appName: "K8s-Cluster-Agent"
+  appName: "My-Rancher-Kubernetes-Cluster"
   logLevel: INFO
   maxLogFileSize: 5
   maxLogBackups: 3
@@ -52,8 +52,10 @@ agent:
 
 
 
+# Namespace
 serviceAccount:
   name: appdynamics
 
+# Default with Rancher
 metrics-server:
   install: false
