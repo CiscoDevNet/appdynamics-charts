@@ -1,0 +1,78 @@
+daemonset:
+  enabled: true
+  port: 9090
+  image:
+    repository: docker.io/appdynamics/machine-agent-analytics
+    tag: 20.6.0
+    pullPolicy: Always
+  nodeSelector: {}
+  tolerations: {}
+  podSecurityContext:
+    privileged: false
+  priorityClassName: ""
+  resources:
+    limits:
+      cpu: 600m
+      memory: "2G"
+    requests: 
+      cpu: 300m
+      memory: "1G"
+  netvizResources:
+    limits:
+      cpu: 200m
+      memory: 300Mi
+    requests:
+      cpu: 100m
+      memory: 150Mi
+  envFromConfigMap:
+  - ma-config
+  envValueFromConfigMap: {}
+  envValueFrom:
+    APPDYNAMICS_AGENT_NODE_NAME:
+      fieldRef:
+        fieldPath: spec.nodeName
+
+controller:
+  host: <tenant>.saas.appdynamics.com
+  port: 443
+  ssl:  true
+  accountName: customer1
+  globalAccountName: null
+  accessKey: null
+  config:
+    enabled: true
+
+agent:
+  simEnabled: true
+  dockerEnabled: true
+  includeMasters: true
+  logLevel: info
+  stdoutLogging: false
+  proxyHost: ""
+  proxyPort: ""
+  proxyUser: ""
+  proxyPass: ""
+  metricsLimit: 4000
+  hierarchyPath: ""
+  uniqueHostId: ""
+  enableContainerAsHostID: false
+  netviz: false
+  netvizPort: 3892
+  netvizImage:
+    repository: docker.io/appdynamics/machine-agent-netviz
+    tag: latest
+    pullPolicy: Always
+
+analytics:
+  eventEndpoint: https://analytics.api.appdynamics.com
+  port: 9090
+
+serviceAccount:
+  create: true
+  name: appdynamics
+
+rbac:
+  create: true
+
+openshift:
+  scc: true

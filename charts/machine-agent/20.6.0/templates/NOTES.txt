@@ -1,0 +1,29 @@
+{{- if and .Values.controller.accessKey .Values.controller.globalAccountName }}
+AppDynamics MachineAgent is deployed successfully.
+
+To get more information about the release, try these commands:
+
+  $ helm status {{ .Release.Name }}
+  $ helm get {{ .Release.Name }}
+
+To get the status of the MachineAgent daemon set, run this command:
+
+    kubectl get ds -o wide -n {{ .Release.Namespace }} {{ template "machine-agent.fullname" . }}
+
+To run the command continuously, add -w parameter.
+{{- else -}}
+**************************************************************************************
+****       ERROR: AppDynamics Machine Agent will not function properly            ****
+**************************************************************************************
+
+Controller access key is required to run the AppDynamics MachineAgent. If you do not have the key, AppDynamics offers a free trial at https://www.appdynamics.com/free-trial/
+
+Once the access key is obtained, run:
+
+    helm upgrade {{ .Release.Name }} \
+        --reuse-values \
+        --set controller.accessKey=<access-key> \
+        --set controller.globalAccountName=<global-account-name> \
+        appdynamics-charts/{{ template "machine-agent.fullname" . }}
+
+{{- end -}}

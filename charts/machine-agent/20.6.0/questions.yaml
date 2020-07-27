@@ -1,0 +1,158 @@
+labels:
+  io.rancher.certified: partner
+categories:
+    - monitoring
+    - appdynamics
+questions:
+  - variable: controller.accountName
+    default: "<APPD ACCOUNT NAME>"
+    description: "Name of your AppDynamics Account"
+    type: string
+    required: true
+    label: AppDynamics Account
+    group: "AppDynamics Controller Settings"
+  - variable: controller.accessKey
+    default: "<APPD ACCESS KEY>"
+    description: "AppDynamics Access Key"
+    type: string
+    required: true
+    label: AppDynamics Account
+    group: "AppDynamics Controller Settings"
+  - variable: controller.dns
+    default: "*.saas.appdynamics.com"
+    description: "DNS Name of your AppDynamics Controller"
+    type: string
+    required: true
+    label: AppDynamics Controller Host
+    group: "AppDynamics Controller Settings"
+  - variable: controller.port
+    default: "443"
+    description: "Port of you AppDynamics Controller"
+    type: int
+    required: true
+    label: AppDynamics Controller Host Port
+    group: "AppDynamics Controller Settings"    
+  - variable: controller.ssl
+    default: "true"
+    description: "SSL Enabled"
+    type: boolean
+    required: true
+    label: AppDynamics Controller SSL Enabled
+    group: "AppDynamics Controller Settings"       
+  - variable: controller.proxyUrl
+    default: ""
+    label: Cluster Agent Proxy URL
+    description: "Cluster Agent Proxy URL"
+    type: string
+    required: false
+    group: "AppDynamics Controller Settings"
+  - variable: controller.proxyUser
+    default: ""
+    description: "Cluster Agent Proxy User"
+    type: string
+    required: false
+    label: Cluster Agent Proxy User
+    group: "AppDynamics Controller Settings"
+  - variable: controller.proxyPass
+    default: ""
+    description: "Cluster Agent Proxy Password"
+    type: string
+    required: false
+    label: Cluster Agent Proxy Password
+    group: "AppDynamics Controller Settings"
+
+  - variable: agent.simEnabled
+    default: true
+    description: "Machine Agent sim Enabled"
+    type: boolean
+    required: true
+    label: sim Enabled
+    group: "AppDynamics Machine Agent Instrumentation"
+  - variable: agent.dockerEnabled
+    default: true
+    description: "Machine Agent Docker  Enabled"
+    type: boolean
+    required: true
+    label: Docker Enabled
+    group: "AppDynamics Machine Agent Instrumentation"
+  - variable: agent.includeMasters
+    default: true
+    description: "Machine Agent K8S Masters included"
+    type: boolean
+    required: true
+    label: Machine Agent include Masters
+    group: "AppDynamics Machine Agent Instrumentation"
+  - variable: agent.logLevel
+    default: "info"
+    description: "Machine Agent Log Level"
+    type: string
+    required: true
+    label: Machine Agent Log Level
+    group: "AppDynamics Machine Agent Instrumentation"
+  - variable: agent.stdoutLogging
+    default: false
+    description: "Machine Agent STDOUT Logging"
+    type: boolean
+    required: true
+    label: Machine Agent SDTOUT logging
+    group: "AppDynamics Machine Agent Instrumentation"
+  - variable: agent.metricsLimit
+    default: 4000
+    description: "Machine Agent Metrics Limit"
+    type: int
+    required: true
+    label: Machine Agent Metrics Limit
+    group: "AppDynamics Machine Agent Instrumentation"
+  - variable: agent.hierarchyPath
+    default: "Data Center 1|Rack 2|Machine3"
+    description: "Machine Agent Hierarchy Path"
+    type: string
+    required: false
+    label: Machine Agent Hierarchy Path
+    group: "AppDynamics Machine Agent Instrumentation"
+  - variable: agent.uniqueHostId
+    default: ""
+    description: "Machine Agent Unique Host ID"
+    type: string
+    required: false
+    label: Machine Agent Unique Host ID
+    group: "AppDynamics Machine Agent Instrumentation"
+  - variable: agent.enableContainerAsHostID
+    default: ""
+    description: "Machine Agent enableContainerAsHostID"
+    type: boolean
+    required: false
+    label: Machine Agent enableContainerAsHostID
+    group: "AppDynamics Machine Agent Instrumentation"
+  - variable: agent.netviz
+    default: false
+    description: "Machine Agent NetViz enable"
+    type: boolean
+    required: false
+    label: Machine Agent NetViz enable
+    group: "AppDynamics Machine Agent Instrumentation"
+  - variable: analytics.eventEndpoint
+    default: "https://analytics.api.appdynamics.com"
+    description: "Machine Agent Analytics Endpoint"
+    type: string
+    required: false
+    label: Machine Agent Analytics Endpoint
+    group: "AppDynamics Machine Agent Analytics Instrumentation"
+  - variable: analytics.port
+    default: 9000
+    description: "Machine Agent Analytics Port"
+    type: int
+    required: false
+    label: Machine Agent Analytics Port
+    group: "AppDynamics Machine Agent Analytics Instrumentation"
+
+
+serviceAccount:
+  create: true
+  name: appdynamics
+
+rbac:
+  create: true
+
+openshift:
+  scc: true
