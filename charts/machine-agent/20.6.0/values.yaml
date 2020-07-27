@@ -33,7 +33,7 @@ daemonset:
         fieldPath: spec.nodeName
 
 controller:
-  host: <tenant>.saas.appdynamics.com
+  dns: <tenant>.saas.appdynamics.com
   port: 443
   ssl:  true
   accountName: customer1
