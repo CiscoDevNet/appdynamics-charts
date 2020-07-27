@@ -75,4 +75,4 @@ rbac:
   create: true
 
 openshift:
-  scc: true
+  scc: false
