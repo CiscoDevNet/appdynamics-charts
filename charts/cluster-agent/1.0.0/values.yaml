@@ -1,7 +1,7 @@
 deployment:
   image:
     repository: docker.io/appdynamics/cluster-agent
-    tag: latest
+    tag: 20.7.0
     pullPolicy: Always
   envValueFrom:
     APPDYNAMICS_AGENT_NODE_NAME:
