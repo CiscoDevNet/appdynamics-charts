@@ -11,6 +11,13 @@ questions:
     required: true
     label: AppDynamics Account
     group: "AppDynamics Controller Settings"
+  - variable: controller.globalAccountName
+    default: "<APPD GLOBAL ACCOUNT NAME>"
+    description: "Name of your Global AppDynamics Account"
+    type: string
+    required: true
+    label: AppDynamics Account
+    group: "AppDynamics Controller Settings"
   - variable: controller.accessKey
     default: "<APPD ACCESS KEY>"
     description: "AppDynamics Access Key"
