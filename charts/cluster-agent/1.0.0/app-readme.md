@@ -9,3 +9,4 @@ This chart deploys AppDynamics ClusterAgent for monitoring your Rancher Kubernet
 * Kubernetes 1.13+ 
 * Kubernetes [Metrics server](https://hub.helm.sh/charts/stable/metrics-server) installed (default with Rancher)
 * An AppDynamics account. AppDynamics offers a [free trial](https://www.appdynamics.com/free-trial/)
+

@@ -53,7 +53,7 @@ agent:
 
 
 serviceAccount:
-  name: appdynamics-cluster-agent
+  name: appdynamics
 
 metrics-server:
-  install: true
+  install: false
