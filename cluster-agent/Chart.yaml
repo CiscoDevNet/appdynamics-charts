@@ -5,9 +5,9 @@ description: Sophisticated helm chart to deploy cluster agent is addition with a
 home: https://appdynamics.com
 icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
 
-version: 0.1.5
+version: 0.1.6
 
-appVersion: 20.7.0
+appVersion: 20.8.0
 
 dependencies:
   - name: metrics-server

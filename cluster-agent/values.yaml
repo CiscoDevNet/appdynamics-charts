@@ -4,7 +4,7 @@ deploymentMode: MASTER
 # Docker images
 imageInfo:
   agentImage: docker.io/appdynamics/cluster-agent
-  agentTag: 20.7.0
+  agentTag: 20.8.0
   operatorImage: docker.io/appdynamics/cluster-agent-operator
   operatorTag: 0.5.2
   imagePullPolicy: Always                               # Will be used for operator pod
