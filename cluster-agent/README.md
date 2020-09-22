@@ -16,9 +16,10 @@ imageInfo:
 controllerInfo:
   url: <controller-url>
   account: <controller-account>
-  username: <controller-username>
-  password: <controller-password>
-  accessKey: <controller-accesskey>
+  secret:
+    username: <controller-username>
+    password: <controller-password>
+    accessKey: <controller-accesskey>
 
 agentServiceAccount: appdynamics-cluster-agent
 operatorServiceAccount: appdynamics-operator
@@ -27,6 +28,15 @@ operatorServiceAccount: appdynamics-operator
 ```bash
 helm install cluster-agent appdynamics-charts/cluster-agent -f <values-file>.yaml --namespace appdynamics
 ```
+### Creating your own secret:
+If you want to create the cluster-agent-secret yourself you can set the following option to false:
+```yaml
+controllerInfo:
+  secret:
+    create: false
+```
+You will need to make sure you create the cluster-agent-secret following the same format/specs as the one in this project.
+
 ### Note:
 For more details and config options please visit official documentation
 [https://docs.appdynamics.com/display/PRO45/Deploy+the+Cluster+Agent+with+Helm+Charts](https://docs.appdynamics.com/display/PRO45/Deploy+the+Cluster+Agent+with+Helm+Charts)

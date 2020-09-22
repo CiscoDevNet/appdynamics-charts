@@ -13,9 +13,13 @@ imageInfo:
 controllerInfo:
   url: null
   account: null
-  username: null
-  password: null
-  accessKey: null
+  
+  # Want to bring your own secret then change create to false and follow docs
+  secret:
+    create: true
+    username: null
+    password: null
+    accessKey: null
   
   # SSL properties
   customSSLCert: null
