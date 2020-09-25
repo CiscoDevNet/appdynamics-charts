@@ -4,17 +4,17 @@ metadata:
   name: {{ printf "%s-%s" .Release.Name "appdynamics-cluster-agent" | trunc 63 }}
   namespace: {{ .Release.Namespace }}
 spec:
-  appName: {{ .Values.clusterAgent.appName | default (cat .Release.Name "-appdynamics" | nospace) }}
+  appName: {{ .Values.clusterAgent.appName | default (cat .Release.Name "-" .Release.Namespace | nospace) }}
   controllerUrl: {{ required "AppDynamics controller URL is required!" .Values.controllerInfo.url }}
   account: {{ required "AppDynamics controller account is required!" .Values.controllerInfo.account }}
   image: {{ .Values.imageInfo.agentImage }}:{{ .Values.imageInfo.agentTag }}
   serviceAccountName: {{ .Values.agentServiceAccount }}
-  
+
   {{ if .Values.controllerInfo.customSSLCert -}}
   # Custom SSL config
-  customSSLSecret: cluster-agent-ssl-cert   
+  customSSLSecret: cluster-agent-ssl-cert
   {{- end }}
-  
+
   {{ with .Values.controllerInfo -}}
   {{ if .proxyUrl -}}
   # Proxy config
@@ -27,26 +27,32 @@ spec:
 
   # Ad-Hoc properties
   {{ with .Values.clusterAgent -}}
-  nsToMonitor: 
+  nsToMonitor:
   {{- toYaml .nsToMonitor | nindent 4 }}
+  {{ if .nsToMonitorRegex -}}
+  nsToMonitorRegex: {{ .nsToMonitorRegex }}
+  {{- end }}
+  {{ if .nsToExcludeRegex -}}
+  nsToExcludeRegex: {{ .nsToExcludeRegex }}
+  {{- end }}
   clusterMetricsSyncInterval: {{ .clusterMetricsSyncInterval }}
   metadataSyncInterval: {{ .metadataSyncInterval }}
   eventUploadInterval: {{ .eventUploadInterval }}
   httpClientTimeout: {{ .httpClientTimeout }}
   podBatchSize: {{ .podBatchSize }}
-  
+
   # Container specific properties
-  {{ with .containerProperties -}}  
+  {{ with .containerProperties -}}
   containerBatchSize: {{ .containerBatchSize }}
   #containerParallelRequestLimit: {{ .containerParallelRequestLimit }}
   containerRegistrationInterval: {{ .containerRegistrationInterval }}
   {{- end }}
- 
+
   # Metric specific properties
   {{ with .metricProperties -}}
   metricsSyncInterval: {{ .metricsSyncInterval }}
   metricUploadRetryCount: {{ .metricUploadRetryCount }}
-  metricUploadRetryIntervalMilliSeconds: {{ .metricUploadRetryIntervalMilliSeconds }} 
+  metricUploadRetryIntervalMilliSeconds: {{ .metricUploadRetryIntervalMilliSeconds }}
   {{- end }}
 
   # Log specific properties
@@ -55,15 +61,15 @@ spec:
   logFileBackups: {{ .logFileBackups }}
   logLevel: {{ .logLevel }}
   {{- end }}
-  
+
   {{ if .imagePullSecret -}}
   # Image pull secret
   imagePullSecret: {{ .imagePullSecret }}
   {{- end }}
   {{- end }}
-  
+
   # Pod filter properties
-  podFilter: 
+  podFilter:
   {{- toYaml .Values.podFilter | nindent 4 }}
 
   # Node selector
@@ -89,7 +95,7 @@ spec:
   {{ if .defaultInstrumentMatchString -}}
   defaultInstrumentMatchString: {{ .defaultInstrumentMatchString }}
   {{- end }}
-  {{ if .defaultCustomConfig -}} 
+  {{ if .defaultCustomConfig -}}
   defaultCustomConfig: {{ .defaultCustomConfig }}
   {{- end }}
   {{ if .appNameStrategy -}}
@@ -99,7 +105,7 @@ spec:
   appNameLabel: {{ .appNameLabel }}
   {{- end }}
   {{ if .imageInfo -}}
-  imageInfo: 
+  imageInfo:
   {{- toYaml .imageInfo | nindent 4}}
   {{- end }}
   {{ if .instrumentationMethod -}}
@@ -110,14 +116,14 @@ spec:
   {{- toYaml .resourcesToInstrument | nindent 4 }}
   {{- end }}
   {{ if .instrumentationRules -}}
-  instrumentationRules: 
+  instrumentationRules:
   {{- toYaml .instrumentationRules | nindent 4 }}
   {{- end }}
   {{ if .nsToInstrumentRegex -}}
   nsToInstrumentRegex: {{ .nsToInstrumentRegex }}
   {{- end }}
   {{ if .netvizInfo -}}
-  netvizInfo: 
+  netvizInfo:
   {{- toYaml .netvizInfo | nindent 4 }}
   {{- end }}
   {{ if .runAsUser -}}
@@ -125,6 +131,21 @@ spec:
   {{- end }}
   {{ if .runAsGroup -}}
   runAsGroup: {{ .runAsGroup }}
+  {{- end }}
+  {{ if .imagePullPolicy -}}
+  imagePullPolicy: {{ .imagePullPolicy }}
+  {{- end }}
+  {{ if .numberOfTaskWorkers -}}
+  numberOfTaskWorkers: {{ .numberOfTaskWorkers }}
+  {{- end }}
+  {{ if .defaultAnalyticsHost -}}
+  defaultAnalyticsHost: {{ .defaultAnalyticsHost }}
+  {{- end }}
+  {{ if .defaultAnalyticsPort -}}
+  defaultAnalyticsPort: {{ .defaultAnalyticsPort }}
+  {{- end }}
+  {{ if .defaultAnalyticsSslEnabled -}}
+  defaultAnalyticsSslEnabled: {{ .defaultAnalyticsSslEnabled }}
   {{- end }}
   {{ end -}}
   {{ end -}}

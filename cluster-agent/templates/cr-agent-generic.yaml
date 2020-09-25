@@ -18,6 +18,7 @@ rules:
       - services
       - configmaps
       - secrets
+      - replicationcontrollers
     verbs:
       - get
       - watch
