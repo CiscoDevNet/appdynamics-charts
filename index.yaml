@@ -2,6 +2,35 @@ apiVersion: v1
 entries:
   cluster-agent:
   - apiVersion: v2
+    appVersion: 20.10.0
+    created: "2020-10-23T20:43:03.204700197Z"
+    dependencies:
+    - condition: install.metrics-server
+      name: metrics-server
+      repository: https://kubernetes-charts.storage.googleapis.com
+      version: 2.11.1
+    description: Sophisticated helm chart to deploy cluster agent is addition with
+      advanced features like multiple cluster agent deployments, Granular control
+      over config with intuitive boolean switches.
+    digest: 5464c7ac6bab61f0a9ed8868ea86b6dda89c236db025cd6caa9ddb98e1a148b5
+    home: https://appdynamics.com
+    icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+    keywords:
+    - appdynamics
+    - cluster
+    - kubernetes
+    - openshift
+    - monitoring
+    - pod
+    - deployment
+    maintainers:
+    - email: support@appdynamics.com
+      name: AppDynamics
+    name: cluster-agent
+    urls:
+    - https://appdynamics.github.io/appdynamics-charts/cluster-agent-0.1.9.tgz
+    version: 0.1.9
+  - apiVersion: v2
     appVersion: 20.9.1
     created: "2020-09-30T10:44:36.18167184Z"
     dependencies:
@@ -359,4 +388,4 @@ entries:
     urls:
     - https://appdynamics.github.io/appdynamics-charts/machine-agent-0.2.2.tgz
     version: 0.2.2
-generated: "2020-09-30T10:44:36.177550248Z"
+generated: "2020-10-23T20:43:03.203119559Z"
