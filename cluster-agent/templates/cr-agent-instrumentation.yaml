@@ -10,6 +10,7 @@ rules:
       - pods
       - pods/exec
       - secrets
+      - configmaps
     verbs:
       - create
       - update

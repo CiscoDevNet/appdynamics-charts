@@ -90,7 +90,8 @@ spec:
   defaultEnv: {{ .defaultEnv }}
   {{- end }}
   {{ if .defaultInstrumentationLabelMatch -}}
-  defaultInstrumentationLabelMatch: {{ .defaultInstrumentationLabelMatch }}
+  defaultInstrumentationLabelMatch:
+  {{- toYaml .defaultInstrumentationLabelMatch | nindent 4 }}
   {{- end }}
   {{ if .defaultInstrumentMatchString -}}
   defaultInstrumentMatchString: {{ .defaultInstrumentMatchString }}
@@ -131,9 +132,6 @@ spec:
   {{- end }}
   {{ if .runAsGroup -}}
   runAsGroup: {{ .runAsGroup }}
-  {{- end }}
-  {{ if .imagePullPolicy -}}
-  imagePullPolicy: {{ .imagePullPolicy }}
   {{- end }}
   {{ if .numberOfTaskWorkers -}}
   numberOfTaskWorkers: {{ .numberOfTaskWorkers }}
