@@ -4,9 +4,9 @@ deploymentMode: MASTER
 # Docker images
 imageInfo:
   agentImage: docker.io/appdynamics/cluster-agent
-  agentTag: 20.10.0
+  agentTag: 20.11.0
   operatorImage: docker.io/appdynamics/cluster-agent-operator
-  operatorTag: 0.6.3
+  operatorTag: 0.6.5
   imagePullPolicy: Always                               # Will be used for operator pod
 
 # AppDynamics controller info (null VALUES TO BE PROVIDED BY THE USER)
@@ -65,11 +65,25 @@ instrumentationConfig:
 agentPod:
   nodeSelector: {}
   tolerations: []
+  resources:
+    limits:
+      cpu: "1250m"
+      memory: "300Mi"
+    requests:
+      cpu: "750m"
+      memory: "150Mi"
 
 # Operator pod specific properties
 operatorPod:
   nodeSelector: {}
   tolerations: []
+  resources:
+    limits:
+      cpu: 200m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 64Mi
 
 # Subcharts boolean install switches
 install:

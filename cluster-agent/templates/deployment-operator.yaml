@@ -30,12 +30,7 @@ spec:
             - appdynamics-operator
           imagePullPolicy: {{ .Values.imageInfo.imagePullPolicy }}
           resources:
-            limits:
-              cpu: 200m
-              memory: 128Mi
-            requests:
-              cpu: 100m
-              memory: 64Mi
+          {{- toYaml .Values.operatorPod.resources | nindent 12 }}
           env:
             - name: WATCH_NAMESPACE
               valueFrom:
