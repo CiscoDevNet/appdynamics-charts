@@ -11,8 +11,8 @@ appVersion: 20.12.0
 
 dependencies:
   - name: metrics-server
-    repository: https://kubernetes-charts.storage.googleapis.com
-    version: 2.11.1
+    repository: https://charts.helm.sh/stable/
+    version: 2.11.4
     condition: install.metrics-server
 
 maintainers:
