@@ -2,6 +2,33 @@ apiVersion: v1
 entries:
   cluster-agent:
   - apiVersion: v2
+    appVersion: 21.2.0
+    created: "2021-02-24T12:16:57.779746895Z"
+    dependencies:
+    - condition: install.metrics-server
+      name: metrics-server
+      repository: https://charts.helm.sh/stable/
+      version: 2.11.4
+    description: Sophisticated helm chart to deploy cluster agent is addition with advanced features like multiple cluster agent deployments, Granular control over config with intuitive boolean switches.
+    digest: 1c9b820c8d12b344b99ad592f996b681663703ffefd5922a35980e7a2ba535c1
+    home: https://appdynamics.com
+    icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+    keywords:
+    - appdynamics
+    - cluster
+    - kubernetes
+    - openshift
+    - monitoring
+    - pod
+    - deployment
+    maintainers:
+    - email: support@appdynamics.com
+      name: AppDynamics
+    name: cluster-agent
+    urls:
+    - https://appdynamics.github.io/appdynamics-charts/cluster-agent-0.1.14.tgz
+    version: 0.1.14
+  - apiVersion: v2
     appVersion: 20.12.1
     created: "2020-12-18T17:19:24.688976633Z"
     dependencies:
@@ -9,9 +36,7 @@ entries:
       name: metrics-server
       repository: https://charts.helm.sh/stable/
       version: 2.11.4
-    description: Sophisticated helm chart to deploy cluster agent is addition with
-      advanced features like multiple cluster agent deployments, Granular control
-      over config with intuitive boolean switches.
+    description: Sophisticated helm chart to deploy cluster agent is addition with advanced features like multiple cluster agent deployments, Granular control over config with intuitive boolean switches.
     digest: 8c6a6ae83cf06d597f4d71ee5623f4738cda2e7af3cd667eebead814c107f25c
     home: https://appdynamics.com
     icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
@@ -38,9 +63,7 @@ entries:
       name: metrics-server
       repository: https://charts.helm.sh/stable/
       version: 2.11.4
-    description: Sophisticated helm chart to deploy cluster agent is addition with
-      advanced features like multiple cluster agent deployments, Granular control
-      over config with intuitive boolean switches.
+    description: Sophisticated helm chart to deploy cluster agent is addition with advanced features like multiple cluster agent deployments, Granular control over config with intuitive boolean switches.
     digest: b8183b0c00fdcaf39e38aab80d321b79c721dfb661478d2290b5bfa5e1ec8e01
     home: https://appdynamics.com
     icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
@@ -67,9 +90,7 @@ entries:
       name: metrics-server
       repository: https://kubernetes-charts.storage.googleapis.com
       version: 2.11.1
-    description: Sophisticated helm chart to deploy cluster agent is addition with
-      advanced features like multiple cluster agent deployments, Granular control
-      over config with intuitive boolean switches.
+    description: Sophisticated helm chart to deploy cluster agent is addition with advanced features like multiple cluster agent deployments, Granular control over config with intuitive boolean switches.
     digest: c24bf12c8bc1a919410f07fa33a4660c413575cf57a083d7a4bdc4da50cbf2c1
     home: https://appdynamics.com
     icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
@@ -96,9 +117,7 @@ entries:
       name: metrics-server
       repository: https://kubernetes-charts.storage.googleapis.com
       version: 2.11.1
-    description: Sophisticated helm chart to deploy cluster agent is addition with
-      advanced features like multiple cluster agent deployments, Granular control
-      over config with intuitive boolean switches.
+    description: Sophisticated helm chart to deploy cluster agent is addition with advanced features like multiple cluster agent deployments, Granular control over config with intuitive boolean switches.
     digest: 5464c7ac6bab61f0a9ed8868ea86b6dda89c236db025cd6caa9ddb98e1a148b5
     home: https://appdynamics.com
     icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
@@ -125,9 +144,7 @@ entries:
       name: metrics-server
       repository: https://kubernetes-charts.storage.googleapis.com
       version: 2.11.1
-    description: Sophisticated helm chart to deploy cluster agent is addition with
-      advanced features like multiple cluster agent deployments, Granular control
-      over config with intuitive boolean switches.
+    description: Sophisticated helm chart to deploy cluster agent is addition with advanced features like multiple cluster agent deployments, Granular control over config with intuitive boolean switches.
     digest: bcfc2dbbb47ee8f217cd4cc105875b72bdd793385fe40422a1789116f4fbb8e3
     home: https://appdynamics.com
     icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
@@ -154,9 +171,7 @@ entries:
       name: metrics-server
       repository: https://kubernetes-charts.storage.googleapis.com
       version: 2.11.1
-    description: Sophisticated helm chart to deploy cluster agent is addition with
-      advanced features like multiple cluster agent deployments, Granular control
-      over config with intuitive boolean switches.
+    description: Sophisticated helm chart to deploy cluster agent is addition with advanced features like multiple cluster agent deployments, Granular control over config with intuitive boolean switches.
     digest: f535c39e1e67726d3cfc8f06c21ea04a5eeb76b296c17ac3e27d201ada9ba08e
     home: https://appdynamics.com
     icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
@@ -183,9 +198,7 @@ entries:
       name: metrics-server
       repository: https://kubernetes-charts.storage.googleapis.com
       version: 2.11.1
-    description: Sophisticated helm chart to deploy cluster agent is addition with
-      advanced features like multiple cluster agent deployments, Granular control
-      over config with intuitive boolean switches.
+    description: Sophisticated helm chart to deploy cluster agent is addition with advanced features like multiple cluster agent deployments, Granular control over config with intuitive boolean switches.
     digest: bddfea50da4e5222dc2fcde874a223efd8558d6309f9833b2ae1dfd175dc1a23
     home: https://appdynamics.com
     icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
@@ -212,9 +225,7 @@ entries:
       name: metrics-server
       repository: https://kubernetes-charts.storage.googleapis.com
       version: 2.11.1
-    description: Sophisticated helm chart to deploy cluster agent is addition with
-      advanced features like multiple cluster agent deployments, Granular control
-      over config with intuitive boolean switches.
+    description: Sophisticated helm chart to deploy cluster agent is addition with advanced features like multiple cluster agent deployments, Granular control over config with intuitive boolean switches.
     digest: 310264f48b2ebb5a9ba0e23ce6cb45809caddead39a7a94a82b616ce0f8ae4a4
     home: https://appdynamics.com
     icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
@@ -475,4 +486,4 @@ entries:
     urls:
     - https://appdynamics.github.io/appdynamics-charts/machine-agent-0.2.2.tgz
     version: 0.2.2
-generated: "2020-12-18T17:19:24.687381536Z"
+generated: "2021-02-24T12:16:57.778182395Z"
