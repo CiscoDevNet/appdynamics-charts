@@ -1,12 +1,12 @@
-# Cluster agent deployment mode (MASTER | NAMESPACED)
-deploymentMode: MASTER
+# Cluster agent deployment mode (PRIMARY | NAMESPACED)
+deploymentMode: PRIMARY
 
 # Docker images
 imageInfo:
   agentImage: docker.io/appdynamics/cluster-agent
-  agentTag: 20.12.1
+  agentTag: 21.2.0
   operatorImage: docker.io/appdynamics/cluster-agent-operator
-  operatorTag: 0.6.6
+  operatorTag: 0.6.7
   imagePullPolicy: Always                               # Will be used for operator pod
 
 # AppDynamics controller info (null VALUES TO BE PROVIDED BY THE USER)

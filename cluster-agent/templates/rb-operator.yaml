@@ -1,5 +1,5 @@
 {{ $mode := .Values.deploymentMode }}
-{{ if or (eq $mode "MASTER") (eq $mode "NAMESPACED") -}}
+{{ if or (eq $mode "PRIMARY") (eq $mode "NAMESPACED") -}}
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:

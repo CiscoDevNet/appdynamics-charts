@@ -1,12 +1,12 @@
 {{ $agentSA := .Values.agentServiceAccount }}
 {{ $namespace := .Release.Namespace }}
 {{ if and (eq .Values.deploymentMode "NAMESPACED") .Values.instrumentationConfig.enabled -}}
-{{ fail "Instrumentation is only allowed in MASTER mode! Set instrumentationConfig.enabled: false" }}
+{{ fail "Instrumentation is only allowed in PRIMARY mode! Set instrumentationConfig.enabled: false" }}
 {{ end -}}
-{{ if eq .Values.deploymentMode "MASTER" -}}
+{{ if eq .Values.deploymentMode "PRIMARY" -}}
 {{ range $index, $subject := (lookup "rbac.authorization.k8s.io/v1" "ClusterRoleBinding" "" "appdynamics-cluster-agent-instrumentation").subjects }}
 {{ if ne $subject.namespace $namespace }}
-{{ printf "%s: %s" "There is already a MASTER cluster agent running in namespace" $subject.namespace | fail }}
+{{ printf "%s: %s" "There is already a PRIMARY cluster agent running in namespace" $subject.namespace | fail }}
 {{ end }}
 {{ end -}}
 kind: ClusterRoleBinding

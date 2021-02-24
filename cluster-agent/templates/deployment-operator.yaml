@@ -1,5 +1,5 @@
 {{ $mode := .Values.deploymentMode -}}
-{{ if or (eq $mode "MASTER") (eq $mode "NAMESPACED") -}}
+{{ if or (eq $mode "PRIMARY") (eq $mode "NAMESPACED") -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
