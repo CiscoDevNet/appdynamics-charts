@@ -4,7 +4,7 @@ deploymentMode: PRIMARY
 # Docker images
 imageInfo:
   agentImage: docker.io/appdynamics/cluster-agent
-  agentTag: 21.3.0
+  agentTag: 21.3.1
   operatorImage: docker.io/appdynamics/cluster-agent-operator
   operatorTag: 0.6.8
   imagePullPolicy: Always                               # Will be used for operator pod
