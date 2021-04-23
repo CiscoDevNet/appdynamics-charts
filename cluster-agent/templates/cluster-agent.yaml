@@ -27,10 +27,15 @@ spec:
 
   # Ad-Hoc properties
   {{ with .Values.clusterAgent -}}
+  {{- if and .nsToMonitor .nsToMonitorRegex }}
+  {{ fail "\n\nERROR: Only one of nsToMonitor or nsToMonitorRegex permitted!" }}
+  {{ else if .nsToMonitor -}}
   nsToMonitor:
   {{- toYaml .nsToMonitor | nindent 4 }}
-  {{ if .nsToMonitorRegex -}}
+  {{ else if .nsToMonitorRegex -}}
   nsToMonitorRegex: {{ .nsToMonitorRegex }}
+  {{ else -}}
+  {{ fail "\n\nERROR: One of nsToMonitor or nsToMonitorRegex must be set!" }}
   {{- end }}
   {{ if .nsToExcludeRegex -}}
   nsToExcludeRegex: {{ .nsToExcludeRegex }}
