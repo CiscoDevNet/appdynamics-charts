@@ -33,14 +33,13 @@ operatorServiceAccount: appdynamics-operator
 
 # Cluster agent config
 clusterAgent:
-  # Set appName to identify cluster where installed
-  appName:
+  #set appName to identify cluster where installed or leave default
+  appName: null
   # Choose specific namespaces to monitor or capture with Regex
   # Either nsToMonitor or nsToMonitorRegex must be set
   nsToMonitor:
     - default
-   # - myNamespace
-  #nsToMonitorRegex: .*
+  nsToMonitorRegex: null
   clusterMetricsSyncInterval: 60
   metadataSyncInterval: 60
   eventUploadInterval: 10
