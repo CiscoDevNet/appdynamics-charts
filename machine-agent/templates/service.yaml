@@ -10,9 +10,9 @@ metadata:
 spec:
   ports:
     - port: {{ .Values.analytics.port }}
-      targetPort: http
+      targetPort: {{ .Values.analytics.port }}
       protocol: TCP
-      name: http
+      name: analytics
   selector:
-    app.kubernetes.io/name: {{ include "machine-agent.name" . }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
+    app: {{ include "machine-agent.name" . }}
+    release: {{ .Release.Name }}
