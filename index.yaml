@@ -12,7 +12,7 @@ entries:
     description: Sophisticated helm chart to deploy cluster agent is addition with advanced features like multiple cluster agent deployments, Granular control over config with intuitive boolean switches.
     digest: 369147489f8a65a04845ed27ff3e9643eb259722b5859b26e58f576890cefae9
     home: https://appdynamics.com
-    icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+    icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
     keywords:
     - appdynamics
     - cluster
@@ -26,7 +26,7 @@ entries:
       name: AppDynamics
     name: cluster-agent
     urls:
-    - https://appdynamics.github.io/appdynamics-charts/cluster-agent-0.1.17.tgz
+    - https://ciscodevnet.github.io/appdynamics-charts/cluster-agent-0.1.17.tgz
     version: 0.1.17
   - apiVersion: v2
     appVersion: 21.3.1
@@ -39,7 +39,7 @@ entries:
     description: Sophisticated helm chart to deploy cluster agent is addition with advanced features like multiple cluster agent deployments, Granular control over config with intuitive boolean switches.
     digest: 09f1f9e3ccd7e9ad064676b8d761c17ca4c8ee8575ba18043f37aba641ee5e44
     home: https://appdynamics.com
-    icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+    icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
     keywords:
     - appdynamics
     - cluster
@@ -53,7 +53,7 @@ entries:
       name: AppDynamics
     name: cluster-agent
     urls:
-    - https://appdynamics.github.io/appdynamics-charts/cluster-agent-0.1.16.tgz
+    - https://ciscodevnet.github.io/appdynamics-charts/cluster-agent-0.1.16.tgz
     version: 0.1.16
   - apiVersion: v2
     appVersion: 21.3.0
@@ -66,7 +66,7 @@ entries:
     description: Sophisticated helm chart to deploy cluster agent is addition with advanced features like multiple cluster agent deployments, Granular control over config with intuitive boolean switches.
     digest: 8cd45dd61797d20525bcbe809c68f3519ae1f27b3215f425b2915301faeb3306
     home: https://appdynamics.com
-    icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+    icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
     keywords:
     - appdynamics
     - cluster
@@ -80,7 +80,7 @@ entries:
       name: AppDynamics
     name: cluster-agent
     urls:
-    - https://appdynamics.github.io/appdynamics-charts/cluster-agent-0.1.15.tgz
+    - https://ciscodevnet.github.io/appdynamics-charts/cluster-agent-0.1.15.tgz
     version: 0.1.15
   - apiVersion: v2
     appVersion: 21.2.0
@@ -93,7 +93,7 @@ entries:
     description: Sophisticated helm chart to deploy cluster agent is addition with advanced features like multiple cluster agent deployments, Granular control over config with intuitive boolean switches.
     digest: 1c9b820c8d12b344b99ad592f996b681663703ffefd5922a35980e7a2ba535c1
     home: https://appdynamics.com
-    icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+    icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
     keywords:
     - appdynamics
     - cluster
@@ -107,7 +107,7 @@ entries:
       name: AppDynamics
     name: cluster-agent
     urls:
-    - https://appdynamics.github.io/appdynamics-charts/cluster-agent-0.1.14.tgz
+    - https://ciscodevnet.github.io/appdynamics-charts/cluster-agent-0.1.14.tgz
     version: 0.1.14
   - apiVersion: v2
     appVersion: 20.12.1
@@ -120,7 +120,7 @@ entries:
     description: Sophisticated helm chart to deploy cluster agent is addition with advanced features like multiple cluster agent deployments, Granular control over config with intuitive boolean switches.
     digest: 8c6a6ae83cf06d597f4d71ee5623f4738cda2e7af3cd667eebead814c107f25c
     home: https://appdynamics.com
-    icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+    icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
     keywords:
     - appdynamics
     - cluster
@@ -134,7 +134,7 @@ entries:
       name: AppDynamics
     name: cluster-agent
     urls:
-    - https://appdynamics.github.io/appdynamics-charts/cluster-agent-0.1.12.tgz
+    - https://ciscodevnet.github.io/appdynamics-charts/cluster-agent-0.1.12.tgz
     version: 0.1.12
   - apiVersion: v2
     appVersion: 20.12.0
@@ -147,7 +147,7 @@ entries:
     description: Sophisticated helm chart to deploy cluster agent is addition with advanced features like multiple cluster agent deployments, Granular control over config with intuitive boolean switches.
     digest: b8183b0c00fdcaf39e38aab80d321b79c721dfb661478d2290b5bfa5e1ec8e01
     home: https://appdynamics.com
-    icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+    icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
     keywords:
     - appdynamics
     - cluster
@@ -161,7 +161,7 @@ entries:
       name: AppDynamics
     name: cluster-agent
     urls:
-    - https://appdynamics.github.io/appdynamics-charts/cluster-agent-0.1.11.tgz
+    - https://ciscodevnet.github.io/appdynamics-charts/cluster-agent-0.1.11.tgz
     version: 0.1.11
   - apiVersion: v2
     appVersion: 20.11.0
@@ -174,7 +174,7 @@ entries:
     description: Sophisticated helm chart to deploy cluster agent is addition with advanced features like multiple cluster agent deployments, Granular control over config with intuitive boolean switches.
     digest: c24bf12c8bc1a919410f07fa33a4660c413575cf57a083d7a4bdc4da50cbf2c1
     home: https://appdynamics.com
-    icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+    icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
     keywords:
     - appdynamics
     - cluster
@@ -188,7 +188,7 @@ entries:
       name: AppDynamics
     name: cluster-agent
     urls:
-    - https://appdynamics.github.io/appdynamics-charts/cluster-agent-0.1.10.tgz
+    - https://ciscodevnet.github.io/appdynamics-charts/cluster-agent-0.1.10.tgz
     version: 0.1.10
   - apiVersion: v2
     appVersion: 20.10.0
@@ -201,7 +201,7 @@ entries:
     description: Sophisticated helm chart to deploy cluster agent is addition with advanced features like multiple cluster agent deployments, Granular control over config with intuitive boolean switches.
     digest: 5464c7ac6bab61f0a9ed8868ea86b6dda89c236db025cd6caa9ddb98e1a148b5
     home: https://appdynamics.com
-    icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+    icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
     keywords:
     - appdynamics
     - cluster
@@ -215,7 +215,7 @@ entries:
       name: AppDynamics
     name: cluster-agent
     urls:
-    - https://appdynamics.github.io/appdynamics-charts/cluster-agent-0.1.9.tgz
+    - https://ciscodevnet.github.io/appdynamics-charts/cluster-agent-0.1.9.tgz
     version: 0.1.9
   - apiVersion: v2
     appVersion: 20.9.1
@@ -228,7 +228,7 @@ entries:
     description: Sophisticated helm chart to deploy cluster agent is addition with advanced features like multiple cluster agent deployments, Granular control over config with intuitive boolean switches.
     digest: bcfc2dbbb47ee8f217cd4cc105875b72bdd793385fe40422a1789116f4fbb8e3
     home: https://appdynamics.com
-    icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+    icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
     keywords:
     - appdynamics
     - cluster
@@ -242,7 +242,7 @@ entries:
       name: AppDynamics
     name: cluster-agent
     urls:
-    - https://appdynamics.github.io/appdynamics-charts/cluster-agent-0.1.8.tgz
+    - https://ciscodevnet.github.io/appdynamics-charts/cluster-agent-0.1.8.tgz
     version: 0.1.8
   - apiVersion: v2
     appVersion: 20.9.0
@@ -255,7 +255,7 @@ entries:
     description: Sophisticated helm chart to deploy cluster agent is addition with advanced features like multiple cluster agent deployments, Granular control over config with intuitive boolean switches.
     digest: f535c39e1e67726d3cfc8f06c21ea04a5eeb76b296c17ac3e27d201ada9ba08e
     home: https://appdynamics.com
-    icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+    icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
     keywords:
     - appdynamics
     - cluster
@@ -269,7 +269,7 @@ entries:
       name: AppDynamics
     name: cluster-agent
     urls:
-    - https://appdynamics.github.io/appdynamics-charts/cluster-agent-0.1.7.tgz
+    - https://ciscodevnet.github.io/appdynamics-charts/cluster-agent-0.1.7.tgz
     version: 0.1.7
   - apiVersion: v2
     appVersion: 20.8.0
@@ -282,7 +282,7 @@ entries:
     description: Sophisticated helm chart to deploy cluster agent is addition with advanced features like multiple cluster agent deployments, Granular control over config with intuitive boolean switches.
     digest: bddfea50da4e5222dc2fcde874a223efd8558d6309f9833b2ae1dfd175dc1a23
     home: https://appdynamics.com
-    icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+    icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
     keywords:
     - appdynamics
     - cluster
@@ -296,7 +296,7 @@ entries:
       name: AppDynamics
     name: cluster-agent
     urls:
-    - https://appdynamics.github.io/appdynamics-charts/cluster-agent-0.1.6.tgz
+    - https://ciscodevnet.github.io/appdynamics-charts/cluster-agent-0.1.6.tgz
     version: 0.1.6
   - apiVersion: v2
     appVersion: 20.7.0
@@ -309,7 +309,7 @@ entries:
     description: Sophisticated helm chart to deploy cluster agent is addition with advanced features like multiple cluster agent deployments, Granular control over config with intuitive boolean switches.
     digest: 310264f48b2ebb5a9ba0e23ce6cb45809caddead39a7a94a82b616ce0f8ae4a4
     home: https://appdynamics.com
-    icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+    icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
     keywords:
     - appdynamics
     - cluster
@@ -323,7 +323,7 @@ entries:
       name: AppDynamics
     name: cluster-agent
     urls:
-    - https://appdynamics.github.io/appdynamics-charts/cluster-agent-0.1.5.tgz
+    - https://ciscodevnet.github.io/appdynamics-charts/cluster-agent-0.1.5.tgz
     version: 0.1.5
   - apiVersion: v1
     appVersion: 4.5.16
@@ -331,7 +331,7 @@ entries:
     description: Helm chart to deploy AppDynamics ClusterAgent for Kubernetes
     digest: 875e0b99360648d2a9bc5caab2b8fc62c2dcf0f41fa7bec49dd69af7b8753a1b
     home: https://www.appdynamics.com/
-    icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+    icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
     keywords:
     - appdynamics
     - monitoring
@@ -342,9 +342,9 @@ entries:
       name: AppDynamics
     name: cluster-agent
     sources:
-    - https://github.com/Appdynamics/cluster-agent/blob/master/build/Dockerfile
+    - https://github.com/CiscoDevNet/appdynamics-docker-images/blob/master/appd-cluster-agent/Dockerfile
     urls:
-    - https://appdynamics.github.io/appdynamics-charts/cluster-agent-0.1.4.tgz
+    - https://ciscodevnet.github.io/appdynamics-charts/cluster-agent-0.1.4.tgz
     version: 0.1.4
   - apiVersion: v1
     appVersion: 0.1.5
@@ -352,7 +352,7 @@ entries:
     description: Helm chart to deploy AppDynamics ClusterAgent for Kubernetes
     digest: 724d3e4d03059a41c3644f18c7c2f61c3699462c433f344a2f993d395aa71d3b
     home: https://www.appdynamics.com/
-    icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+    icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
     keywords:
     - appdynamics
     - monitoring
@@ -363,9 +363,9 @@ entries:
       name: sashaPM
     name: cluster-agent
     sources:
-    - https://github.com/Appdynamics/cluster-agent/blob/master/build/Dockerfile
+    - https://github.com/CiscoDevNet/appdynamics-docker-images/blob/master/appd-cluster-agent/Dockerfile
     urls:
-    - https://appdynamics.github.io/appdynamics-charts/cluster-agent-0.1.3.tgz
+    - https://ciscodevnet.github.io/appdynamics-charts/cluster-agent-0.1.3.tgz
     version: 0.1.3
   - apiVersion: v1
     appVersion: 0.1.5
@@ -373,7 +373,7 @@ entries:
     description: Helm chart to deploy AppDynamics ClusterAgent for Kubernetes
     digest: e4a26cd3647127fd85258d4a0445073eaf238a440b78be62c6c7376c0fd10a4c
     home: https://www.appdynamics.com/
-    icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+    icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
     keywords:
     - appdynamics
     - monitoring
@@ -384,9 +384,9 @@ entries:
       name: sashaPM
     name: cluster-agent
     sources:
-    - https://github.com/Appdynamics/cluster-agent/blob/master/build/Dockerfile
+    - https://github.com/CiscoDevNet/appdynamics-docker-images/blob/master/appd-cluster-agent/Dockerfile
     urls:
-    - https://appdynamics.github.io/appdynamics-charts/cluster-agent-0.1.2.tgz
+    - https://ciscodevnet.github.io/appdynamics-charts/cluster-agent-0.1.2.tgz
     version: 0.1.2
   - apiVersion: v1
     appVersion: 0.1.5
@@ -394,7 +394,7 @@ entries:
     description: Helm chart to deploy AppDynamics ClusterAgent for Kubernetes
     digest: 1e7a7f6372fa8cbe9b6fc6085b9c39a259e6579e4e712b063f7f07d868f96554
     home: https://www.appdynamics.com/
-    icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+    icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
     keywords:
     - appdynamics
     - monitoring
@@ -405,9 +405,9 @@ entries:
       name: sashaPM
     name: cluster-agent
     sources:
-    - https://github.com/Appdynamics/cluster-agent/blob/master/build/Dockerfile
+    - https://github.com/CiscoDevNet/appdynamics-docker-images/blob/master/appd-cluster-agent/Dockerfile
     urls:
-    - https://appdynamics.github.io/appdynamics-charts/cluster-agent-0.1.1.tgz
+    - https://ciscodevnet.github.io/appdynamics-charts/cluster-agent-0.1.1.tgz
     version: 0.1.1
   machine-agent:
   - apiVersion: v1
@@ -416,7 +416,7 @@ entries:
     description: AppDynamics Machine Agent for infrastructure visibility
     digest: 4ebe4836c35b56528f8e62549f1d3ccf60ed3f80f89bb511e303660384115998
     home: https://www.appdynamics.com/
-    icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+    icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
     keywords:
     - appdynamics
     - monitoring
@@ -427,9 +427,9 @@ entries:
     name: machine-agent
     sources:
     - https://cloud.docker.com/u/appdynamics/repository/docker/appdynamics/machine-agent-analytics/general
-    - https://github.com/Appdynamics/appdynamics-docker-images/blob/master/appd-machine-agent-analytics/Dockerfile
+    - https://github.com/CiscoDevNet/appdynamics-docker-images/blob/master/appd-machine-agent-analytics/Dockerfile
     urls:
-    - https://appdynamics.github.io/appdynamics-charts/machine-agent-0.2.8.tgz
+    - https://ciscodevnet.github.io/appdynamics-charts/machine-agent-0.2.8.tgz
     version: 0.2.8
   - apiVersion: v1
     appVersion: 4.5.16
@@ -437,7 +437,7 @@ entries:
     description: AppDynamics Machine Agent for infrastructure visibility
     digest: efe504e43cc43477d0b71df6ab4b90ddf19acdfd305d865510c90d4013cdb9fe
     home: https://www.appdynamics.com/
-    icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+    icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
     keywords:
     - appdynamics
     - monitoring
@@ -448,9 +448,9 @@ entries:
     name: machine-agent
     sources:
     - https://cloud.docker.com/u/appdynamics/repository/docker/appdynamics/machine-agent-analytics/general
-    - https://github.com/Appdynamics/appdynamics-docker-images/blob/master/appd-machine-agent-analytics/Dockerfile
+    - https://github.com/CiscoDevNet/appdynamics-docker-images/blob/master/appd-machine-agent-analytics/Dockerfile
     urls:
-    - https://appdynamics.github.io/appdynamics-charts/machine-agent-0.2.7.tgz
+    - https://ciscodevnet.github.io/appdynamics-charts/machine-agent-0.2.7.tgz
     version: 0.2.7
   - apiVersion: v1
     appVersion: 4.5.14
@@ -458,7 +458,7 @@ entries:
     description: AppDynamics Machine Agent for infrastructure visibility
     digest: 8f95a9d09f70718e14022a7ae3d21143f1bb4dafba7481733f5457fef92022f6
     home: https://www.appdynamics.com/
-    icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+    icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
     keywords:
     - appdynamics
     - monitoring
@@ -471,9 +471,9 @@ entries:
     name: machine-agent
     sources:
     - https://cloud.docker.com/u/appdynamics/repository/docker/appdynamics/machine-agent-analytics/general
-    - https://github.com/Appdynamics/appdynamics-docker-images/blob/master/appd-machine-agent-analytics/Dockerfile
+    - https://github.com/CiscoDevNet/appdynamics-docker-images/blob/master/appd-machine-agent-analytics/Dockerfile
     urls:
-    - https://appdynamics.github.io/appdynamics-charts/machine-agent-0.2.6.tgz
+    - https://ciscodevnet.github.io/appdynamics-charts/machine-agent-0.2.6.tgz
     version: 0.2.6
   - apiVersion: v1
     appVersion: 4.5.11
@@ -481,7 +481,7 @@ entries:
     description: AppDynamics Machine Agent for infrastructure visibility
     digest: 6abd077efa43f9a9c3bc600eee8227505b492376f4cec83ae3f99acdaeec4508
     home: https://www.appdynamics.com/
-    icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+    icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
     keywords:
     - appdynamics
     - monitoring
@@ -494,9 +494,9 @@ entries:
     name: machine-agent
     sources:
     - https://cloud.docker.com/u/appdynamics/repository/docker/appdynamics/machine-agent-analytics/general
-    - https://github.com/Appdynamics/appdynamics-docker-images/blob/master/appd-machine-agent-analytics/Dockerfile
+    - https://github.com/CiscoDevNet/appdynamics-docker-images/blob/master/appd-machine-agent-analytics/Dockerfile
     urls:
-    - https://appdynamics.github.io/appdynamics-charts/machine-agent-0.2.5.tgz
+    - https://ciscodevnet.github.io/appdynamics-charts/machine-agent-0.2.5.tgz
     version: 0.2.5
   - apiVersion: v1
     appVersion: 4.5.11
@@ -504,7 +504,7 @@ entries:
     description: AppDynamics Machine Agent for infrastructure visibility
     digest: 1e646e23fb53641455522b8238a80eba58b6b480632b34340e22494cb9467c1e
     home: https://www.appdynamics.com/
-    icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+    icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
     keywords:
     - appdynamics
     - monitoring
@@ -517,9 +517,9 @@ entries:
     name: machine-agent
     sources:
     - https://cloud.docker.com/u/appdynamics/repository/docker/appdynamics/machine-agent-analytics/general
-    - https://github.com/Appdynamics/appdynamics-docker-images/blob/master/appd-machine-agent-analytics/Dockerfile
+    - https://github.com/CiscoDevNet/appdynamics-docker-images/blob/master/appd-machine-agent-analytics/Dockerfile
     urls:
-    - https://appdynamics.github.io/appdynamics-charts/machine-agent-0.2.4.tgz
+    - https://ciscodevnet.github.io/appdynamics-charts/machine-agent-0.2.4.tgz
     version: 0.2.4
   - apiVersion: v1
     appVersion: 4.5.11
@@ -527,7 +527,7 @@ entries:
     description: AppDynamics Machine Agent for infrastructure visibility
     digest: c7eaf87b9d4089abfd6eeb2478278a13d6f7b8e504a120f2954c5e9e82bd1772
     home: https://www.appdynamics.com/
-    icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+    icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
     keywords:
     - appdynamics
     - monitoring
@@ -540,9 +540,9 @@ entries:
     name: machine-agent
     sources:
     - https://cloud.docker.com/u/appdynamics/repository/docker/appdynamics/machine-agent-analytics/general
-    - https://github.com/Appdynamics/appdynamics-docker-images/blob/master/appd-machine-agent-analytics/Dockerfile
+    - https://github.com/CiscoDevNet/appdynamics-docker-images/blob/master/appd-machine-agent-analytics/Dockerfile
     urls:
-    - https://appdynamics.github.io/appdynamics-charts/machine-agent-0.2.3.tgz
+    - https://ciscodevnet.github.io/appdynamics-charts/machine-agent-0.2.3.tgz
     version: 0.2.3
   - apiVersion: v1
     appVersion: 4.5.9
@@ -550,7 +550,7 @@ entries:
     description: AppDynamics Machine Agent for infrastructure visibility
     digest: 1e3534adbc3ddbb119033e652e6f37c9b6a27dcf6ae12c48cc52a9971ea5b0bc
     home: https://www.appdynamics.com/
-    icon: https://raw.githubusercontent.com/Appdynamics/appdynamics-charts/master/logo.png
+    icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
     keywords:
     - appdynamics
     - monitoring
@@ -563,8 +563,8 @@ entries:
     name: machine-agent
     sources:
     - https://cloud.docker.com/u/appdynamics/repository/docker/appdynamics/machine-agent-analytics/general
-    - https://github.com/Appdynamics/appdynamics-docker-images/blob/master/appd-machine-agent-analytics/Dockerfile
+    - https://github.com/CiscoDevNet/appdynamics-docker-images/blob/master/appd-machine-agent-analytics/Dockerfile
     urls:
-    - https://appdynamics.github.io/appdynamics-charts/machine-agent-0.2.2.tgz
+    - https://ciscodevnet.github.io/appdynamics-charts/machine-agent-0.2.2.tgz
     version: 0.2.2
 generated: "2021-05-25T13:51:24.773345972Z"

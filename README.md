@@ -5,7 +5,7 @@ Welcome to the repository of Helm charts for deployments of AppDynamics agents.
 ## Get the repo
 
 ```
-$ helm repo add  appdynamics-charts https://appdynamics.github.io/appdynamics-charts
+$ helm repo add  appdynamics-charts https://ciscodevnet.github.io/appdynamics-charts
 ```
 
 ## Machine Agent
@@ -25,7 +25,7 @@ helm install --namespace=appdynamics \
 --set agent.netviz=true serverviz appdynamics-charts/machine-agent
 ```
 
-For detailed list of configuration settings refer to the [chart documentation](https://appdynamics.github.io/appdynamics-charts/machine-agent/)
+For detailed list of configuration settings refer to the [chart documentation](https://ciscodevnet.github.io/appdynamics-charts/machine-agent/)
 
 To remove the chart, run the following command:
 
@@ -45,7 +45,7 @@ helm install --namespace=appdynamics --set controller.dns=saas.appdynamics.com -
 
 ```
 
-For detailed list of configuration settings refer to the [chart documentation](https://appdynamics.github.io/appdynamics-charts/cluster-agent/)
+For detailed list of configuration settings refer to the [chart documentation](https://ciscodevnet.github.io/appdynamics-charts/cluster-agent/)
 
 To remove the chart, run the following command:
 

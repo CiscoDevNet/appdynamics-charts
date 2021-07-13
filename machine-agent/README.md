@@ -14,7 +14,7 @@ This chart deploys AppDynamics MachineAgent Daemonset to the cluster.
 * Get the repo:
 
 ```
-$ helm repo add  appdynamics-charts https://appdynamics.github.io/appdynamics-chart
+$ helm repo add  appdynamics-charts https://ciscodevnet.github.io/appdynamics-chart
 
 $ helm repo update
 

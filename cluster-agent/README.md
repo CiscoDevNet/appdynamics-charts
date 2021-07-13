@@ -2,7 +2,7 @@
 
 ### Add AppDynamics helm repo
 ```bash
-helm repo add appdynamics-charts https://appdynamics.github.io/appdynamics-charts
+helm repo add appdynamics-charts https://ciscodevnet.github.io/appdynamics-charts
 ```
 ### Create values yaml to override default ones
 ```yaml
