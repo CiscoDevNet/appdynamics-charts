@@ -80,6 +80,9 @@ spec:
   tolerations:
   {{- toYaml .Values.agentPod.tolerations | nindent 4 }}
 
+  labels:
+  {{- toYaml .Values.agentPod.labels | nindent 4 }}
+
   # Resources
   resources:
   {{- toYaml .Values.agentPod.resources | nindent 4 }}
