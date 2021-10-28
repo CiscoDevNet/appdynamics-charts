@@ -1,3 +1,4 @@
+{{ if .Values.installClusterAgent -}}
 {{ $agentSA := .Values.agentServiceAccount }}
 {{ $namespace := .Release.Namespace }}
 kind: ClusterRoleBinding
@@ -12,3 +13,4 @@ roleRef:
   kind: ClusterRole
   name: appdynamics-cluster-agent
   apiGroup: rbac.authorization.k8s.io
+{{ end -}}

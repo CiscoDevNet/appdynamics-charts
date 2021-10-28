@@ -1,13 +1,13 @@
 apiVersion: v2
 name: cluster-agent
 
-description: Sophisticated helm chart to deploy cluster agent is addition with advanced features like multiple cluster agent deployments, Granular control over config with intuitive boolean switches. 
+description: Sophisticated helm chart to deploy cluster agent and machine agent in addition with advanced features like multiple cluster agent deployments, Granular control over config with intuitive boolean switches
 home: https://appdynamics.com
 icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
 
-version: 0.1.18
+version: 0.1.19
 
-appVersion: 21.7.0
+appVersion: 21.10.0
 
 dependencies:
   - name: metrics-server

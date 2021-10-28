@@ -1,13 +1,21 @@
 # Cluster agent deployment mode (PRIMARY | NAMESPACED)
 deploymentMode: PRIMARY
 
+installClusterAgent: true
+installInfraViz: false
+
 # Docker images
 imageInfo:
   agentImage: docker.io/appdynamics/cluster-agent
-  agentTag: 21.7.0
+  agentTag: 21.10.0
   operatorImage: docker.io/appdynamics/cluster-agent-operator
-  operatorTag: 0.6.10
+  operatorTag: 0.6.11
   imagePullPolicy: Always                               # Will be used for operator pod
+  machineAgentImage: docker.io/appdynamics/machine-agent-analytics
+  machineAgentTag: 21.9.0
+  machineAgentWinTag: 21.9.0-win-ltsc2019
+  netVizImage: docker.io/appdynamics/machine-agent-netviz
+  netvizTag: 21.3.0
 
 # AppDynamics controller info (null VALUES TO BE PROVIDED BY THE USER)
 controllerInfo:
@@ -16,6 +24,7 @@ controllerInfo:
   username: null
   password: null
   accessKey: null
+  globalAccount: null
   
   # SSL properties
   customSSLCert: null
@@ -30,6 +39,7 @@ controllerInfo:
 createServiceAccount: true
 agentServiceAccount: appdynamics-cluster-agent
 operatorServiceAccount: appdynamics-operator
+infravizServiceAccount: appdynamics-infraviz
 
 # Cluster agent config
 clusterAgent:
@@ -61,6 +71,20 @@ podFilter: {}
 instrumentationConfig:
   enabled: false
 
+# InfraViz config
+infraViz:
+  nodeOS: "linux"
+  enableMasters: false
+  stdoutLogging: false
+  enableContainerHostId: false
+  enableServerViz: false
+  enableDockerViz: false
+
+# Netviz config
+netViz:
+  enabled: false
+  netVizPort: 3892
+
 # Agent pod specific properties
 agentPod:
   nodeSelector: {}
@@ -85,6 +109,20 @@ operatorPod:
     requests:
       cpu: 100m
       memory: 64Mi
+
+# Infraviz pod specific properties
+infravizPod:
+  nodeSelector:
+    kubernetes.io/os: linux
+  resources:
+    limits:
+      cpu: 500m
+      memory: "1G"
+    requests:
+      cpu: 200m
+      memory: "800M"
+  # overrideVolumeMounts property is valid only after 0.6.10 operator version
+  overrideVolumeMounts:
 
 # Subcharts boolean install switches
 install:

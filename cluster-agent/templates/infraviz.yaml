@@ -1,0 +1,50 @@
+{{ if .Values.installInfraViz -}}
+apiVersion: appdynamics.com/v1alpha1
+kind: InfraViz
+metadata:
+    name: {{ printf "%s-%s" .Release.Name "appdynamics-infraviz" | trunc 63 }}
+    namespace: {{ .Release.Namespace }}
+spec:
+    controllerUrl: {{ required "AppDynamics controller URL is required!" .Values.controllerInfo.url }}
+    account: {{ required "AppDynamics controller account is required!" .Values.controllerInfo.account }}
+    globalAccount: {{ required "AppDynamics controller global account is required!" .Values.controllerInfo.globalAccount -}}
+    {{ if eq .Values.infraViz.nodeOS "linux" }}
+    image: {{ .Values.imageInfo.machineAgentImage }}:{{ .Values.imageInfo.machineAgentTag -}}
+    {{ else if eq .Values.infraViz.nodeOS "windows" }}
+    imageWin: {{ .Values.imageInfo.machineAgentImage }}:{{ .Values.imageInfo.machineAgentWinTag -}}
+    {{ else if eq .Values.infraViz.nodeOS "all" }}
+    image: {{ .Values.imageInfo.machineAgentImage }}:{{ .Values.imageInfo.machineAgentTag }}
+    imageWin: {{ .Values.imageInfo.machineAgentImage }}:{{ .Values.imageInfo.machineAgentWinTag -}}
+    {{- end }}
+    {{ with .Values.infraViz -}}
+    nodeOS: {{ .nodeOS -}}
+    {{ if .enableMasters }}
+    enableMasters: {{ .enableMasters -}}
+    {{- end }}
+    {{ if .stdoutLogging -}}
+    stdoutLogging: {{ .stdoutLogging -}}
+    {{- end }}
+    {{ if .enableContainerHostId -}}
+    enableContainerHostId: {{ .enableContainerHostId -}}
+    {{- end }}
+    {{ if .enableServerViz -}}
+    enableServerViz: {{ .enableServerViz -}}
+    {{- end }}
+    {{ if .enableDockerViz -}}
+    enableDockerViz: {{ .enableDockerViz -}}
+    {{- end }}
+    {{- end }}
+    {{ if .Values.netViz.enabled -}}
+    netVizImage: {{ .Values.imageInfo.netVizImage }}:{{ .Values.imageInfo.netvizTag }}
+    netVizPort: {{ .Values.netViz.netVizPort -}}
+    {{- end}}
+    nodeSelector:
+    {{- toYaml .Values.infravizPod.nodeSelector | nindent 6 }}
+    # Resources
+    resources:
+    {{- toYaml .Values.infravizPod.resources | nindent 6 }}
+    {{ if .Values.infravizPod.overrideVolumeMounts -}}
+    overrideVolumeMounts:
+    {{- toYaml .Values.infravizPod.overrideVolumeMounts | nindent 6 }}
+    {{ end -}}
+{{ end -}}

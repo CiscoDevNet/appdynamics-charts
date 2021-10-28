@@ -1,4 +1,4 @@
-{{ if eq .Values.deploymentMode "PRIMARY" -}}
+{{ if and (eq .Values.deploymentMode "PRIMARY") .Values.installClusterAgent -}}
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:

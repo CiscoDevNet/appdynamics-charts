@@ -1,4 +1,4 @@
-# Cluster Agent Helm Chart
+# Appdynamics Helm Chart
 
 ### Add AppDynamics helm repo
 ```bash
@@ -6,12 +6,20 @@ helm repo add appdynamics-charts https://ciscodevnet.github.io/appdynamics-chart
 ```
 ### Create values yaml to override default ones
 ```yaml
+installClusterAgent: true
+installInfraViz: false
+
 imageInfo:
   agentImage: docker.io/appdynamics/cluster-agent
-  agentTag: 20.7.0
+  agentTag: 21.7.0
   operatorImage: docker.io/appdynamics/cluster-agent-operator
-  operatorTag: latest
-  imagePullPolicy: Always                             
+  operatorTag: 0.6.10
+  imagePullPolicy: Always           # Will be used for operator pod
+  machineAgentImage: docker.io/appdynamics/machine-agent-analytics
+  machineAgentTag: 21.9.0
+  machineAgentWinTag: 21.9.0-win-ltsc2019
+  netVizImage: docker.io/appdynamics/machine-agent-netviz
+  netvizTag: 21.3.0                             
 
 controllerInfo:
   url: <controller-url>
@@ -19,11 +27,13 @@ controllerInfo:
   username: <controller-username>
   password: <controller-password>
   accessKey: <controller-accesskey>
+  globalAccount: <controller-global-account>
 
 agentServiceAccount: appdynamics-cluster-agent
 operatorServiceAccount: appdynamics-operator
+infravizServiceAccount: appdynamics-infraviz
 ```
-### Install cluster agent using helm chart
+### Install cluster agent or machine agent using helm chart
 ```bash
 helm install cluster-agent appdynamics-charts/cluster-agent -f <values-file>.yaml --namespace appdynamics
 ```

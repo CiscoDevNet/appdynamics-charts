@@ -1,3 +1,4 @@
+{{ if .Values.installClusterAgent -}}
 {{ $agentSA := .Values.agentServiceAccount }}
 {{ $namespace := .Release.Namespace }}
 {{ if and (eq .Values.deploymentMode "NAMESPACED") .Values.instrumentationConfig.enabled -}}
@@ -21,4 +22,5 @@ roleRef:
   kind: ClusterRole
   name: appdynamics-cluster-agent-instrumentation
   apiGroup: rbac.authorization.k8s.io
+{{- end -}}
 {{- end -}}

@@ -91,6 +91,10 @@ spec:
                   type: string
                 propertyBag:
                   type: string
+                overrideVolumeMounts:
+                  items:
+                    type: string
+                  type: array
                 nodeSelector:
                   type: object
                   additionalProperties:
