@@ -52,15 +52,6 @@ rules:
       - get
       - list
       - watch
-  - apiGroups:
-      - appdynamics.com
-    resources:
-      - '*'
-      - clusteragents
-    verbs:
-      - get
-      - list
-      - watch
   {{ if .Capabilities.APIVersions.Has "apps.openshift.io/v1/DeploymentConfig" -}}
   - apiGroups:
       - apps.openshift.io

@@ -7,9 +7,9 @@ installInfraViz: false
 # Docker images
 imageInfo:
   agentImage: docker.io/appdynamics/cluster-agent
-  agentTag: 21.10.0
+  agentTag: 21.12.0
   operatorImage: docker.io/appdynamics/cluster-agent-operator
-  operatorTag: 0.6.11
+  operatorTag: 21.12.0
   imagePullPolicy: Always                               # Will be used for operator pod
   machineAgentImage: docker.io/appdynamics/machine-agent-analytics
   machineAgentTag: 21.9.0

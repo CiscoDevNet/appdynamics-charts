@@ -1,5 +1,5 @@
 {{ if .Values.installClusterAgent -}}
-apiVersion: appdynamics.com/v1alpha1
+apiVersion: cluster.appdynamics.com/v1alpha1
 kind: Clusteragent
 metadata:
   name: {{ printf "%s-%s" .Release.Name "appdynamics-cluster-agent" | trunc 63 }}

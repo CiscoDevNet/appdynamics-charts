@@ -1,9 +1,12 @@
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
-  name: infravizs.appdynamics.com
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.6.1
+  creationTimestamp: null
+  name: infravizs.cluster.appdynamics.com
 spec:
-  group: appdynamics.com
+  group: cluster.appdynamics.com
   names:
     kind: InfraViz
     listKind: InfraVizList
@@ -12,112 +15,50 @@ spec:
   scope: Namespaced
   versions:
     - name: v1alpha1
-      served: true
-      storage: true
-      subresources:
-        status: {}
       schema:
         openAPIV3Schema:
-          description: Infraviz is the Schema for the infravizs API
+          description: InfraViz is the Schema for the infravizs API
           properties:
             apiVersion:
               description: 'APIVersion defines the versioned schema of this representation
-                    of an object. Servers should convert recognized schemas to the latest
-                    internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources'
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
               type: string
             kind:
               description: 'Kind is a string value representing the REST resource this
-                    object represents. Servers may infer this from the endpoint the client
-                    submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds'
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
               type: string
             metadata:
               type: object
             spec:
-              description: InfravizSpec defines the desired state of InfraAgent
+              description: InfraVizSpec defines the desired state of InfraViz
               properties:
-                controllerUrl:
+                accessSecret:
                   type: string
                 account:
                   type: string
-                image:
+                agentSSLPassword:
                   type: string
-                imageWin:
+                agentSSLStoreName:
                   type: string
-                accessSecret:
-                  type: string
-                globalAccount:
-                  type: string
-                eventServiceUrl:
+                args:
+                  items:
+                    type: string
+                  type: array
+                biqPort:
+                  format: int32
+                  type: integer
+                controllerUrl:
                   type: string
                 enableContainerHostId:
                   type: boolean
                 enableDockerViz:
                   type: boolean
-                enableServerViz:
-                  type: boolean
                 enableMasters:
                   type: boolean
-                uniqueHostId:
-                  type: string
-                metricsLimit:
-                  type: string
-                proxyUrl:
-                  type: string
-                proxyUser:
-                  type: string
-                logLevel:
-                  type: string
-                syslogPort:
-                  format: int32
-                  type: integer
-                pks:
+                enableServerViz:
                   type: boolean
-                netVizPort:
-                  format: int32
-                  type: integer
-                netVizImage:
-                  type: string
-                netlibEnabled:
-                  format: int32
-                  type: integer
-                biqPort:
-                  format: int32
-                  type: integer
-                stdoutLogging:
-                  type: boolean
-                agentSSLStoreName:
-                  type: string
-                agentSSLPassword:
-                  type: string
-                propertyBag:
-                  type: string
-                overrideVolumeMounts:
-                  items:
-                    type: string
-                  type: array
-                nodeSelector:
-                  type: object
-                  additionalProperties:
-                    type: string
-                tolerations:
-                  type: array
-                  items:
-                    properties:
-                      key:
-                        type: string
-                      operator:
-                        type: string
-                      value:
-                        type: string
-                      effect:
-                        type: string
-                      tolerationSeconds:
-                        type: integer
-                    type: object
-                args:
-                  items:
-                    type: string
-                  type: array
                 env:
                   items:
                     description: EnvVar represents an environment variable present in
@@ -128,12 +69,14 @@ spec:
                         type: string
                       value:
                         description: 'Variable references $(VAR_NAME) are expanded using
-                              the previous defined environment variables in the container
-                              and any service environment variables. If a variable cannot
-                              be resolved, the reference in the input string will be unchanged.
-                              The $(VAR_NAME) syntax can be escaped with a double $$, ie:
-                              $$(VAR_NAME). Escaped references will never be expanded, regardless
-                              of whether the variable exists or not. Defaults to "".'
+                        the previously defined environment variables in the container
+                        and any service environment variables. If a variable cannot
+                        be resolved, the reference in the input string will be unchanged.
+                        Double $$ are reduced to a single $, which allows for escaping
+                        the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)" will produce the
+                        string literal "$(VAR_NAME)". Escaped references will never
+                        be expanded, regardless of whether the variable exists or
+                        not. Defaults to "".'
                         type: string
                       valueFrom:
                         description: Source for the environment variable's value. Cannot
@@ -147,10 +90,10 @@ spec:
                                 type: string
                               name:
                                 description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
-                                      TODO: Add other useful fields. apiVersion, kind, uid?'
+                                TODO: Add other useful fields. apiVersion, kind, uid?'
                                 type: string
                               optional:
-                                description: Specify whether the ConfigMap or it's key
+                                description: Specify whether the ConfigMap or its key
                                   must be defined
                                 type: boolean
                             required:
@@ -158,12 +101,13 @@ spec:
                             type: object
                           fieldRef:
                             description: 'Selects a field of the pod: supports metadata.name,
-                                  metadata.namespace, metadata.labels, metadata.annotations,
-                                  spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP.'
+                            metadata.namespace, `metadata.labels[''<KEY>'']`, `metadata.annotations[''<KEY>'']`,
+                            spec.nodeName, spec.serviceAccountName, status.hostIP,
+                            status.podIP, status.podIPs.'
                             properties:
                               apiVersion:
-                                description: Version of the schema the FieldPath is written
-                                  in terms of, defaults to "v1".
+                                description: Version of the schema the FieldPath is
+                                  written in terms of, defaults to "v1".
                                 type: string
                               fieldPath:
                                 description: Path of the field to select in the specified
@@ -173,19 +117,23 @@ spec:
                               - fieldPath
                             type: object
                           resourceFieldRef:
-                            description: 'Selects a resource of the container: only resources
-                                  limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage,
-                                  requests.cpu, requests.memory and requests.ephemeral-storage)
-                                  are currently supported.'
+                            description: 'Selects a resource of the container: only
+                            resources limits and requests (limits.cpu, limits.memory,
+                            limits.ephemeral-storage, requests.cpu, requests.memory
+                            and requests.ephemeral-storage) are currently supported.'
                             properties:
                               containerName:
-                                description: 'Container name: required for volumes, optional
-                                      for env vars'
+                                description: 'Container name: required for volumes,
+                                optional for env vars'
                                 type: string
                               divisor:
+                                anyOf:
+                                  - type: integer
+                                  - type: string
                                 description: Specifies the output format of the exposed
                                   resources, defaults to "1"
-                                type: string
+                                pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                                x-kubernetes-int-or-string: true
                               resource:
                                 description: 'Required: resource to select'
                                 type: string
@@ -201,10 +149,10 @@ spec:
                                 type: string
                               name:
                                 description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
-                                      TODO: Add other useful fields. apiVersion, kind, uid?'
+                                TODO: Add other useful fields. apiVersion, kind, uid?'
                                 type: string
                               optional:
-                                description: Specify whether the Secret or it's key must
+                                description: Specify whether the Secret or its key must
                                   be defined
                                 type: boolean
                             required:
@@ -215,89 +163,211 @@ spec:
                       - name
                     type: object
                   type: array
+                eventServiceUrl:
+                  type: string
+                globalAccount:
+                  type: string
+                image:
+                  type: string
+                imagePullSecret:
+                  type: string
+                imageWin:
+                  type: string
+                logLevel:
+                  type: string
+                metricsLimit:
+                  type: string
+                netVizImage:
+                  type: string
+                netVizPort:
+                  format: int32
+                  type: integer
+                netlibEnabled:
+                  format: int32
+                  type: integer
+                nodeOS:
+                  type: string
+                nodeSelector:
+                  additionalProperties:
+                    type: string
+                  type: object
+                overrideVolumeMounts:
+                  items:
+                    type: string
+                  type: array
+                pks:
+                  type: boolean
                 ports:
                   items:
-                    description: EnvVar represents an environment variable present in
-                      a Container.
+                    description: ContainerPort represents a network port in a single
+                      container.
                     properties:
-                      name:
-                        description: Name of the environment variable. Must be a C_IDENTIFIER.
+                      containerPort:
+                        description: Number of port to expose on the pod's IP address.
+                          This must be a valid port number, 0 < x < 65536.
+                        format: int32
+                        type: integer
+                      hostIP:
+                        description: What host IP to bind the external port to.
                         type: string
                       hostPort:
-                        description: Host port of the container
+                        description: Number of port to expose on the host. If specified,
+                          this must be a valid port number, 0 < x < 65536. If HostNetwork
+                          is specified, this must match ContainerPort. Most containers
+                          do not need this.
                         format: int32
                         type: integer
-                      containerPort:
-                        description: Container port of the container
-                        format: int32
-                        type: integer
-                      protocol:
-                        description: Protocol of the container
+                      name:
+                        description: If specified, this must be an IANA_SVC_NAME and
+                          unique within the pod. Each named port in a pod must have
+                          a unique name. Name for the port that can be referred to by
+                          services.
                         type: string
-                      hostIP:
-                        description: HostIP of the container
+                      protocol:
+                        default: TCP
+                        description: Protocol for port. Must be UDP, TCP, or SCTP. Defaults
+                          to "TCP".
                         type: string
                     required:
-                      - name
+                      - containerPort
                     type: object
                   type: array
+                priorityClassName:
+                  type: string
+                propertyBag:
+                  type: string
+                proxyUrl:
+                  type: string
+                proxyUser:
+                  type: string
                 resources:
                   description: ResourceRequirements describes the compute resource requirements.
                   properties:
                     limits:
                       additionalProperties:
-                        type: string
+                        anyOf:
+                          - type: integer
+                          - type: string
+                        pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                        x-kubernetes-int-or-string: true
                       description: 'Limits describes the maximum amount of compute resources
-                            allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/'
+                      allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
                       type: object
                     requests:
                       additionalProperties:
-                        type: string
-                      description: 'Requests describes the minimum amount of compute resources
-                            required. If Requests is omitted for a container, it defaults
-                            to Limits if that is explicitly specified, otherwise to an implementation-defined
-                            value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/'
+                        anyOf:
+                          - type: integer
+                          - type: string
+                        pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                        x-kubernetes-int-or-string: true
+                      description: 'Requests describes the minimum amount of compute
+                      resources required. If Requests is omitted for a container,
+                      it defaults to Limits if that is explicitly specified, otherwise
+                      to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
                       type: object
                   type: object
                 resourcesNetViz:
-                  description: ResourceNetviz Requirements describes the compute resource requirements.
+                  description: ResourceRequirements describes the compute resource requirements.
                   properties:
                     limits:
                       additionalProperties:
-                        type: string
-                      description: 'Limits describes the maximum amount of compute resources allowed.'
+                        anyOf:
+                          - type: integer
+                          - type: string
+                        pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                        x-kubernetes-int-or-string: true
+                      description: 'Limits describes the maximum amount of compute resources
+                      allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
                       type: object
                     requests:
                       additionalProperties:
-                        type: string
-                      description: 'Requests describes the minimum amount of compute resources required.'
+                        anyOf:
+                          - type: integer
+                          - type: string
+                        pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                        x-kubernetes-int-or-string: true
+                      description: 'Requests describes the minimum amount of compute
+                      resources required. If Requests is omitted for a container,
+                      it defaults to Limits if that is explicitly specified, otherwise
+                      to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
                       type: object
                   type: object
-                priorityClassName:
-                  type: string
-                imagePullSecret:
-                  type: string
-                nodeOS:
+                stdoutLogging:
+                  type: boolean
+                syslogPort:
+                  format: int32
+                  type: integer
+                tolerations:
+                  items:
+                    description: The pod this Toleration is attached to tolerates any
+                      taint that matches the triple <key,value,effect> using the matching
+                      operator <operator>.
+                    properties:
+                      effect:
+                        description: Effect indicates the taint effect to match. Empty
+                          means match all taint effects. When specified, allowed values
+                          are NoSchedule, PreferNoSchedule and NoExecute.
+                        type: string
+                      key:
+                        description: Key is the taint key that the toleration applies
+                          to. Empty means match all taint keys. If the key is empty,
+                          operator must be Exists; this combination means to match all
+                          values and all keys.
+                        type: string
+                      operator:
+                        description: Operator represents a key's relationship to the
+                          value. Valid operators are Exists and Equal. Defaults to Equal.
+                          Exists is equivalent to wildcard for value, so that a pod
+                          can tolerate all taints of a particular category.
+                        type: string
+                      tolerationSeconds:
+                        description: TolerationSeconds represents the period of time
+                          the toleration (which must be of effect NoExecute, otherwise
+                          this field is ignored) tolerates the taint. By default, it
+                          is not set, which means tolerate the taint forever (do not
+                          evict). Zero and negative values will be treated as 0 (evict
+                          immediately) by the system.
+                        format: int64
+                        type: integer
+                      value:
+                        description: Value is the taint value the toleration matches
+                          to. If the operator is Exists, the value should be empty,
+                          otherwise just a regular string.
+                        type: string
+                    type: object
+                  type: array
+                uniqueHostId:
                   type: string
               required:
                 - controllerUrl
               type: object
             status:
-              description: InfraVizStatus defines the observed state of Infraviz
+              description: InfraVizStatus defines the observed state of InfraViz
               properties:
                 lastUpdateTime:
-                  description: 'Important: Run "operator-sdk generate k8s" to regenerate
-                        code after modifying this file'
+                  description: 'INSERT ADDITIONAL STATUS FIELD - define observed state
+                  of cluster Important: Run "make" to regenerate code after modifying
+                  this file'
                   format: date-time
                   type: string
-                version:
-                  type: string
                 nodes:
-                  type: object
                   additionalProperties:
                     type: string
+                  type: object
+                version:
+                  type: string
               required:
                 - lastUpdateTime
                 - version
               type: object
           type: object
+      served: true
+      storage: true
+      subresources:
+        status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []

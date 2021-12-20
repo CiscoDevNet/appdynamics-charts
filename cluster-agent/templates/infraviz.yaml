@@ -1,5 +1,5 @@
 {{ if .Values.installInfraViz -}}
-apiVersion: appdynamics.com/v1alpha1
+apiVersion: cluster.appdynamics.com/v1alpha1
 kind: InfraViz
 metadata:
     name: {{ printf "%s-%s" .Release.Name "appdynamics-infraviz" | trunc 63 }}

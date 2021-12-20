@@ -64,10 +64,55 @@ rules:
       - list
       - watch
   - apiGroups:
-      - appdynamics.com
+      - cluster.appdynamics.com
     resources:
-      - '*'
       - clusteragents
     verbs:
-      - "*"
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - cluster.appdynamics.com
+    resources:
+      - clusteragents/finalizers
+    verbs:
+      - update
+  - apiGroups:
+      - cluster.appdynamics.com
+    resources:
+      - clusteragents/status
+    verbs:
+      - get
+      - patch
+      - update
+  - apiGroups:
+      - cluster.appdynamics.com
+    resources:
+      - infravizs
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - cluster.appdynamics.com
+    resources:
+      - infravizs/finalizers
+    verbs:
+      - update
+  - apiGroups:
+      - cluster.appdynamics.com
+    resources:
+      - infravizs/status
+    verbs:
+      - get
+      - patch
+      - update
 {{ end -}}

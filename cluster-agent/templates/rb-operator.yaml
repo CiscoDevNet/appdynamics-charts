@@ -8,6 +8,7 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: {{ .Values.operatorServiceAccount }}
+    namespace: {{ .Release.Namespace }}
 roleRef:
   kind: Role
   name: appdynamics-operator
