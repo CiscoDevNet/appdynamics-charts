@@ -4,27 +4,28 @@ kind: DaemonSet
 metadata:
   name: {{ template "machine-agent.fullname" . }}
   labels:
-    app: {{ template "machine-agent.name" . }}
+    app.kubernetes.io/name: {{ template "machine-agent.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
     chart: {{ template "machine-agent.chart" . }}
-    release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
   selector:
     matchLabels:
-      app: {{ template "machine-agent.name" . }}
-      release: {{ .Release.Name }}
+      app.kubernetes.io/name: {{ template "machine-agent.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ template "machine-agent.name" . }}
-        release: {{ .Release.Name }}
+        app.kubernetes.io/name: {{ template "machine-agent.name" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
       containers:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.daemonset.image.repository }}:{{ .Values.daemonset.image.tag }}"
         imagePullPolicy: {{ .Values.daemonset.image.pullPolicy }}
         ports:
-          - containerPort: {{ .Values.daemonset.port }}
+          - name: analytics
+            containerPort: {{ .Values.daemonset.port }}
         env:
         - name: APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY
           valueFrom:
