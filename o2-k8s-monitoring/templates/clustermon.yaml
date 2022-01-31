@@ -1,0 +1,59 @@
+{{ if .Values.install.clustermon -}}
+apiVersion: cluster.appdynamics.com/v1alpha1
+kind: Clustermon
+metadata:
+  name: {{ printf "%s-%s" .Release.Name "appdynamics-clustermon" | trunc 63 }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  {{- template "podConfigs" .Values.clustermonPod }}
+
+  serviceAccountName: {{ .Values.clustermonServiceAccount}}
+  mTLSEnabled: {{ .Values.mTLSEnabled | quote }}
+
+  {{ with .Values.clustermonConfig -}}
+  clusterName: {{ required "A valid clustermonConfig.clusterName entry required!" .clusterName }}
+  logLevel: {{ .logLevel }}
+  logFilesMaxSizeMb: {{ .logFilesMaxSizeMb }}
+  logFilesNumBackups: {{ .logFilesNumBackups }}
+  printToStdout: {{ .printToStdout | quote }}
+  {{ if .gatherInterval -}}
+  gatherInterval: {{ .gatherInterval }}
+  {{- end }}
+  namespaceFilter:
+  {{- toYaml .namespaceFilter | nindent 4 }}
+  entityFilter:
+  {{- toYaml .entityFilter | nindent 4 }}
+  labelFilter:
+  {{- toYaml .labelFilter | nindent 4 }}
+
+  {{ if .testSetupEnabled -}}
+  testSetupEnabled: {{ .testSetupEnabled | quote }}
+  {{- end }}
+  {{ if .optimisedPayloadInterval -}}
+  optimisedPayloadInterval: {{ .optimisedPayloadInterval }}
+  {{- end }}
+  {{ if .events -}}
+  events:
+    enabled: {{ .events.enabled | quote }}
+    severityToExclude:
+    {{- toYaml .events.severityToExclude | nindent 6 }}
+    reasonToExclude:
+    {{- toYaml .events.reasonToExclude | nindent 6 }}
+    severeGroupByReason:
+    {{- toYaml .events.severeGroupByReason | nindent 6 }}
+    rateLimit: {{ .events.rateLimit }}
+  {{- end }}
+
+  ingressControllers:
+  {{- toYaml .ingressControllers | nindent 4 }}
+  {{- end }}
+
+  {{ with .Values.infraManagerConfig -}}
+  infraManagerConfig:
+    logFilesMaxSizeMb: {{ .logFilesMaxSizeMb }}
+    logFilesNumBackups: {{ .logFilesNumBackups }}
+    printToStdout: {{ .printToStdout | quote }}
+    logLevel: {{ .logLevel }}
+  {{- end }}
+
+{{ end -}}

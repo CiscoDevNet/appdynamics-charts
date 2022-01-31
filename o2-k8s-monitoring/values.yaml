@@ -1,0 +1,117 @@
+install:
+  clustermon: true
+  defaultInfraCollectors: true
+
+mTLSEnabled: true
+
+# RBAC config
+clustermonServiceAccount: appdynamics-clustermon
+inframonServiceAccount: appdynamics-inframon
+otelCollectorServiceAccount: appdynamics-otel-collector
+
+#Clustermon Configs
+clustermonConfig:
+  clusterName: null
+  logLevel: info
+  logFilesMaxSizeMb: 10
+  logFilesNumBackups: 4
+  printToStdout: "true"
+
+  namespaceFilter:
+    includeRegex: ".*"
+    excludeRegex: ""
+
+  entityFilter:
+    excludeRegex: ""
+    excludeLabels: []
+
+  labelFilter:
+    excludeRegex: ""
+
+  ingressControllers: {}
+
+#Infra Manager Configs
+infraManagerConfig:
+  logLevel: info
+  logFilesMaxSizeMb: 10
+  logFilesNumBackups: 4
+  printToStdout: "true"
+
+#Servermon Configs
+servermonConfig:
+  logLevel: info
+  logFilesMaxSizeMb: 10
+  logFilesNumBackups: 4
+
+#Containermon Configs
+containermonConfig:
+  logLevel: info
+  logFilesMaxSizeMb: 10
+  logFilesNumBackups: 4
+
+#Deployment specific configs
+clustermonPod:
+  image: appdynamics/o2-k8s-monitoring:latest
+  imagePullPolicy: Always
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 1000Mi
+    requests:
+      cpu: 500m
+      memory: 750Mi
+  labels: {}
+  annotations: {}
+  nodeSelector: {}
+  imagePullSecrets: []
+  affinity: {}
+  tolerations: []
+  securityContext: {}
+
+#Daemonset specific configs
+inframonPod:
+  image: appdynamics/o2-k8s-monitoring:latest
+  imagePullPolicy: Always
+  resources:
+    limits:
+      cpu: 350m
+      memory: 100Mi
+    requests:
+      cpu: 200m
+      memory: 64Mi
+  labels: {}
+  annotations: {}
+  nodeSelector: {}
+  imagePullSecrets: []
+  affinity: {}
+  tolerations: []
+  securityContext: {}
+
+#Daemonset specific configs
+otelCollectorPod:
+  image: appdynamics/appd-oc-otel-collector:latest
+  imagePullPolicy: Always
+  resources:
+    limits:
+      cpu: 400m
+      memory: 300Mi
+    requests:
+      cpu: 200m
+      memory: 150Mi
+  labels: {}
+  annotations: {}
+  nodeSelector: {}
+  imagePullSecrets: []
+  affinity: {}
+  tolerations: []
+  securityContext: {}
+
+otelCollector:
+  config:
+    oauth2client:
+      clientId: null
+      clientSecret: null
+      tenantId: null
+    endpoint: null
+    logLevel: "info"
+  configOverride: null

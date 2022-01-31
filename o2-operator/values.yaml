@@ -1,0 +1,18 @@
+operatorServiceAccount: appdynamics-operator
+operatorPod:
+  image: appdynamics/o2-operator:latest
+  imagePullPolicy: Always
+  resources:
+    limits:
+      cpu: 200m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 64Mi
+  labels: {}
+  annotations: {}
+  nodeSelector: {}
+  imagePullSecrets: []
+  affinity: {}
+  tolerations: []
+  securityContext: {}

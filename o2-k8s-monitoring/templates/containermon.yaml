@@ -1,0 +1,17 @@
+{{ if .Values.install.defaultInfraCollectors -}}
+apiVersion: cluster.appdynamics.com/v1alpha1
+kind: Containermon
+metadata:
+  name: {{ printf "%s-%s" .Release.Name "appdynamics-containermon" | trunc 63 }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  {{ with .Values.containermonConfig -}}
+  {{ if .gatherInterval -}}
+  gatherInterval: {{ .gatherInterval }}
+  {{- end }}
+  logFilesMaxSizeMb: {{ .logFilesMaxSizeMb }}
+  logFilesNumBackups: {{ .logFilesNumBackups }}
+  logLevel: {{ .logLevel }}
+  {{- end }}
+{{- end }}
+

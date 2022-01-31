@@ -1,0 +1,19 @@
+{{ if .Values.install.defaultInfraCollectors -}}
+apiVersion: cluster.appdynamics.com/v1alpha1
+kind: Inframon
+metadata:
+  name: {{ printf "%s-%s" .Release.Name "appdynamics-inframon" | trunc 63 }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  {{- template "podConfigs" .Values.inframonPod }}
+
+  serviceAccountName: {{ .Values.inframonServiceAccount}}
+  mTLSEnabled: {{ .Values.mTLSEnabled | quote }}
+
+  {{ with .Values.infraManagerConfig -}}
+  logFilesMaxSizeMb: {{ .logFilesMaxSizeMb }}
+  logFilesNumBackups: {{ .logFilesNumBackups }}
+  printToStdout: {{ .printToStdout | quote }}
+  logLevel: {{ .logLevel }}
+  {{- end }}
+{{- end }}

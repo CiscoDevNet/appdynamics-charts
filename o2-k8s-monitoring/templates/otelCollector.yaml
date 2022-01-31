@@ -1,0 +1,29 @@
+apiVersion: cluster.appdynamics.com/v1alpha1
+kind: OTelCollector
+metadata:
+  name: {{ printf "%s-%s" .Release.Name "appdynamics-otel-collector" | trunc 63 }}
+spec:
+  {{- template "podConfigs" .Values.otelCollectorPod }}
+
+  serviceAccountName: {{ .Values.otelCollectorServiceAccount}}
+  mTLSEnabled: {{ .Values.mTLSEnabled | quote }}
+
+  {{ if .Values.otelCollector.apmNamespaces -}}
+  apmNamespaces: {{ .Values.otelCollector.apmNamespaces }}
+  {{- end}}
+
+  {{ if .Values.otelCollector.configOverride -}}
+  configOverride: |
+  {{ .Values.otelCollector.configOverride | nindent 6 }}
+
+  {{ else -}}
+  {{ with .Values.otelCollector.config -}}
+  config:
+    oauth2client:
+      clientId: {{ required "A valid otelCollector.config.oauth2client.clientId entry required!" .oauth2client.clientId }}
+      tenantId: {{ required "A valid otelCollector.config.oauth2client.tenantId entry required!" .oauth2client.tenantId }}
+    endpoint: {{ required "A valid otelCollector.config.endpoint entry required!" .endpoint }}
+    logLevel: {{ .logLevel }}
+  {{- end }}
+
+  {{- end }}
