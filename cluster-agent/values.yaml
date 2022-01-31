@@ -7,24 +7,25 @@ installInfraViz: false
 # Docker images
 imageInfo:
   agentImage: docker.io/appdynamics/cluster-agent
-  agentTag: 21.12.0
+  agentTag: 22.1.0
   operatorImage: docker.io/appdynamics/cluster-agent-operator
-  operatorTag: 21.12.0
+  operatorTag: 22.1.0
   imagePullPolicy: Always                               # Will be used for operator pod
-  machineAgentImage: docker.io/appdynamics/machine-agent-analytics
-  machineAgentTag: 21.9.0
-  machineAgentWinTag: 21.9.0-win-ltsc2019
+  machineAgentImage: docker.io/appdynamics/machine-agent
+  machineAgentTag: latest
+  machineAgentWinImage: docker.io/appdynamics/machine-agent-analytics
+  machineAgentWinTag: win-latest
   netVizImage: docker.io/appdynamics/machine-agent-netviz
-  netvizTag: 21.3.0
+  netvizTag: latest
 
-# AppDynamics controller info (null VALUES TO BE PROVIDED BY THE USER)
+# AppDynamics controller info (VALUES TO BE PROVIDED BY THE USER)
 controllerInfo:
   url: null
   account: null
   username: null
   password: null
   accessKey: null
-  globalAccount: null
+  globalAccount: null            # To be provided when using machineAgent Window Image
   
   # SSL properties
   customSSLCert: null
