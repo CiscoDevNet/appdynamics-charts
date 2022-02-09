@@ -3,7 +3,7 @@ entries:
   cluster-agent:
   - apiVersion: v2
     appVersion: 22.1.0
-    created: "2022-01-31T12:27:42.190494956Z"
+    created: "2022-02-09T11:53:56.757616617Z"
     dependencies:
     - condition: install.metrics-server
       name: metrics-server
@@ -32,7 +32,7 @@ entries:
     version: 1.2.0
   - apiVersion: v2
     appVersion: 21.12.0
-    created: "2022-01-31T12:27:42.188398673Z"
+    created: "2022-02-09T11:53:56.746813123Z"
     dependencies:
     - condition: install.metrics-server
       name: metrics-server
@@ -61,7 +61,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: 21.10.0
-    created: "2022-01-31T12:27:42.178526202Z"
+    created: "2022-02-09T11:53:56.735088619Z"
     dependencies:
     - condition: install.metrics-server
       name: metrics-server
@@ -90,7 +90,7 @@ entries:
     version: 0.1.19
   - apiVersion: v2
     appVersion: 21.7.0
-    created: "2022-01-31T12:27:42.176760229Z"
+    created: "2022-02-09T11:53:56.733369861Z"
     dependencies:
     - condition: install.metrics-server
       name: metrics-server
@@ -119,7 +119,7 @@ entries:
     version: 0.1.18
   - apiVersion: v2
     appVersion: 21.5.0
-    created: "2022-01-31T12:27:42.175233744Z"
+    created: "2022-02-09T11:53:56.731887435Z"
     dependencies:
     - condition: install.metrics-server
       name: metrics-server
@@ -148,7 +148,7 @@ entries:
     version: 0.1.17
   - apiVersion: v2
     appVersion: 21.3.1
-    created: "2022-01-31T12:27:42.173965986Z"
+    created: "2022-02-09T11:53:56.730623014Z"
     dependencies:
     - condition: install.metrics-server
       name: metrics-server
@@ -177,7 +177,7 @@ entries:
     version: 0.1.16
   - apiVersion: v2
     appVersion: 21.3.0
-    created: "2022-01-31T12:27:42.172678993Z"
+    created: "2022-02-09T11:53:56.729368578Z"
     dependencies:
     - condition: install.metrics-server
       name: metrics-server
@@ -206,7 +206,7 @@ entries:
     version: 0.1.15
   - apiVersion: v2
     appVersion: 21.2.0
-    created: "2022-01-31T12:27:42.171268976Z"
+    created: "2022-02-09T11:53:56.727729531Z"
     dependencies:
     - condition: install.metrics-server
       name: metrics-server
@@ -235,7 +235,7 @@ entries:
     version: 0.1.14
   - apiVersion: v2
     appVersion: 20.12.1
-    created: "2022-01-31T12:27:42.169180933Z"
+    created: "2022-02-09T11:53:56.726136067Z"
     dependencies:
     - condition: install.metrics-server
       name: metrics-server
@@ -264,7 +264,7 @@ entries:
     version: 0.1.12
   - apiVersion: v2
     appVersion: 20.12.0
-    created: "2022-01-31T12:27:42.167755652Z"
+    created: "2022-02-09T11:53:56.724810534Z"
     dependencies:
     - condition: install.metrics-server
       name: metrics-server
@@ -293,7 +293,7 @@ entries:
     version: 0.1.11
   - apiVersion: v2
     appVersion: 20.11.0
-    created: "2022-01-31T12:27:42.166379002Z"
+    created: "2022-02-09T11:53:56.723515733Z"
     dependencies:
     - condition: install.metrics-server
       name: metrics-server
@@ -322,7 +322,7 @@ entries:
     version: 0.1.10
   - apiVersion: v2
     appVersion: 20.10.0
-    created: "2022-01-31T12:27:42.186846871Z"
+    created: "2022-02-09T11:53:56.743709171Z"
     dependencies:
     - condition: install.metrics-server
       name: metrics-server
@@ -351,7 +351,7 @@ entries:
     version: 0.1.9
   - apiVersion: v2
     appVersion: 20.9.1
-    created: "2022-01-31T12:27:42.18564909Z"
+    created: "2022-02-09T11:53:56.742453498Z"
     dependencies:
     - condition: install.metrics-server
       name: metrics-server
@@ -380,7 +380,7 @@ entries:
     version: 0.1.8
   - apiVersion: v2
     appVersion: 20.9.0
-    created: "2022-01-31T12:27:42.184445998Z"
+    created: "2022-02-09T11:53:56.741221348Z"
     dependencies:
     - condition: install.metrics-server
       name: metrics-server
@@ -409,7 +409,7 @@ entries:
     version: 0.1.7
   - apiVersion: v2
     appVersion: 20.8.0
-    created: "2022-01-31T12:27:42.183226751Z"
+    created: "2022-02-09T11:53:56.739942251Z"
     dependencies:
     - condition: install.metrics-server
       name: metrics-server
@@ -438,7 +438,7 @@ entries:
     version: 0.1.6
   - apiVersion: v2
     appVersion: 20.7.0
-    created: "2022-01-31T12:27:42.182029132Z"
+    created: "2022-02-09T11:53:56.738650883Z"
     dependencies:
     - condition: install.metrics-server
       name: metrics-server
@@ -467,7 +467,7 @@ entries:
     version: 0.1.5
   - apiVersion: v1
     appVersion: 4.5.16
-    created: "2022-01-31T12:27:42.180809733Z"
+    created: "2022-02-09T11:53:56.7373637Z"
     description: Helm chart to deploy AppDynamics ClusterAgent for Kubernetes
     digest: 875e0b99360648d2a9bc5caab2b8fc62c2dcf0f41fa7bec49dd69af7b8753a1b
     home: https://www.appdynamics.com/
@@ -488,7 +488,7 @@ entries:
     version: 0.1.4
   - apiVersion: v1
     appVersion: 0.1.5
-    created: "2022-01-31T12:27:42.180254619Z"
+    created: "2022-02-09T11:53:56.736155274Z"
     description: Helm chart to deploy AppDynamics ClusterAgent for Kubernetes
     digest: 724d3e4d03059a41c3644f18c7c2f61c3699462c433f344a2f993d395aa71d3b
     home: https://www.appdynamics.com/
@@ -509,7 +509,7 @@ entries:
     version: 0.1.3
   - apiVersion: v1
     appVersion: 0.1.5
-    created: "2022-01-31T12:27:42.179054865Z"
+    created: "2022-02-09T11:53:56.735621491Z"
     description: Helm chart to deploy AppDynamics ClusterAgent for Kubernetes
     digest: e4a26cd3647127fd85258d4a0445073eaf238a440b78be62c6c7376c0fd10a4c
     home: https://www.appdynamics.com/
@@ -530,7 +530,7 @@ entries:
     version: 0.1.2
   - apiVersion: v1
     appVersion: 0.1.5
-    created: "2022-01-31T12:27:42.164965064Z"
+    created: "2022-02-09T11:53:56.722191786Z"
     description: Helm chart to deploy AppDynamics ClusterAgent for Kubernetes
     digest: 1e7a7f6372fa8cbe9b6fc6085b9c39a259e6579e4e712b063f7f07d868f96554
     home: https://www.appdynamics.com/
@@ -552,7 +552,7 @@ entries:
   machine-agent:
   - apiVersion: v1
     appVersion: 20.3.2
-    created: "2022-01-31T12:27:42.194791163Z"
+    created: "2022-02-09T11:53:56.764988563Z"
     description: AppDynamics Machine Agent for infrastructure visibility
     digest: 4ebe4836c35b56528f8e62549f1d3ccf60ed3f80f89bb511e303660384115998
     home: https://www.appdynamics.com/
@@ -573,7 +573,7 @@ entries:
     version: 0.2.8
   - apiVersion: v1
     appVersion: 4.5.16
-    created: "2022-01-31T12:27:42.194063285Z"
+    created: "2022-02-09T11:53:56.763726453Z"
     description: AppDynamics Machine Agent for infrastructure visibility
     digest: efe504e43cc43477d0b71df6ab4b90ddf19acdfd305d865510c90d4013cdb9fe
     home: https://www.appdynamics.com/
@@ -594,7 +594,7 @@ entries:
     version: 0.2.7
   - apiVersion: v1
     appVersion: 4.5.14
-    created: "2022-01-31T12:27:42.193346911Z"
+    created: "2022-02-09T11:53:56.762500618Z"
     description: AppDynamics Machine Agent for infrastructure visibility
     digest: 8f95a9d09f70718e14022a7ae3d21143f1bb4dafba7481733f5457fef92022f6
     home: https://www.appdynamics.com/
@@ -617,7 +617,7 @@ entries:
     version: 0.2.6
   - apiVersion: v1
     appVersion: 4.5.11
-    created: "2022-01-31T12:27:42.192765779Z"
+    created: "2022-02-09T11:53:56.761538355Z"
     description: AppDynamics Machine Agent for infrastructure visibility
     digest: 6abd077efa43f9a9c3bc600eee8227505b492376f4cec83ae3f99acdaeec4508
     home: https://www.appdynamics.com/
@@ -640,7 +640,7 @@ entries:
     version: 0.2.5
   - apiVersion: v1
     appVersion: 4.5.11
-    created: "2022-01-31T12:27:42.192183912Z"
+    created: "2022-02-09T11:53:56.760499953Z"
     description: AppDynamics Machine Agent for infrastructure visibility
     digest: 1e646e23fb53641455522b8238a80eba58b6b480632b34340e22494cb9467c1e
     home: https://www.appdynamics.com/
@@ -663,7 +663,7 @@ entries:
     version: 0.2.4
   - apiVersion: v1
     appVersion: 4.5.11
-    created: "2022-01-31T12:27:42.19161216Z"
+    created: "2022-02-09T11:53:56.759512113Z"
     description: AppDynamics Machine Agent for infrastructure visibility
     digest: c7eaf87b9d4089abfd6eeb2478278a13d6f7b8e504a120f2954c5e9e82bd1772
     home: https://www.appdynamics.com/
@@ -686,7 +686,7 @@ entries:
     version: 0.2.3
   - apiVersion: v1
     appVersion: 4.5.9
-    created: "2022-01-31T12:27:42.191040706Z"
+    created: "2022-02-09T11:53:56.758594323Z"
     description: AppDynamics Machine Agent for infrastructure visibility
     digest: 1e3534adbc3ddbb119033e652e6f37c9b6a27dcf6ae12c48cc52a9971ea5b0bc
     home: https://www.appdynamics.com/
@@ -709,8 +709,30 @@ entries:
     version: 0.2.2
   o2-k8s-monitoring:
   - apiVersion: v2
+    appVersion: 22.1.1
+    created: "2022-02-09T11:53:56.767275024Z"
+    description: Sophisticated helm chart to deploy clustermon as a deployment, otel
+      collector, infra manager, containermon and servermon as a daemonset.
+    digest: c29030b511870cfafbf317b99dfa59403dd355a3081138e93163da7c7bb6337d
+    home: https://appdynamics.com
+    icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
+    keywords:
+    - appdynamics
+    - cluster
+    - kubernetes
+    - monitoring
+    - pod
+    - deployment
+    maintainers:
+    - email: support@appdynamics.com
+      name: AppDynamics
+    name: o2-k8s-monitoring
+    urls:
+    - https://ciscodevnet.github.io/appdynamics-charts/o2-k8s-monitoring-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
     appVersion: 22.1.0
-    created: "2022-01-31T12:27:42.195422638Z"
+    created: "2022-02-09T11:53:56.766149054Z"
     description: Sophisticated helm chart to deploy clustermon as a deployment, otel
       collector, infra manager, containermon and servermon as a daemonset.
     digest: cc7809773409b57dd909fe7578c2cb72e1aa46488561028c29f36dce7862622c
@@ -732,8 +754,29 @@ entries:
     version: 0.1.0
   o2-operator:
   - apiVersion: v2
+    appVersion: 22.1.1
+    created: "2022-02-09T11:53:56.768643018Z"
+    description: Helm chart for Appdynamics Operator
+    digest: 602dee6776eee4fb02898e0128948a276c8367fa6cc85ee44dc7dce9af4e67a5
+    home: https://appdynamics.com
+    icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
+    keywords:
+    - appdynamics
+    - cluster
+    - kubernetes
+    - monitoring
+    - pod
+    - deployment
+    maintainers:
+    - email: support@appdynamics.com
+      name: AppDynamics
+    name: o2-operator
+    urls:
+    - https://ciscodevnet.github.io/appdynamics-charts/o2-operator-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
     appVersion: 22.1.0
-    created: "2022-01-31T12:27:42.19584562Z"
+    created: "2022-02-09T11:53:56.767973883Z"
     description: Helm chart for Appdynamics Operator
     digest: 946ca13d10206c53d361bfdd6750d5f39b767e76043c7550e5237c6f992f3c55
     home: https://appdynamics.com
@@ -752,4 +795,4 @@ entries:
     urls:
     - https://ciscodevnet.github.io/appdynamics-charts/o2-operator-0.1.0.tgz
     version: 0.1.0
-generated: "2022-01-31T12:27:42.164294049Z"
+generated: "2022-02-09T11:53:56.72153688Z"
