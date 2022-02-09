@@ -91,6 +91,7 @@ inframonPod:
 otelCollectorPod:
   image: appdynamics/appd-oc-otel-collector:latest
   imagePullPolicy: Always
+  env: []
   resources:
     limits:
       cpu: 400m

@@ -12,6 +12,9 @@ spec:
   apmNamespaces: {{ .Values.otelCollector.apmNamespaces }}
   {{- end}}
 
+  env:
+    {{- toYaml .Values.otelCollectorPod.env | nindent 4 }}
+
   {{ if .Values.otelCollector.configOverride -}}
   configOverride: |
   {{ .Values.otelCollector.configOverride | nindent 6 }}

@@ -5,9 +5,9 @@ description: Sophisticated helm chart to deploy clustermon as a deployment, otel
 home: https://appdynamics.com
 icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
 
-version: 0.1.0
+version: 0.1.1
 
-appVersion: 22.1.0
+appVersion: 22.1.1
 
 maintainers:
   - name: AppDynamics
