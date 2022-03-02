@@ -14,26 +14,10 @@ rules:
 - apiGroups:
   - ""
   resources:
+  - services
   - secrets
   - configmaps
-  verbs:
-  - get
-  - create
-  - update
-  - delete
-  - list
-  - watch
-- apiGroups:
-  - ""
-  resources:
   - namespaces
-  verbs:
-  - list
-  - watch
-- apiGroups:
-  - ""
-  resources:
-  - services
   verbs:
   - list
   - watch

@@ -13,7 +13,7 @@ spec:
   {{- end}}
 
   env:
-    {{- toYaml .Values.otelCollectorPod.env | nindent 4 }}
+  {{- toYaml .Values.otelCollectorPod.env | nindent 4 }}
 
   {{ if .Values.otelCollector.configOverride -}}
   configOverride: |

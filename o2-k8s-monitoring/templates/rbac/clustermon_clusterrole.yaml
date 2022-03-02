@@ -18,8 +18,6 @@ rules:
   - persistentvolumes
   verbs:
   - get
-  - create
-  - update
   - list
   - watch
 - apiGroups:
@@ -31,8 +29,6 @@ rules:
   - statefulsets
   verbs:
   - get
-  - create
-  - update
   - list
   - watch
 - apiGroups:
@@ -41,8 +37,6 @@ rules:
   - ingresses
   verbs:
   - get
-  - create
-  - update
   - list
   - watch
 - apiGroups:
@@ -52,8 +46,6 @@ rules:
   - jobs
   verbs:
   - get
-  - create
-  - update
   - list
   - watch
 {{- end }}

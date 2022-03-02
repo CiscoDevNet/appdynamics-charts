@@ -1,6 +1,7 @@
 install:
   clustermon: true
   defaultInfraCollectors: true
+  logCollector: false
 
 mTLSEnabled: true
 
@@ -8,6 +9,7 @@ mTLSEnabled: true
 clustermonServiceAccount: appdynamics-clustermon
 inframonServiceAccount: appdynamics-inframon
 otelCollectorServiceAccount: appdynamics-otel-collector
+logCollectorServiceAccount: appdynamics-log-collector
 
 #Clustermon Configs
 clustermonConfig:
@@ -48,6 +50,10 @@ containermonConfig:
   logLevel: info
   logFilesMaxSizeMb: 10
   logFilesNumBackups: 4
+
+#LogCollector Configs
+logCollectorConfig:
+  filebeatYaml: ""
 
 #Deployment specific configs
 clustermonPod:
@@ -92,6 +98,25 @@ otelCollectorPod:
   image: appdynamics/appd-oc-otel-collector:latest
   imagePullPolicy: Always
   env: []
+  resources:
+    limits:
+      cpu: 400m
+      memory: 300Mi
+    requests:
+      cpu: 200m
+      memory: 150Mi
+  labels: {}
+  annotations: {}
+  nodeSelector: {}
+  imagePullSecrets: []
+  affinity: {}
+  tolerations: []
+  securityContext: {}
+
+#Daemonset specific configs
+logCollectorPod:
+  image: appdynamics/appd-beats-levitate:latest
+  imagePullPolicy: Always
   resources:
     limits:
       cpu: 400m

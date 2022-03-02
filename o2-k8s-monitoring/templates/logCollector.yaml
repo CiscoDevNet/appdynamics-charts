@@ -1,0 +1,13 @@
+{{ if .Values.install.logCollector -}}
+apiVersion: cluster.appdynamics.com/v1alpha1
+kind: LogCollector
+metadata:
+  name: {{ printf "%s-%s" .Release.Name "appdynamics-log-collector" | trunc 63 }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  {{- template "podConfigs" .Values.logCollectorPod }}
+
+  serviceAccountName: {{ .Values.logCollectorServiceAccount}}
+
+  filebeatYaml: {{ .Values.logCollectorConfig.filebeatYaml | quote }}
+{{- end }}

@@ -88,6 +88,32 @@ rules:
 - apiGroups:
   - cluster.appdynamics.com
   resources:
+  - logcollectors
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - cluster.appdynamics.com
+  resources:
+  - logcollectors/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - cluster.appdynamics.com
+  resources:
+  - logcollectors/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - cluster.appdynamics.com
+  resources:
   - otelcollectors
   verbs:
   - create

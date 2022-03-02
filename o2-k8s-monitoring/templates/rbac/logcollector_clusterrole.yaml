@@ -1,0 +1,25 @@
+{{ if .Values.install.logCollector -}}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: appdynamics-logcollector-clusterrole
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - namespaces
+  - pods
+  - nodes
+  verbs:
+  - get
+  - watch
+  - list
+- apiGroups:
+  - apps
+  resources:
+    - replicasets
+  verbs:
+  - get
+  - list
+  - watch
+{{- end }}
