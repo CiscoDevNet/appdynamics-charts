@@ -5,7 +5,7 @@ description: Helm chart for Appdynamics Operator
 home: https://appdynamics.com
 icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
 
-version: 0.2.0
+version: 0.3.0
 
 appVersion: 22.3.0
 

@@ -57,7 +57,7 @@ logCollectorConfig:
 
 #Deployment specific configs
 clustermonPod:
-  image: appdynamics/o2-k8s-monitoring:latest
+  image: public.ecr.aws/appdynamics-container-registry/appdynamics-cloud-k8s-monitoring:latest
   imagePullPolicy: Always
   resources:
     limits:
@@ -76,7 +76,7 @@ clustermonPod:
 
 #Daemonset specific configs
 inframonPod:
-  image: appdynamics/o2-k8s-monitoring:latest
+  image: public.ecr.aws/appdynamics-container-registry/appdynamics-cloud-k8s-monitoring:latest
   imagePullPolicy: Always
   resources:
     limits:
@@ -95,7 +95,7 @@ inframonPod:
 
 #Daemonset specific configs
 otelCollectorPod:
-  image: appdynamics/appd-oc-otel-collector:latest
+  image: public.ecr.aws/appdynamics-container-registry/appdynamics-otel-collector:latest
   imagePullPolicy: Always
   env: []
   resources:
@@ -115,7 +115,7 @@ otelCollectorPod:
 
 #Daemonset specific configs
 logCollectorPod:
-  image: appdynamics/appd-beats-levitate:latest
+  image: public.ecr.aws/appdynamics-container-registry/appdynamics-beats:latest
   imagePullPolicy: Always
   resources:
     limits:

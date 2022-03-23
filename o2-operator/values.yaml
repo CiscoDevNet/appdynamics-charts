@@ -1,6 +1,6 @@
 operatorServiceAccount: appdynamics-operator
 operatorPod:
-  image: appdynamics/o2-operator:latest
+  image: public.ecr.aws/appdynamics-container-registry/appdynamics-operator:latest
   imagePullPolicy: Always
   resources:
     limits:
