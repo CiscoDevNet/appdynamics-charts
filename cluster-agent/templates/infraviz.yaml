@@ -38,6 +38,8 @@ spec:
     {{ if .Values.netViz.enabled -}}
     netVizImage: {{ .Values.imageInfo.netVizImage }}:{{ .Values.imageInfo.netvizTag }}
     netVizPort: {{ .Values.netViz.netVizPort -}}
+    ResourcesNetViz:
+    {{- toYaml .Values.netViz.resources | nindent 6 }}
     {{- end}}
     nodeSelector:
     {{- toYaml .Values.infravizPod.nodeSelector | nindent 6 }}

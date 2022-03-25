@@ -85,6 +85,13 @@ infraViz:
 netViz:
   enabled: false
   netVizPort: 3892
+  resources:
+    limits:
+      cpu: "200m"
+      memory: "300Mi"
+    requests:
+      cpu: "100m"
+      memory: "150Mi"
 
 # Agent pod specific properties
 agentPod:
