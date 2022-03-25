@@ -85,13 +85,6 @@ infraViz:
 netViz:
   enabled: false
   netVizPort: 3892
-  resources:
-    limits:
-      cpu: "200m"
-      memory: "300Mi"
-    requests:
-      cpu: "100m"
-      memory: "150Mi"
 
 # Agent pod specific properties
 agentPod:
@@ -131,6 +124,16 @@ infravizPod:
       memory: "800M"
   # overrideVolumeMounts property is valid only after 0.6.10 operator version
   overrideVolumeMounts:
+
+# Netviz pod specific properties
+netVizPod:
+  resources:
+    limits:
+      cpu: "200m"
+      memory: "300Mi"
+    requests:
+      cpu: "100m"
+      memory: "150Mi"
 
 # Subcharts boolean install switches
 install:
