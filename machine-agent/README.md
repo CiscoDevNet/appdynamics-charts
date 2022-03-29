@@ -61,7 +61,7 @@ helm install ./machine-agent --name=stable --namespace=appdynamics \
 | `agent.uniqueHostId`              | Unique host id override                   |                  |
 | `agent.metricsLimit`            | Max number of metrics accepted by the controller from the agent                             | `4000`                      |
 | `agent.proxyHost`             | Proxy host name |                      |
-| `agent.proxyPort`          | Proxy host name |            |
+| `agent.proxyPort`          | Proxy host port |            |
 | `agent.proxyUser`             | Proxy username               |         
 | `agent.proxyPass`             | Proxy password                  |
 | `agent.enableContainerAsHostID` | Controls the value of the `Dappdynamics.docker.container.containerIdAsHostId.enabled` parameter of the machine agent | `false` |
