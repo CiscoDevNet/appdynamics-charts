@@ -19,12 +19,14 @@ spec:
   {{ if .gatherInterval -}}
   gatherInterval: {{ .gatherInterval }}
   {{- end }}
-  namespaceFilter:
-  {{- toYaml .namespaceFilter | nindent 4 }}
-  entityFilter:
-  {{- toYaml .entityFilter | nindent 4 }}
-  labelFilter:
-  {{- toYaml .labelFilter | nindent 4 }}
+
+  filters:
+    namespace:
+    {{- toYaml .filters.namespace | nindent 6 }}
+    entity:
+    {{- toYaml .filters.entity | nindent 6 }}
+    label:
+    {{- toYaml .filters.label | nindent 6 }}
 
   {{ if .testSetupEnabled -}}
   testSetupEnabled: {{ .testSetupEnabled | quote }}
@@ -41,7 +43,6 @@ spec:
     {{- toYaml .events.reasonToExclude | nindent 6 }}
     severeGroupByReason:
     {{- toYaml .events.severeGroupByReason | nindent 6 }}
-    rateLimit: {{ .events.rateLimit }}
   {{- end }}
 
   ingressControllers:

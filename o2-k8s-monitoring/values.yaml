@@ -11,7 +11,7 @@ inframonServiceAccount: appdynamics-inframon
 otelCollectorServiceAccount: appdynamics-otel-collector
 logCollectorServiceAccount: appdynamics-log-collector
 
-#Clustermon Configs
+# Clustermon Configs
 clustermonConfig:
   clusterName: null
   logLevel: info
@@ -19,45 +19,50 @@ clustermonConfig:
   logFilesNumBackups: 4
   printToStdout: "true"
 
-  namespaceFilter:
-    includeRegex: ".*"
-    excludeRegex: ""
-
-  entityFilter:
-    excludeRegex: ""
-    excludeLabels: []
-
-  labelFilter:
-    excludeRegex: ""
+  filters:
+    namespace:
+      includeRegex: ".*"
+      excludeRegex: ""
+    entity:
+      excludeRegex: ""
+      excludeLabels: []
+    label:
+      excludeRegex: ""
 
   ingressControllers: {}
 
-#Infra Manager Configs
+  events:
+    enabled: true
+    severityToExclude: [Normal]
+    reasonToExclude: []
+    severeGroupByReason: []
+
+# Infra Manager Configs
 infraManagerConfig:
   logLevel: info
   logFilesMaxSizeMb: 10
   logFilesNumBackups: 4
   printToStdout: "true"
 
-#Servermon Configs
+# Servermon Configs
 servermonConfig:
   logLevel: info
   logFilesMaxSizeMb: 10
   logFilesNumBackups: 4
 
-#Containermon Configs
+# Containermon Configs
 containermonConfig:
   logLevel: info
   logFilesMaxSizeMb: 10
   logFilesNumBackups: 4
 
-#LogCollector Configs
+# LogCollector Configs
 logCollectorConfig:
   filebeatYaml: ""
 
-#Deployment specific configs
+# Deployment specific configs
 clustermonPod:
-  image: public.ecr.aws/appdynamics-container-registry/appdynamics-cloud-k8s-monitoring:latest
+  image: public.ecr.aws/appdynamics-container-registry/appdynamics-cloud-k8s-monitoring:22.3.0
   imagePullPolicy: Always
   resources:
     limits:
@@ -74,9 +79,9 @@ clustermonPod:
   tolerations: []
   securityContext: {}
 
-#Daemonset specific configs
+# Daemonset specific configs
 inframonPod:
-  image: public.ecr.aws/appdynamics-container-registry/appdynamics-cloud-k8s-monitoring:latest
+  image: public.ecr.aws/appdynamics-container-registry/appdynamics-cloud-k8s-monitoring:22.3.0
   imagePullPolicy: Always
   resources:
     limits:
@@ -93,9 +98,9 @@ inframonPod:
   tolerations: []
   securityContext: {}
 
-#Daemonset specific configs
+# Daemonset specific configs
 otelCollectorPod:
-  image: public.ecr.aws/appdynamics-container-registry/appdynamics-otel-collector:latest
+  image: public.ecr.aws/appdynamics-container-registry/appdynamics-otel-collector:22.1.0
   imagePullPolicy: Always
   env: []
   resources:
@@ -113,9 +118,9 @@ otelCollectorPod:
   tolerations: []
   securityContext: {}
 
-#Daemonset specific configs
+# Daemonset specific configs
 logCollectorPod:
-  image: public.ecr.aws/appdynamics-container-registry/appdynamics-beats:latest
+  image: public.ecr.aws/appdynamics-container-registry/appdynamics-beats:22.3.0
   imagePullPolicy: Always
   resources:
     limits:
@@ -135,9 +140,9 @@ logCollectorPod:
 otelCollector:
   config:
     oauth2client:
-      clientId: null
-      clientSecret: null
-      tenantId: null
-    endpoint: null
+      clientId: ""
+      clientSecret: ""
+      tenantId: ""
+    endpoint: ""
     logLevel: "info"
-  configOverride: null
+  configOverride: ""

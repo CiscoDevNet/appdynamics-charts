@@ -1,0 +1,10 @@
+clustermonConfig:
+  clusterName: test
+
+otelCollector:
+  config:
+    oauth2client:
+      clientId: randomtestvalue
+      clientSecret: randomtestvalue
+      tenantId: randomtestvalue
+    endpoint: https://randomtestvalue.com
