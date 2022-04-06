@@ -72,22 +72,25 @@ spec:
   # Pod filter properties
   podFilter:
   {{- toYaml .Values.podFilter | nindent 4 }}
-
+  {{ if .Values.agentPod.nodeSelector }}
   # Node selector
   nodeSelector:
   {{- toYaml .Values.agentPod.nodeSelector | nindent 4 }}
-
+  {{- end }}
+  {{ if .Values.agentPod.tolerations }}
   # Tolerations
   tolerations:
   {{- toYaml .Values.agentPod.tolerations | nindent 4 }}
-
+  {{- end }}
+  {{ if .Values.agentPod.labels }}
   labels:
   {{- toYaml .Values.agentPod.labels | nindent 4 }}
-
+  {{- end }}
+  {{ if .Values.agentPod.resources }}
   # Resources
   resources:
   {{- toYaml .Values.agentPod.resources | nindent 4 }}
-
+  {{- end }}
   {{ with .Values.instrumentationConfig -}}
   {{ if .enabled -}}
   # Instrumentation config
