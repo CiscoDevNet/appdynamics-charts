@@ -7,15 +7,15 @@ metadata:
 spec:
     controllerUrl: {{ required "AppDynamics controller URL is required!" .Values.controllerInfo.url }}
     account: {{ required "AppDynamics controller account is required!" .Values.controllerInfo.account }}
-    {{ if eq .Values.infraViz.nodeOS "linux" }}
-    image: {{ .Values.imageInfo.machineAgentImage }}:{{ .Values.imageInfo.machineAgentTag -}}
-    {{ else if eq .Values.infraViz.nodeOS "windows" }}
-    imageWin: {{ .Values.imageInfo.machineAgentWinImage }}:{{ .Values.imageInfo.machineAgentWinTag -}}
-    globalAccount: {{ required "AppDynamics controller global account is required when using machine-agent win image!" .Values.controllerInfo.globalAccount -}}
-    {{ else if eq .Values.infraViz.nodeOS "all" }}
+    {{- if eq .Values.infraViz.nodeOS "linux" }} 
     image: {{ .Values.imageInfo.machineAgentImage }}:{{ .Values.imageInfo.machineAgentTag }}
-    imageWin: {{ .Values.imageInfo.machineAgentWinImage }}:{{ .Values.imageInfo.machineAgentWinTag -}}
-    globalAccount: {{ required "AppDynamics controller global account is required when using machine-agent win image!" .Values.controllerInfo.globalAccount -}}
+    {{- else if eq .Values.infraViz.nodeOS "windows" }}
+    imageWin: {{ .Values.imageInfo.machineAgentWinImage }}:{{ .Values.imageInfo.machineAgentWinTag }}
+    globalAccount: {{ required "AppDynamics controller global account is required when using machine-agent win image!" .Values.controllerInfo.globalAccount }}
+    {{- else if eq .Values.infraViz.nodeOS "all" }}
+    image: {{ .Values.imageInfo.machineAgentImage }}:{{ .Values.imageInfo.machineAgentTag }}
+    imageWin: {{ .Values.imageInfo.machineAgentWinImage }}:{{ .Values.imageInfo.machineAgentWinTag }}
+    globalAccount: {{ required "AppDynamics controller global account is required when using machine-agent win image!" .Values.controllerInfo.globalAccount }}
     {{- end }}
     {{ with .Values.infraViz -}}
     nodeOS: {{ .nodeOS -}}

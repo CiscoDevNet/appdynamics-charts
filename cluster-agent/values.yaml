@@ -7,9 +7,9 @@ installInfraViz: false
 # Docker images
 imageInfo:
   agentImage: docker.io/appdynamics/cluster-agent
-  agentTag: 22.1.0
+  agentTag: 22.4.0
   operatorImage: docker.io/appdynamics/cluster-agent-operator
-  operatorTag: 22.1.0
+  operatorTag: 22.4.0
   imagePullPolicy: Always                               # Will be used for operator pod
   machineAgentImage: docker.io/appdynamics/machine-agent
   machineAgentTag: latest
@@ -26,15 +26,15 @@ controllerInfo:
   password: null
   accessKey: null
   globalAccount: null            # To be provided when using machineAgent Window Image
-  
+
   # SSL properties
   customSSLCert: null
-  
+
   # Proxy config
   authenticateProxy: false
   proxyUrl: null
   proxyUser: null
-  proxyPassword: null 
+  proxyPassword: null
 
 # RBAC config
 createServiceAccount: true
@@ -77,7 +77,7 @@ infraViz:
   nodeOS: "linux"
   enableMasters: false
   stdoutLogging: false
-  enableContainerHostId: false
+  enableContainerHostId: true
   enableServerViz: false
   enableDockerViz: false
 
