@@ -8,7 +8,18 @@ spec:
   {{- template "podConfigs" .Values.inframonPod }}
 
   serviceAccountName: {{ .Values.inframonServiceAccount}}
-  mTLSEnabled: {{ .Values.mTLSEnabled | quote }}
+
+  {{ with .Values.mTLS -}}
+  mTLS:
+    enabled: {{ .enabled | quote }}
+    {{ if .enabled -}}
+    secretName: {{ required "A valid secret name entry required!" .client.secretName }}
+    secretKeys:
+      caCert: {{ .client.secretKeys.caCert }}
+      tlsCert: {{ .client.secretKeys.tlsCert }}
+      tlsKey: {{ .client.secretKeys.tlsKey }}
+    {{- end }}
+  {{- end }}
 
   {{ with .Values.infraManagerConfig -}}
   logFilesMaxSizeMb: {{ .logFilesMaxSizeMb }}

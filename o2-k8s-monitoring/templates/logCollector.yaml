@@ -9,5 +9,23 @@ spec:
 
   serviceAccountName: {{ .Values.logCollectorServiceAccount}}
 
+  {{ with .Values.mTLS -}}
+  mTLS:
+    enabled: {{ .enabled | quote }}
+    {{ if .enabled -}}
+    secretName: {{ required "A valid secret name entry required!" .client.secretName }}
+    secretKeys:
+      caCert: {{ .client.secretKeys.caCert }}
+      tlsCert: {{ .client.secretKeys.tlsCert }}
+      tlsKey: {{ .client.secretKeys.tlsKey }}
+    {{- end }}
+  {{- end }}
+
+  {{ if .Values.logCollectorConfig.filebeatYaml -}}
   filebeatYaml: {{ .Values.logCollectorConfig.filebeatYaml | quote }}
+
+  {{ else -}}
+  container:
+  {{ toYaml .Values.logCollectorConfig.container | nindent 4 }}
+  {{- end}}
 {{- end }}

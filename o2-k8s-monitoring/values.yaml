@@ -3,7 +3,20 @@ install:
   defaultInfraCollectors: true
   logCollector: false
 
-mTLSEnabled: true
+mTLS:
+  enabled: true
+  client:
+    secretName: ""
+    secretKeys:
+      caCert: ca.crt
+      tlsCert: tls.crt
+      tlsKey: tls.key
+  server:
+    secretName: ""
+    secretKeys:
+      caCert: ca.crt
+      tlsCert: tls.crt
+      tlsKey: tls.key
 
 # RBAC config
 clustermonServiceAccount: appdynamics-clustermon
@@ -58,11 +71,33 @@ containermonConfig:
 
 # LogCollector Configs
 logCollectorConfig:
+  container:
+    conditions:
+      - condition: {}
+        multiLinePattern:
+        multiLineNegate:
+        multiLineMatch:
+        messageParserLog4JPattern:
+        messageParserLogbackPattern:
+        enableJSONLogs:
+        jsonTimestampField:
+        jsonTimestampPattern:
+        messageParserTimestampFormat:
+        messageParserGrokPatterns:
+        grokTimestampField:
+        grokTimestampPattern:
+        enableInfraLogs:
+    clusterName:
+    batchSize:
+    loggingLevel:
+    loggingSelectors: []
+    monitoringEnabled:
+    monitoringLoggingPeriod:
   filebeatYaml: ""
 
 # Deployment specific configs
 clustermonPod:
-  image: public.ecr.aws/appdynamics-container-registry/appdynamics-cloud-k8s-monitoring:22.3.0
+  image: public.ecr.aws/appdynamics-container-registry/appdynamics-cloud-k8s-monitoring:22.5.0
   imagePullPolicy: Always
   resources:
     limits:
@@ -81,7 +116,7 @@ clustermonPod:
 
 # Daemonset specific configs
 inframonPod:
-  image: public.ecr.aws/appdynamics-container-registry/appdynamics-cloud-k8s-monitoring:22.3.0
+  image: public.ecr.aws/appdynamics-container-registry/appdynamics-cloud-k8s-monitoring:22.5.0
   imagePullPolicy: Always
   resources:
     limits:
@@ -120,7 +155,7 @@ otelCollectorPod:
 
 # Daemonset specific configs
 logCollectorPod:
-  image: public.ecr.aws/appdynamics-container-registry/appdynamics-beats:22.3.0
+  image: public.ecr.aws/appdynamics-container-registry/appdynamics-beats:22.4.0
   imagePullPolicy: Always
   resources:
     limits:

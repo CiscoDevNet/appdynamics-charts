@@ -6,7 +6,18 @@ spec:
   {{- template "podConfigs" .Values.otelCollectorPod }}
 
   serviceAccountName: {{ .Values.otelCollectorServiceAccount}}
-  mTLSEnabled: {{ .Values.mTLSEnabled | quote }}
+
+  {{ with .Values.mTLS -}}
+  mTLS:
+    enabled: {{ .enabled | quote }}
+    {{ if .enabled -}}
+    secretName: {{ required "A valid secret name entry required!" .server.secretName }}
+    secretKeys:
+      caCert: {{ .server.secretKeys.caCert }}
+      tlsCert: {{ .server.secretKeys.tlsCert }}
+      tlsKey: {{ .server.secretKeys.tlsKey }}
+    {{- end }}
+  {{- end }}
 
   {{ if .Values.otelCollector.apmNamespaces -}}
   apmNamespaces: {{ .Values.otelCollector.apmNamespaces }}
