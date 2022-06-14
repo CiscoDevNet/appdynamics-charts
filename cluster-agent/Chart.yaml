@@ -9,6 +9,11 @@ version: 1.3.0
 
 appVersion: 22.4.0
 
+dependencies:
+  - name: metrics-server
+    repository: https://kubernetes-sigs.github.io/metrics-server/
+    version: 3.7.0 
+    condition: install.metrics-server
 
 maintainers:
   - name: AppDynamics

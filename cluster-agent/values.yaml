@@ -21,11 +21,11 @@ imageInfo:
 # AppDynamics controller info (VALUES TO BE PROVIDED BY THE USER)
 controllerInfo:
   existingSecret: false
-  url: test
-  account: test
+  url: null
+  account: null
   username: null
   password: null
-  accessKey: test
+  accessKey: null
   globalAccount: null            # To be provided when using machineAgent Window Image
 
   # SSL properties
