@@ -6,7 +6,6 @@ installInfraViz: false
 
 # Docker images
 imageInfo:
-  existingSecret: false
   agentImage: docker.io/appdynamics/cluster-agent
   agentTag: 22.4.0
   operatorImage: docker.io/appdynamics/cluster-agent-operator
@@ -21,6 +20,7 @@ imageInfo:
 
 # AppDynamics controller info (VALUES TO BE PROVIDED BY THE USER)
 controllerInfo:
+  existingSecret: false
   url: null
   account: null
   username: null
