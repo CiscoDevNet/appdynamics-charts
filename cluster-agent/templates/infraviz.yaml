@@ -41,6 +41,9 @@ spec:
     {{- end}}
     nodeSelector:
     {{- toYaml .Values.infravizPod.nodeSelector | nindent 6 }}
+    # Tolerations
+    tolerations:
+    {{- toYaml .Values.infravizPod.tolerations | nindent 6 }}
     # Resources
     resources:
     {{- toYaml .Values.infravizPod.resources | nindent 6 }}

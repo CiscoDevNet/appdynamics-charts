@@ -437,6 +437,8 @@ spec:
                   type: integer
                 maxPodsToRegisterCount:
                   type: integer
+                instrumentationMaxPollingAttempts:
+                  type: integer
                 metadataSyncInterval:
                   type: integer
                 metricUploadRetryCount:

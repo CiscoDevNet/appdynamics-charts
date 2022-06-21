@@ -41,6 +41,7 @@ spec:
   eventUploadInterval: {{ .eventUploadInterval }}
   httpClientTimeout: {{ .httpClientTimeout }}
   podBatchSize: {{ .podBatchSize }}
+  instrumentationMaxPollingAttempts: {{ .instrumentationMaxPollingAttempts }}
 
   # Container specific properties
   {{ with .containerProperties -}}
