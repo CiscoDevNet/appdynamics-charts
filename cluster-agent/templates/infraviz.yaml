@@ -28,6 +28,15 @@ spec:
     {{ if .enableContainerHostId -}}
     enableContainerHostId: {{ .enableContainerHostId -}}
     {{- end }}
+    {{ if .runAsUser -}}
+    runAsUser: {{ .runAsUser -}}
+    {{- end }}
+    {{ if .runAsGroup -}}
+    runAsGroup: {{ .runAsGroup -}}
+    {{- end }}
+    {{ if .fsGroup -}}
+    fsGroup: {{ .fsGroup -}}
+    {{- end }}
     {{ if .enableServerViz -}}
     enableServerViz: {{ .enableServerViz -}}
     {{- end }}

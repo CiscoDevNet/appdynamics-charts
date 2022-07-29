@@ -5,9 +5,9 @@ description: Sophisticated helm chart to deploy cluster agent and machine agent 
 home: https://appdynamics.com
 icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
 
-version: 1.4.0
+version: 1.5.0
 
-appVersion: 22.6.0
+appVersion: 22.7.0
 
 dependencies:
   - name: metrics-server

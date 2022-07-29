@@ -169,6 +169,15 @@ spec:
                   type: string
                 image:
                   type: string
+                runAsGroup:
+                  format: int64
+                  type: integer
+                runAsUser:
+                  format: int64
+                  type: integer
+                fsGroup:
+                  format: int64
+                  type: integer
                 imagePullSecret:
                   type: string
                 imageWin:

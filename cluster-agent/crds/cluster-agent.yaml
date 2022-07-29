@@ -411,6 +411,8 @@ spec:
                         type: integer
                       tierName:
                         type: string
+                      tierNameLabel:
+                        type: string
                     type: object
                   type: array
                 jDKMountName:
@@ -583,6 +585,10 @@ spec:
                 stdoutLogging:
                   type: string
                 systemSSLCert:
+                  type: string
+                tierNameLabel:
+                  type: string
+                tierNameStrategy:
                   type: string
                 tolerations:
                   items:

@@ -111,8 +111,14 @@ spec:
   {{ if .appNameStrategy -}}
   appNameStrategy: {{ .appNameStrategy }}
   {{- end }}
+  {{ if .tierNameStrategy -}}
+  tierNameStrategy: {{ .tierNameStrategy }}
+  {{- end }}
   {{ if .appNameLabel -}}
   appNameLabel: {{ .appNameLabel }}
+  {{- end }}
+  {{ if .tierNameLabel -}}
+  tierNameLabel: {{ .tierNameLabel }}
   {{- end }}
   {{ if .imageInfo -}}
   imageInfo:
