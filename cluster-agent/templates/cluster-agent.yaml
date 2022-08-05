@@ -5,7 +5,9 @@ metadata:
   name: {{ printf "%s-%s" .Release.Name "appdynamics-cluster-agent" | trunc 63 }}
   namespace: {{ .Release.Namespace }}
 spec:
+  {{- if .Values.clusterAgent.appName }}
   appName: {{ .Values.clusterAgent.appName | default (cat .Release.Name "-" .Release.Namespace | nospace) }}
+  {{- end }}
   controllerUrl: {{ required "AppDynamics controller URL is required!" .Values.controllerInfo.url }}
   account: {{ required "AppDynamics controller account is required!" .Values.controllerInfo.account }}
   image: {{ .Values.imageInfo.agentImage }}:{{ .Values.imageInfo.agentTag }}
@@ -28,10 +30,15 @@ spec:
 
   # Ad-Hoc properties
   {{ with .Values.clusterAgent -}}
+  {{- if and .nsToMonitor .nsToMonitorRegex }}
+  {{ fail "\n\nERROR: Only one of nsToMonitor or nsToMonitorRegex permitted!" }}
+  {{ else if .nsToMonitor -}}
   nsToMonitor:
   {{- toYaml .nsToMonitor | nindent 4 }}
-  {{ if .nsToMonitorRegex -}}
+  {{ else if .nsToMonitorRegex -}}
   nsToMonitorRegex: {{ .nsToMonitorRegex }}
+  {{ else -}}
+  {{ fail "\n\nERROR: One of nsToMonitor or nsToMonitorRegex must be set!" }}
   {{- end }}
   {{ if .nsToExcludeRegex -}}
   nsToExcludeRegex: {{ .nsToExcludeRegex }}
