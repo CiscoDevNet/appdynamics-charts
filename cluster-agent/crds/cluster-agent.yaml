@@ -364,7 +364,6 @@ spec:
                               type: string
                           required:
                             - configMapName
-                            - subDir
                           type: object
                         type: array
                       env:
