@@ -20,6 +20,7 @@ imageInfo:
 
 # AppDynamics controller info (VALUES TO BE PROVIDED BY THE USER)
 controllerInfo:
+  existingSecret: false
   url: null
   account: null
   username: null
