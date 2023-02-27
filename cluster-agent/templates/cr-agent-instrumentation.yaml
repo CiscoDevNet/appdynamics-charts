@@ -1,8 +1,9 @@
-{{ if and (eq .Values.deploymentMode "PRIMARY") .Values.installClusterAgent -}}
+{{ if .Values.installClusterAgent -}}
+{{ $releaseName := .Release.Name}}
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: appdynamics-cluster-agent-instrumentation
+  name: appdynamics-cluster-agent-instrumentation-{{.Release.Name}}
 rules:
   - apiGroups:
       - ""
@@ -24,6 +25,14 @@ rules:
       - replicasets
     verbs:
       - update
+  - apiGroups:
+      - ""
+    resources:
+      - namespaces
+    verbs:
+      - get
+      - update
+      - list
   {{ if .Capabilities.APIVersions.Has "apps.openshift.io/v1/DeploymentConfig" -}}
   - apiGroups:
       - apps.openshift.io
@@ -32,4 +41,4 @@ rules:
     verbs:
       - update
   {{- end }}
-{{- end }}
+  {{- end }}

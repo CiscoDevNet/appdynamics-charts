@@ -1,8 +1,9 @@
-{{ $mode := .Values.deploymentMode -}}
-{{ if and (not .Values.crbStage) .Values.createServiceAccount (or (eq $mode "PRIMARY") (eq $mode "NAMESPACED")) -}}
+{{ if not .Values.crbStage -}}
+{{ if .Values.createServiceAccount -}}
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: {{ .Values.operatorServiceAccount }}
   namespace: {{ .Release.Namespace }}
+{{ end -}}
 {{ end -}}

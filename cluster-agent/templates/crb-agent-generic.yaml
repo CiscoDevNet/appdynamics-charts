@@ -11,6 +11,6 @@ subjects:
 {{ printf "namespace: %s" $namespace | nindent 4}}
 roleRef:
   kind: ClusterRole
-  name: appdynamics-cluster-agent
+  name: appdynamics-cluster-agent-{{.Release.Name}}
   apiGroup: rbac.authorization.k8s.io
 {{ end -}}

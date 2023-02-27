@@ -1,6 +1,5 @@
 {{ if .Values.installClusterAgent -}}
-{{ $mode := .Values.deploymentMode -}}
-{{ if and .Values.createServiceAccount (or (eq $mode "PRIMARY") (eq $mode "NAMESPACED")) -}}
+{{ if .Values.createServiceAccount -}}
 apiVersion: v1
 kind: ServiceAccount
 metadata:

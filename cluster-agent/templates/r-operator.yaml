@@ -1,5 +1,3 @@
-{{ $mode := .Values.deploymentMode -}}
-{{ if or (eq $mode "PRIMARY") (eq $mode "NAMESPACED") -}}
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
@@ -115,4 +113,3 @@ rules:
       - get
       - patch
       - update
-{{ end -}}

@@ -1,15 +1,12 @@
-# Cluster agent deployment mode (PRIMARY | NAMESPACED)
-deploymentMode: PRIMARY
-
 installClusterAgent: true
 installInfraViz: false
 
 # Docker images
 imageInfo:
   agentImage: docker.io/appdynamics/cluster-agent
-  agentTag: 22.12.1
+  agentTag: 23.2.0
   operatorImage: docker.io/appdynamics/cluster-agent-operator
-  operatorTag: 22.12.1
+  operatorTag: 23.2.0
   imagePullPolicy: Always                               # Will be used for operator pod
   machineAgentImage: docker.io/appdynamics/machine-agent
   machineAgentTag: latest
@@ -52,6 +49,7 @@ clusterAgent:
   httpClientTimeout: 30
   podBatchSize: 6
   instrumentationMaxPollingAttempts: 10
+  instrumentationNsStatusPollingIntervalMinutes: 5
   imagePullSecret: ""
   containerProperties:
     containerBatchSize: 5
@@ -111,6 +109,7 @@ operatorPod:
     requests:
       cpu: 100m
       memory: 64Mi
+  imagePullSecret: ""
 
 # Infraviz pod specific properties
 infravizPod:

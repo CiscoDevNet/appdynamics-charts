@@ -440,6 +440,8 @@ spec:
                   type: integer
                 instrumentationMaxPollingAttempts:
                   type: integer
+                instrumentationNsStatusPollingIntervalMinutes:
+                  type: integer
                 metadataSyncInterval:
                   type: integer
                 metricUploadRetryCount:

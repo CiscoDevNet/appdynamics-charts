@@ -1,5 +1,3 @@
-{{ $mode := .Values.deploymentMode -}}
-{{ if or (eq $mode "PRIMARY") (eq $mode "NAMESPACED") -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -42,4 +40,5 @@ spec:
                   fieldPath: metadata.name
             - name: OPERATOR_NAME
               value: "appdynamics-operator"
-{{ end -}}
+      imagePullSecret: {{ .Values.operatorPod.imagePullSecret }}
+

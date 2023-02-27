@@ -2,10 +2,10 @@
 apiVersion: cluster.appdynamics.com/v1alpha1
 kind: Clusteragent
 metadata:
-  name: {{ printf "%s-%s" .Release.Name "appdynamics-cluster-agent" | trunc 63 }}
+  name: {{ (cat (.Values.clusterAgent.appName | default (cat .Release.Name "-" "appdynamics-cluster-agent" | nospace)) "-" .Release.Namespace | nospace) | trunc 63 }}
   namespace: {{ .Release.Namespace }}
 spec:
-  appName: {{ .Values.clusterAgent.appName | default (cat .Release.Name "-" .Release.Namespace | nospace) }}
+  appName: {{ (cat (.Values.clusterAgent.appName | default (cat .Release.Name "-" "appdynamics-cluster-agent" | nospace)) "-" .Release.Namespace | nospace) | trunc 63 }}
   controllerUrl: {{ required "AppDynamics controller URL is required!" .Values.controllerInfo.url }}
   account: {{ required "AppDynamics controller account is required!" .Values.controllerInfo.account }}
   image: {{ .Values.imageInfo.agentImage }}:{{ .Values.imageInfo.agentTag }}
@@ -42,6 +42,7 @@ spec:
   httpClientTimeout: {{ .httpClientTimeout }}
   podBatchSize: {{ .podBatchSize }}
   instrumentationMaxPollingAttempts: {{ .instrumentationMaxPollingAttempts }}
+  instrumentationNsStatusPollingIntervalMinutes: {{ .instrumentationNsStatusPollingIntervalMinutes }}
 
   # Container specific properties
   {{ with .containerProperties -}}
