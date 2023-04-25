@@ -43,7 +43,7 @@ spec:
   podBatchSize: {{ .podBatchSize }}
   instrumentationMaxPollingAttempts: {{ .instrumentationMaxPollingAttempts }}
   instrumentationNsStatusPollingIntervalMinutes: {{ .instrumentationNsStatusPollingIntervalMinutes }}
-
+  priorityClassName: {{ .priorityClassName }}
   # Container specific properties
   {{ with .containerProperties -}}
   containerBatchSize: {{ .containerBatchSize }}
@@ -148,6 +148,33 @@ spec:
   {{- end }}
   {{ if .runAsGroup -}}
   runAsGroup: {{ .runAsGroup }}
+  {{- end }}
+  {{ if .runAsNonRoot -}}
+  runAsNonRoot: {{ .runAsNonRoot }}
+  {{- end }}
+  {{ if .readOnlyRootFilesystem -}}
+  readOnlyRootFilesystem: {{ .readOnlyRootFilesystem }}
+  {{- end }}
+  {{ if .allowPrivilegeEscalation -}}
+  allowPrivilegeEscalation: {{ .allowPrivilegeEscalation }}
+  {{- end }}
+  {{ if .capabilities -}}
+  capabilities: {{ .capabilities }}
+  {{- end }}
+  {{ if .seccompProfile -}}
+  seccompProfile: {{ .seccompProfile }}
+  {{- end }}
+  {{ if .windowsOptions -}}
+  windowsOptions: {{ .windowsOptions }}
+  {{- end }}
+  {{ if .seLinuxOptions -}}
+  seLinuxOptions: {{ .seLinuxOptions }}
+  {{- end }}
+  {{ if .procMount -}}
+  procMount: {{ .procMount }}
+  {{- end }}
+  {{ if .privileged -}}
+  privileged: {{ .privileged }}
   {{- end }}
   {{ if .numberOfTaskWorkers -}}
   numberOfTaskWorkers: {{ .numberOfTaskWorkers }}

@@ -16,6 +16,13 @@ spec:
       serviceAccountName: {{ .Values.operatorServiceAccount }}
       tolerations:
       {{- toYaml .Values.operatorPod.tolerations | nindent 8 }}
+      {{ if .Values.operatorPod.imagePullSecret -}}
+      imagePullSecrets:
+        - name: {{ .Values.operatorPod.imagePullSecret }}
+      {{ end -}}
+      {{ if .Values.operatorPod.priorityClassName -}}
+      priorityClassName: {{ .Values.operatorPod.priorityClassName }}
+      {{ end -}}
       nodeSelector:
       {{- toYaml .Values.operatorPod.nodeSelector | nindent 8 }}
       containers:
@@ -40,5 +47,4 @@ spec:
                   fieldPath: metadata.name
             - name: OPERATOR_NAME
               value: "appdynamics-operator"
-      imagePullSecret: {{ .Values.operatorPod.imagePullSecret }}
 

@@ -48,8 +48,13 @@ spec:
     netVizImage: {{ .Values.imageInfo.netVizImage }}:{{ .Values.imageInfo.netvizTag }}
     netVizPort: {{ .Values.netViz.netVizPort -}}
     {{- end}}
+    {{ if .Values.infravizPod.imagePullSecret -}}
+    imagePullSecret: {{ .Values.infravizPod.imagePullSecret }}
+    {{- end }}
     nodeSelector:
     {{- toYaml .Values.infravizPod.nodeSelector | nindent 6 }}
+    priorityClassName:
+    {{- toYaml .Values.infravizPod.priorityClassName | nindent 6 }}
     # Tolerations
     tolerations:
     {{- toYaml .Values.infravizPod.tolerations | nindent 6 }}

@@ -1,9 +1,9 @@
 {{ if not .Values.crbStage -}}
-{{ if .Values.createServiceAccount -}}
+{{- if .Values.createServiceAccount }}
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: {{ .Values.operatorServiceAccount }}
   namespace: {{ .Release.Namespace }}
-{{ end -}}
+{{- end }}
 {{ end -}}

@@ -4,9 +4,9 @@ installInfraViz: false
 # Docker images
 imageInfo:
   agentImage: docker.io/appdynamics/cluster-agent
-  agentTag: 23.2.0
+  agentTag: 23.4.0
   operatorImage: docker.io/appdynamics/cluster-agent-operator
-  operatorTag: 23.2.0
+  operatorTag: 23.4.0
   imagePullPolicy: Always                               # Will be used for operator pod
   machineAgentImage: docker.io/appdynamics/machine-agent
   machineAgentTag: latest
@@ -113,9 +113,11 @@ operatorPod:
 
 # Infraviz pod specific properties
 infravizPod:
+  imagePullSecret: ""
   nodeSelector:
     kubernetes.io/os: linux
   tolerations: []
+  priorityClassName: ""
   resources:
     limits:
       cpu: 500m
