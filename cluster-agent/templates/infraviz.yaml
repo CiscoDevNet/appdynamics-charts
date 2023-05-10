@@ -65,4 +65,9 @@ spec:
     overrideVolumeMounts:
     {{- toYaml .Values.infravizPod.overrideVolumeMounts | nindent 6 }}
     {{ end -}}
+    env:
+    {{- range $key, $value := .Values.infraViz.env }}
+      - name: {{ $key }}
+        value: {{ $value | quote }}
+    {{- end }}
 {{ end -}}

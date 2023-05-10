@@ -1,0 +1,131 @@
+installClusterAgent: true
+installInfraViz: false
+
+# Docker images
+imageInfo:
+  agentImage: docker.io/appdynamics/cluster-agent
+  agentTag: 23.2.0
+  operatorImage: docker.io/appdynamics/cluster-agent-operator
+  operatorTag: 23.2.0
+  imagePullPolicy: Always                               # Will be used for operator pod
+  machineAgentImage: docker.io/appdynamics/machine-agent
+  machineAgentTag: latest
+  machineAgentWinImage: docker.io/appdynamics/machine-agent-analytics
+  machineAgentWinTag: win-latest
+  netVizImage: docker.io/appdynamics/machine-agent-netviz
+  netvizTag: latest
+
+# AppDynamics controller info (VALUES TO BE PROVIDED BY THE USER)
+controllerInfo:
+  url: null
+  account: null
+  username: null
+  password: null
+  accessKey: null
+  globalAccount: null            # To be provided when using machineAgent Window Image
+
+  # SSL properties
+  customSSLCert: null
+
+  # Proxy config
+  authenticateProxy: false
+  proxyUrl: null
+  proxyUser: null
+  proxyPassword: null
+
+# RBAC config
+createServiceAccount: true
+agentServiceAccount: appdynamics-cluster-agent
+operatorServiceAccount: appdynamics-operator
+infravizServiceAccount: appdynamics-infraviz
+
+# Cluster agent config
+clusterAgent:
+  nsToMonitor:
+    - default
+  clusterMetricsSyncInterval: 60
+  metadataSyncInterval: 60
+  eventUploadInterval: 10
+  httpClientTimeout: 30
+  podBatchSize: 6
+  instrumentationMaxPollingAttempts: 10
+  instrumentationNsStatusPollingIntervalMinutes: 5
+  imagePullSecret: ""
+  containerProperties:
+    containerBatchSize: 5
+    containerParallelRequestLimit: 1
+    containerRegistrationInterval: 120
+  logProperties:
+    logFileSizeMb: 5
+    logFileBackups: 3
+    logLevel: INFO
+  metricProperties:
+    metricsSyncInterval: 30
+    metricUploadRetryCount: 2
+    metricUploadRetryIntervalMilliSeconds: 5
+
+# Pod filter config
+podFilter: {}
+
+# Instrumentation config
+instrumentationConfig:
+  enabled: false
+
+# InfraViz config
+infraViz:
+  nodeOS: "linux"
+  enableMasters: false
+  stdoutLogging: false
+  enableContainerHostId: true
+  enableServerViz: false
+  enableDockerViz: false
+
+# Netviz config
+netViz:
+  enabled: false
+  netVizPort: 3892
+
+# Agent pod specific properties
+agentPod:
+  nodeSelector: {}
+  tolerations: []
+  resources:
+    limits:
+      cpu: "1250m"
+      memory: "300Mi"
+    requests:
+      cpu: "750m"
+      memory: "150Mi"
+  labels: {}
+
+# Operator pod specific properties
+operatorPod:
+  nodeSelector: {}
+  tolerations: []
+  resources:
+    limits:
+      cpu: 200m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 64Mi
+  imagePullSecret: ""
+
+# Infraviz pod specific properties
+infravizPod:
+  nodeSelector:
+    kubernetes.io/os: linux
+  tolerations: []
+  resources:
+    limits:
+      cpu: 500m
+      memory: "1G"
+    requests:
+      cpu: 200m
+      memory: "800M"
+  # overrideVolumeMounts property is valid only after 0.6.10 operator version
+  overrideVolumeMounts:
+
+# Subcharts boolean install switches
+install:
+  metrics-server: false
