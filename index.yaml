@@ -3,6 +3,35 @@ entries:
   cluster-agent:
   - apiVersion: v2
     appVersion: 23.4.0
+    created: "2023-05-10T12:18:39.856763104Z"
+    dependencies:
+    - condition: install.metrics-server
+      name: metrics-server
+      repository: https://kubernetes-sigs.github.io/metrics-server/
+      version: 3.7.0
+    description: Sophisticated helm chart to deploy cluster agent and machine agent
+      in addition with advanced features like multiple cluster agent deployments,
+      Granular control over config with intuitive boolean switches
+    digest: 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+    home: https://appdynamics.com
+    icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
+    keywords:
+    - appdynamics
+    - cluster
+    - kubernetes
+    - openshift
+    - monitoring
+    - pod
+    - deployment
+    maintainers:
+    - email: support@appdynamics.com
+      name: AppDynamics
+    name: cluster-agent
+    urls:
+    - https://ciscodevnet.github.io/appdynamics-charts/cluster-agent-1.13.0.tgz
+    version: 1.14.0
+  - apiVersion: v2
+    appVersion: 23.4.0
     created: "2023-04-25T12:18:39.856763104Z"
     dependencies:
     - condition: install.metrics-server

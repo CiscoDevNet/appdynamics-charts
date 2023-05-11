@@ -7,7 +7,7 @@ metadata:
 spec:
     controllerUrl: {{ required "AppDynamics controller URL is required!" .Values.controllerInfo.url }}
     account: {{ required "AppDynamics controller account is required!" .Values.controllerInfo.account }}
-    {{- if eq .Values.infraViz.nodeOS "linux" }} 
+    {{- if eq .Values.infraViz.nodeOS "linux" }}
     image: {{ .Values.imageInfo.machineAgentImage }}:{{ .Values.imageInfo.machineAgentTag }}
     {{- else if eq .Values.infraViz.nodeOS "windows" }}
     imageWin: {{ .Values.imageInfo.machineAgentWinImage }}:{{ .Values.imageInfo.machineAgentWinTag }}
@@ -65,4 +65,9 @@ spec:
     overrideVolumeMounts:
     {{- toYaml .Values.infravizPod.overrideVolumeMounts | nindent 6 }}
     {{ end -}}
+    env:
+    {{- range $env := .Values.infraViz.env }}
+       - name: {{ $env.name }}
+         value: {{ $env.value | quote }}
+    {{- end }}
 {{ end -}}
