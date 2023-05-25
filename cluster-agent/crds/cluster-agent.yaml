@@ -149,6 +149,8 @@ spec:
                   type: string
                 deploySchemaName:
                   type: string
+                enableInstallationReport:
+                  type: boolean
                 env:
                   items:
                     description: EnvVar represents an environment variable present in
@@ -478,8 +480,6 @@ spec:
                             - the container runtime default profile should be used.
                             Unconfined - no profile should be applied."
                             type: string
-                        required:
-                          - type
                         type: object
                       tierName:
                         type: string
@@ -636,6 +636,11 @@ spec:
                 podSchemaName:
                   description: snapshot schemas
                   type: string
+                pprofEnabled:
+                  description: pprof properties
+                  type: boolean
+                pprofPort:
+                  type: integer
                 priorityClassName:
                   type: string
                 proxyPass:

@@ -56,6 +56,7 @@ spec:
   metricsSyncInterval: {{ .metricsSyncInterval }}
   metricUploadRetryCount: {{ .metricUploadRetryCount }}
   metricUploadRetryIntervalMilliSeconds: {{ .metricUploadRetryIntervalMilliSeconds }}
+  disablePodMetricsMonitoring: {{ .disableSecretsConfigMapMonitoring }}
   {{- end }}
 
   # Log specific properties
@@ -71,6 +72,11 @@ spec:
   {{- end }}
   {{- end }}
 
+  # profiling specific properties
+  {{ with .Values.agentProfiler -}}
+  pprofEnabled: {{ .pprofEnabled }}
+  pprofPort: {{ .pprofPort }}
+  {{- end }}
   # Pod filter properties
   podFilter:
   {{- toYaml .Values.podFilter | nindent 4 }}
@@ -188,6 +194,9 @@ spec:
   {{ if .defaultAnalyticsSslEnabled -}}
   defaultAnalyticsSslEnabled: {{ .defaultAnalyticsSslEnabled }}
   {{- end }}
+  {{ if .enableInstallationReport -}}
+  enableInstallationReport: {{ .enableInstallationReport }}
+  {{ end -}}
   {{ end -}}
   {{ end -}}
 {{ end -}}
