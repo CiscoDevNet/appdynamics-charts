@@ -4,9 +4,9 @@ installInfraViz: false
 # Docker images
 imageInfo:
   agentImage: docker.io/appdynamics/cluster-agent
-  agentTag: 23.5.0
+  agentTag: 23.6.0
   operatorImage: docker.io/appdynamics/cluster-agent-operator
-  operatorTag: 23.5.0
+  operatorTag: 23.6.0
   imagePullPolicy: Always                               # Will be used for operator pod
   machineAgentImage: docker.io/appdynamics/machine-agent
   machineAgentTag: latest
@@ -133,6 +133,7 @@ infravizPod:
       memory: "800M"
   # overrideVolumeMounts property is valid only after 0.6.10 operator version
   overrideVolumeMounts:
+  env:
 
 # Subcharts boolean install switches
 install:

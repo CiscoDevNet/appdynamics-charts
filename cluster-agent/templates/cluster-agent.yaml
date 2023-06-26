@@ -127,6 +127,9 @@ spec:
   {{ if .tierNameLabel -}}
   tierNameLabel: {{ .tierNameLabel }}
   {{- end }}
+  { { if .nodeName - } }
+  nodeName: { { .nodeName } }
+  { { - end } }
   {{ if .imageInfo -}}
   imageInfo:
   {{- toYaml .imageInfo | nindent 4}}

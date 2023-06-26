@@ -427,6 +427,8 @@ spec:
                           port:
                             type: integer
                         type: object
+                      nodeName:
+                        type: string
                       privileged:
                         type: boolean
                       procMount:
