@@ -5,7 +5,7 @@ description: Sophisticated helm chart to deploy cluster agent and machine agent 
 home: https://appdynamics.com
 icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
 
-version: 1.14.0
+version: 1.14.1
 
 appVersion: 23.6.0
 
