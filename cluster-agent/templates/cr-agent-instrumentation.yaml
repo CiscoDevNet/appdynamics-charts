@@ -17,6 +17,24 @@ rules:
       - update
       - delete
   - apiGroups:
+      - ""
+    resources:
+      - serviceaccounts
+    verbs:
+      - get
+      - create
+      - delete
+  - apiGroups:
+      - rbac.authorization.k8s.io
+    resources:
+      - roles
+      - rolebindings
+    verbs:
+      - get
+      - create
+      - update
+      - delete
+  - apiGroups:
       - apps
     resources:
       - daemonsets

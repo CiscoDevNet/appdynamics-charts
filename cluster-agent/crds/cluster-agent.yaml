@@ -397,6 +397,8 @@ spec:
                         properties:
                           agentMountPath:
                             type: string
+                          alpineInitContainerImage:
+                            type: string
                           image:
                             type: string
                           imagePullPolicy:
