@@ -5,7 +5,7 @@ Welcome to the repository of Helm charts for deployments of AppDynamics agents.
 ## ⚠️ Deprecation Notice
 This is a notice for sunsetting this public facing repository containing Cisco-AppDynamics Cluster Agent helm charts in Github.
 
-This repository will be maintained till October 31st 2023, post which it will not be updated. After this date, the latest helm charts will be made available via the Cisco-Appdynamics production artifactory [Cisco-Appdynamics production artifactory](https://appdynamics.jfrog.io/ui/repos/tree/General/appdynamics-cloud-helmcharts/)
+This repository will be maintained till October 31st 2023, post which it will not be updated. After this date, the latest helm charts will be made available via the [Cisco-Appdynamics production artifactory](https://appdynamics.jfrog.io/ui/repos/tree/General/appdynamics-cloud-helmcharts/)
 
 
 ## Get the repo
