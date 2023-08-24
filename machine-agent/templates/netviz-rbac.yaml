@@ -31,7 +31,8 @@ spec:
     rule: 'RunAsAny'
   fsGroup:
     rule: 'RunAsAny'
----
+{{- end -}}
+{{- if and (eq .Values.agent.netviz true) ( eq .Values.openshift.scc false) }}
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
