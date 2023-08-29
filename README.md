@@ -36,6 +36,11 @@ $ helm del stable
 
 ## ClusterAgent
 
+⚠️ Deprecation Notice
+This is a notice for sunsetting this public facing repository containing AppDynamics Cluster Agent helm charts in Github.
+
+This repository will be maintained till October 31st 2023, post which it will not be updated. After this date, the latest helm charts will be made available via the Appdynamics production artifactory
+
 AppDynamics ClusterAgent provides insights into the health of Kubernetes and OpenShift clusters and helps differentiate application anomalies from issues with cluster configuration and performance.
 
 * Install the chart:
