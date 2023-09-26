@@ -199,6 +199,12 @@ spec:
   {{ if .enableInstallationReport -}}
   enableInstallationReport: {{ .enableInstallationReport }}
   {{ end -}}
+  {{if .containerAppCorrelationMethod -}}
+  containerAppCorrelationMethod: {{ .containerAppCorrelationMethod }}
+  {{ end -}}
+  {{if .metadataServerPort -}}
+  metadataServerPort: {{ .metadataServerPort }}
+  {{ end -}}
   {{ end -}}
   {{ end -}}
 {{ end -}}
