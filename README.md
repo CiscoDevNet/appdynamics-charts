@@ -39,7 +39,7 @@ $ helm del stable
 ⚠️ Deprecation Notice
 This is a notice for sunsetting this public facing repository containing AppDynamics Cluster Agent helm charts in Github.
 
-This repository will be maintained till October 31st 2023, post which it will not be updated. After this date, the latest helm charts will be made available via the [Appdynamics production artifactory](https://appdynamics.jfrog.io/ui/repos/tree/HelmInfo/appdynamics-cloud-helmcharts/cluster-agent/) 
+This repository will be maintained till October 31st 2023, post which it will not be updated. After this date, the latest helm charts will be made available via the [Appdynamics production artifactory](https://appdynamics.jfrog.io/artifactory/appdynamics-cloud-helmcharts/) 
 
 AppDynamics ClusterAgent provides insights into the health of Kubernetes and OpenShift clusters and helps differentiate application anomalies from issues with cluster configuration and performance.
 
