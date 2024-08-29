@@ -1,3 +1,4 @@
+
 # AppDynamics Charts 
 
 Welcome to the repository of Helm charts for deployments of AppDynamics agents.
@@ -35,6 +36,8 @@ $ helm del stable
 ```
 
 ## ClusterAgent
+
+# Please do not use or refer this codebase post Oct 2023 as its not managed anymore
 
 ⚠️ Deprecation Notice
 This is a notice for sunsetting this public facing repository containing AppDynamics Cluster Agent helm charts in Github.

@@ -1,3 +1,7 @@
+
+# Please do not use or refer this codebase post Oct 2023 as its not managed anymore
+
+
 # Appdynamics Helm Chart
 
 ### Add AppDynamics helm repo
