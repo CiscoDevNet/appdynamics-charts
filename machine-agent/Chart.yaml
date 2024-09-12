@@ -4,7 +4,7 @@ description: AppDynamics Machine Agent for infrastructure visibility
 home: https://www.appdynamics.com/
 icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
 name: machine-agent
-version: 0.2.8
+version: 0.2.9
 maintainers:
   - name: sashaPM
     email: sasha.jeltuhin@appdynamics.com
