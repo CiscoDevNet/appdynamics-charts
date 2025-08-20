@@ -117,6 +117,9 @@ operatorPod:
       cpu: 100m
       memory: 64Mi
   imagePullSecret: ""
+  automountServiceAccountToken: true
+  volumeMounts: []
+  volumes: []
 
 # Infraviz pod specific properties
 infravizPod:
