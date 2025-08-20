@@ -25,6 +25,7 @@ spec:
       {{ end -}}
       nodeSelector:
       {{- toYaml .Values.operatorPod.nodeSelector | nindent 8 }}
+      automountServiceAccountToken: {{ .Values.operatorPod.automountServiceAccountToken | default true }}
       containers:
         - name: appdynamics-operator
           image: {{ .Values.imageInfo.operatorImage }}:{{ .Values.imageInfo.operatorTag }}
@@ -47,4 +48,11 @@ spec:
                   fieldPath: metadata.name
             - name: OPERATOR_NAME
               value: "appdynamics-operator"
-
+          {{- if .Values.operatorPod.volumeMounts }}
+          volumeMounts:
+          {{- toYaml .Values.operatorPod.volumeMounts | nindent 12 }}
+          {{- end }}
+      {{- if .Values.operatorPod.volumes }}
+      volumes:
+      {{- toYaml .Values.operatorPod.volumes | nindent 8 }}
+      {{- end }}
